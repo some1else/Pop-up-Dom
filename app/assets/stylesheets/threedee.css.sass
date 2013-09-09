@@ -1,0 +1,73 @@
+@import colors
+
+// Buttons //
+
+.three-dee
+  display: inline-block
+  padding:
+    left: 1em
+    right: 1em
+  position: relative
+
+.three-dee-interactive
+  background: $white
+  color: $black
+
+.three-dee-interactive:hover
+  color: $red
+
+.three-dee-static
+  background: $red
+  color: $white
+
+
+.three-dee, .three-dee::before, .three-dee::after 
+  border: 2px solid $black
+  border-radius: 3px       
+  
+.three-dee-interactive:hover
+  color: $red
+.three-dee-interactive:active::before, .three-dee-interactive:active::after
+  // display: none
+.three-dee-interactive:active
+  transform: translateY(5px) translateX(5px)
+.three-dee-interactive:active
+  transform: translateY(5px) translateX(5px)
+
+.three-dee-interactive:active.three-dee::before 
+  width: 5px
+  right: -5px
+  transform: skewY(45deg) translateY(-7px) translateX(4px)
+
+.three-dee-interactive:active.three-dee::after
+  height: 5px
+  bottom: -5px
+  transform: skewX(45deg) translateY(3px) translateX(-6px)       
+
+.three-dee::before 
+  content: ''
+  position: absolute
+  
+  background: $red
+  
+  width: 10px
+  height: 100%
+  
+  top: 5px        /* half of the shadow width */
+  right: -10px    /* negative shadow width */
+  
+  transform: skewY(45deg) translateY(-4px) translateX(4px)
+
+.three-dee::after 
+  content: ''
+  position: absolute
+
+  background: $black
+  
+  height: 10px
+  width: 100%
+  
+  bottom: -10px          /* negative shadow height */
+  left: 5px              /* half of the shadow height */
+  
+  transform: skewX(45deg) translateY(4px) translateX(-5px)       

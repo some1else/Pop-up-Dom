@@ -1,0 +1,251 @@
+@import lib/normalize
+@import lib/scss_blend_modes/blend-mode
+@import lib/responsive_grid_system/all
+@import colors
+
+@media (max-width: 720px)
+  +grid(handheld, 100%, 12, 5%)
+  +type(handheld, 12px)
+
+@media (min-width: 720px) and (max-width: 972px)
+  +grid(tablet, 720px, 12, 16px)
+  +type(tablet, 14px)
+
+  header ul li a img
+    left: -1em !important
+
+@media (min-width: 972px) and (max-width: 1440px)
+  // @media (min-width: 970px) and (max-width: 1140px)
+  +grid(screen, 700px, 12, 30px)
+  +type(screen, 16px)
+
+  header ul li a img
+    left: -0.5em !important
+
+@media (min-width: 1440px)
+  // @media (min-width: 1140px)
+  +grid(huge, 1138px, 12, 50px)
+  +type(huge, 17px)
+
+  body
+    // background: url(/img/1138_16col.jpg) repeat-y center center
+
+::selection
+  background-color: #F49CC3
+
+.serif
+  // font-family: Georgia, serif
+  // font-family: Arial, "Helvetica Neue", Helvetica, sans-serif
+  @extend .sans
+=serif
+  @extend .serif
+.sans
+  font-family: 'Resolution', sans-serif
+=sans
+  @extend .sans
+
+.italic
+  font-style: italic
+=italic
+  @extend .italic
+
+// .heavy
+//   font-weight: 800
+// =heavy
+//   @extend .heavy
+.bold
+  font-weight: 700
+=bold
+  @extend .bold
+.medium
+  font-weight: 600
+=medium
+  @extend .medium
+.book
+  font-weight: 400
+=book
+  @extend .book
+.light
+  font-weight: 300
+=light
+  @extend .light
+
+.center
+  text-align: center
+=center
+  @extend .center
+
+h1, h2, h3, h4, h5, h6
+  +sans
+a
+  color: $primary
+  text-decoration: underline
+html
+  // background: $white url(/img/graydient.png) repeat-x fixed
+  background: $white
+  // background: $white
+  color: $black
+  background: $black
+  color: $white
+  height: 100%
+
+body
+  // -webkit-font-smoothing: subpixel-antialiased
+  font-smoothing: antialiased
+  -webkit-font-smoothing: antialiased
+  // font-smoothing: subpixel-antialiased
+  // font-smoothing: subpixel-antialiased !important
+
+  text-rendering: optimizeLegibility  
+  margin: 0
+  padding: 0
+  +serif
+  
+  .whitype
+    -webkit-font-smoothing: antialiased
+
+body.preload
+  background: $black
+  height: 100%
+  section
+    opacity: 0
+  footer, header
+
+    display: none
+
+.loading img
+  opacity: 0
+  +transition(opacity, .4s)
+
+.app img
+  // +transition(opacity, .4s)
+
+#skrollr-body
+  width: 100%
+
+.header, .applications, .sponsorships, .footer
+  .container
+    +container
+  .content
+    +row(12)
+
+.capital-headers
+  +scale(1)
+  text-transform: uppercase
+
+
+header
+  background: url(/img/oblak.jpg) center center no-repeat
+  height: 440px
+  h1
+    +scale(6)
+    +col(6, tablet, screen, handheld)
+    +col(12, handheld)
+    +height(4)
+    background:
+      image: url(/img/popupdom.png)
+      repeat: no-repeat
+      position: bottom right
+      size: 100%
+    margin:
+      top: 1em
+    @media (max-width: 720px)
+      height: 200px
+      background:
+        position: center center
+        size: 300px
+ 
+    .logo
+      text-indent: -9999px
+  h2
+    margin-top: 13em
+    @media (max-width: 720px)
+      margin-top: 1em
+  h2, h3
+    +col(6, tablet, screen, huge)
+    +col(12, handheld)
+    @extend .capital-headers
+    text-align: right
+    .three-dee
+      margin:
+        right: 2em
+
+// .applications:before, .sponsorships:before
+//   display: block
+//   content: ' '
+//   background: $red
+//   height: 26px
+//   border:
+//     top: 2px solid $black
+//     bottom: 2px solid $black
+//   width: 100%
+
+.applications, .sponsorships
+  // background: url(/img/dots.gif) center top repeat-x
+  border-top: 2px solid $black
+
+.applications
+  background-color: $darkgray
+  color: $white
+  a
+    color: $white
+
+.sponsorships
+  background-color: $lightgray
+  color: $black
+  padding-bottom: 5em
+  a
+    color: $black
+
+.applications, .sponsorships
+  padding-bottom: 2em
+  .heading
+    +row(12)
+    // margin-top: -28px
+  h2
+    // margin-top: -28px
+    @extend .capital-headers
+    +col(12)
+
+  p.question, .contact
+    padding-left: 1em
+       
+  p.question
+    +col(12)
+    margin-top: 2em
+  .contact
+    +row(12)
+    .email-address
+      +col(6, tablet, screen, huge)
+      +col(6, handheld)
+    .email-button
+      +col(4, tablet, screen, huge)
+      +col(6, handheld)
+      a
+        text-transform: uppercase
+        text-decoration: none
+        +bold
+        color: $black
+
+  .requirements
+    margin-top: 0
+  a
+    +bold
+
+.footer
+  display: none
+  +scale(0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
