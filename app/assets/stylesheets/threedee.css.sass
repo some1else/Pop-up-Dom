@@ -21,30 +21,30 @@
   color: $white
 
 
-.three-dee, .three-dee::before, .three-dee::after 
+.three-dee, .three-dee-interactive-before, .three-dee-static-before, .three-dee-interactive-after, .three-dee-static-after 
   border: 2px solid $black
   border-radius: 3px       
   
 .three-dee-interactive:hover
   color: $red
-.three-dee-interactive:active::before, .three-dee-interactive:active::after
+// .three-dee:active .three-dee-interactive ::before, .three-dee:active .three-dee-interactive ::after
   // display: none
-.three-dee-interactive:active
+.three-dee:active .three-dee-interactive 
   transform: translateY(5px) translateX(5px)
-.three-dee-interactive:active
+.three-dee:active .three-dee-interactive 
   transform: translateY(5px) translateX(5px)
 
-.three-dee-interactive:active.three-dee::before 
+.three-dee:active .three-dee-interactive-before
   width: 5px
   right: -5px
   transform: skewY(45deg) translateY(-7px) translateX(4px)
 
-.three-dee-interactive:active.three-dee::after
+.three-dee:active .three-dee-interactive-after
   height: 5px
   bottom: -5px
   transform: skewX(45deg) translateY(3px) translateX(-6px)       
 
-.three-dee::before 
+.three-dee-interactive-before, .three-dee-static-before 
   content: ''
   position: absolute
   
@@ -58,7 +58,7 @@
   
   transform: skewY(45deg) translateY(-4px) translateX(4px)
 
-.three-dee::after 
+.three-dee-interactive-after, .three-dee-static-after 
   content: ''
   position: absolute
 

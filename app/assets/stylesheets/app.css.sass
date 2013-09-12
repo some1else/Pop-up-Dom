@@ -27,15 +27,10 @@
   +grid(huge, 1138px, 12, 50px)
   +type(huge, 17px)
 
-  body
-    // background: url(/img/1138_16col.jpg) repeat-y center center
-
 ::selection
   background-color: #F49CC3
 
 .serif
-  // font-family: Georgia, serif
-  // font-family: Arial, "Helvetica Neue", Helvetica, sans-serif
   @extend .sans
 =serif
   @extend .serif
@@ -137,9 +132,12 @@ body.preload
 header
   background: url(/img/oblak.jpg) center center no-repeat
   height: 440px
+  @media (max-width: 720px)
+    height: 300px
+
   h1
     +scale(6)
-    +col(6, tablet, screen, handheld)
+    +col(6, tablet, screen, huge)
     +col(12, handheld)
     +height(4)
     background:
@@ -150,10 +148,10 @@ header
     margin:
       top: 1em
     @media (max-width: 720px)
-      height: 200px
+      height: 130px
       background:
         position: center center
-        size: 300px
+        size: 50%
  
     .logo
       text-indent: -9999px
@@ -170,18 +168,7 @@ header
       margin:
         right: 2em
 
-// .applications:before, .sponsorships:before
-//   display: block
-//   content: ' '
-//   background: $red
-//   height: 26px
-//   border:
-//     top: 2px solid $black
-//     bottom: 2px solid $black
-//   width: 100%
-
 .applications, .sponsorships
-  // background: url(/img/dots.gif) center top repeat-x
   border-top: 2px solid $black
 
 .applications
@@ -193,7 +180,9 @@ header
 .sponsorships
   background-color: $lightgray
   color: $black
-  padding-bottom: 5em
+  padding-bottom: 6em !important
+  clear: both
+  overflow: hidden
   a
     color: $black
 
@@ -229,6 +218,7 @@ header
 
   .requirements
     margin-top: 0
+    clear: both
   a
     +bold
 
