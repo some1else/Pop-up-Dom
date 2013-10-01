@@ -43,6 +43,7 @@ namespace :deploy do
 
   task :bundle_fucking_package, roles: :app do
     run "cd #{release_path} && bundle package"
+    run "rbenv rehash"
   end
   after "deploy:finalize_update", "deploy:bundle_fucking_package"
   
