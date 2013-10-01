@@ -1,4 +1,9 @@
 Popupdom::Application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
+  root :to => 'pages#landing_one'
+
+  ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,5 +58,4 @@ Popupdom::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  root :to => 'pages#landing_one'
 end

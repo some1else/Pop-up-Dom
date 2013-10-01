@@ -27,6 +27,7 @@ gem 'carrierwave'
   gem "mini_magick"
 
 # gem 'activeadmin'
+gem 'activeadmin', github: 'gregbell/active_admin'
   # gem "meta_search"
 
 gem 'rabl'
