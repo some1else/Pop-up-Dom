@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130930235159) do
+ActiveRecord::Schema.define(version: 20131105183538) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -45,5 +45,65 @@ ActiveRecord::Schema.define(version: 20130930235159) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+
+  create_table "event_categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "event_category_id"
+    t.datetime "begins_at"
+    t.decimal  "price",             precision: 5, scale: 2
+    t.integer  "tickets"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "events", ["event_category_id"], name: "index_events_on_event_category_id"
+
+  create_table "participants", force: true do |t|
+    t.string   "name"
+    t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_authors", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "links"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "product_author_id"
+    t.integer  "product_category_id"
+    t.decimal  "price",               precision: 5, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "products", ["product_author_id"], name: "index_products_on_product_author_id"
+  add_index "products", ["product_category_id"], name: "index_products_on_product_category_id"
+
+  create_table "sponsors", force: true do |t|
+    t.string   "name"
+    t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

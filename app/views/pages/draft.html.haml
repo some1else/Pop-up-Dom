@@ -1,0 +1,92 @@
+%header.header
+  .container
+    .content
+      %h1
+        .logo Pop-up dom
+
+      %h2
+        .new-dim.new-dim-static
+          .text
+            28. november 2013
+
+      %h3
+        .new-dim.new-dim-static
+          .text
+            V Ljubljani
+            / ??. ??. - ??. ??. ????
+
+
+%section.description
+  .container
+    .content
+      %p Zavod Rompom v sodelovanju z Muzejem za arhitekturo in oblikovanje, predstavlja drugi Pop-up dom - začasno trgovino, kjer so izdelki mladih slovenskih ustvarjalcev predstavljeni v realnem okolju.
+
+%section.applications
+  .container
+    .content
+      .heading
+        %h2
+          .new-dim.new-dim-static
+            .text
+              Dogodki
+             
+      %ul.requirements
+        - @event_categories.each do |c|
+          %li= c.name
+      
+      - @events.each do |e|
+
+        .question
+          %h2= e.name
+          %p= e.description
+
+
+%section.sponsorships
+  .container
+    .content
+      .heading
+        %h2
+          .new-dim.new-dim-static
+            .text
+              Izdelki
+  
+      %ul.requirements
+        - @product_categories.each do |c|
+          %li= c.name
+
+      - @products.each do |p|     
+        .question
+          %h2= p.name
+          %p= p.description
+          %p= p.product_author.name
+          %p= p.price
+
+
+
+%section.applications
+  .container
+    .content
+      .heading
+        %h2
+          .new-dim.new-dim-static
+            .text
+              Sodelujoči
+      .question
+        - participants = []
+        - @participants.each do |p|
+          - participant = link_to p.name, p.link
+          - participants.push participant
+        =raw participants.join ', '
+    
+    .content
+      .heading
+        %h2
+          .new-dim.new-dim-static
+            .text
+              Sponzorji
+      .question
+        - sponsors = []
+        - @sponsors.each do |s|
+          - sponsor = link_to s.name, s.link
+          - sponsors.push sponsor
+        =raw sponsors.join ', '
