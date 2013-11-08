@@ -147,8 +147,6 @@ GEM
     polyamorous (0.6.4)
       activerecord (>= 3.0)
     polyglot (0.3.3)
-    rabl (0.8.6)
-      activesupport (>= 2.3.14)
     rack (1.5.2)
     rack-contrib (1.1.0)
       rack (>= 0.9.1)
@@ -175,6 +173,7 @@ GEM
       polyamorous (~> 0.6.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    redcarpet (3.0.0)
     responders (1.0.0)
       railties (>= 3.2, < 5)
     sass (3.2.10)
@@ -238,8 +237,8 @@ DEPENDENCIES
   mini_magick
   oj
   pg
-  rabl
   rails (= 4.0.0)
+  redcarpet
   sass-rails (~> 4.0.0)
   sdoc
   sqlite3

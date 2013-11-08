@@ -30,7 +30,8 @@ gem 'carrierwave'
 gem 'activeadmin', github: 'gregbell/active_admin'
   # gem "meta_search"
 
-gem 'rabl'
+gem 'redcarpet'
+# gem 'rabl'
 gem 'oj'
 
 # Use SCSS for stylesheets
