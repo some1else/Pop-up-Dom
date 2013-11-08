@@ -14,5 +14,6 @@ class PagesController < ApplicationController
     @products = Product.all :include => :product_author
     @participants = Participant.all
     @sponsors = Sponsor.all
+    @contacts = Contact.all
   end
 end
