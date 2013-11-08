@@ -1,3 +1,10 @@
+class EmptyFooter < ActiveAdmin::Component
+  def build
+    super(id: "footer")
+    para ""
+  end
+end
+
 ActiveAdmin.setup do |config|
 
   # == Site Title
@@ -10,7 +17,7 @@ ActiveAdmin.setup do |config|
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #
-  # config.site_title_link = "/"
+  config.site_title_link = "/"
 
   # Set an optional image to be displayed for the header
   # instead of a string (overrides :site_title)
@@ -131,7 +138,7 @@ ActiveAdmin.setup do |config|
   #
   # Enable and disable Batch Actions
   #
-  config.batch_actions = true
+  config.batch_actions = false
 
 
   # == Controller Filters
@@ -201,15 +208,15 @@ ActiveAdmin.setup do |config|
   #
   # To disable/customize for the :admin namespace:
   #
-  #   config.namespace :admin do |admin|
+    config.namespace :admin do |admin|
   #
   #     # Disable the links entirely
-  #     admin.download_links = false
+      admin.download_links = false
   #
   #     # Only show XML & PDF options
   #     admin.download_links = [:xml, :pdf]
   #
-  #   end
+    end
 
 
   # == Pagination
@@ -228,7 +235,9 @@ ActiveAdmin.setup do |config|
   #
   # config.filters = true
 
+  config.view_factory.footer = EmptyFooter
 end
+
 
 ActiveAdmin::ResourceController.class_eval do
   # Allow ActiveAdmin admins to freely mass-assign when using strong_parameters
