@@ -7,16 +7,16 @@
   +grid(handheld, 100%, 12, 5%)
   +type(handheld, 12px)
 
-@media (min-width: 720px) and (max-width: 972px)
+@media (min-width: 720px) and (max-width: 1024px)
   +grid(tablet, 720px, 12, 16px)
   +type(tablet, 14px)
 
   header ul li a img
     left: -1em !important
 
-@media (min-width: 972px) and (max-width: 1440px)
+@media (min-width: 1024px) and (max-width: 1440px)
   // @media (min-width: 970px) and (max-width: 1140px)
-  +grid(screen, 700px, 12, 30px)
+  +grid(screen, 960px, 12, 30px)
   +type(screen, 16px)
 
   header ul li a img
@@ -118,9 +118,7 @@ body.preload
 #skrollr-body
   width: 100%
 
-.header, .applications, .sponsorships, .footer
-  .container
-    +container
+.header, .dark-content, .light-content, .footer
   .content
     +row(12)
 
@@ -168,25 +166,25 @@ header
       margin:
         right: 2em
 
-.applications, .sponsorships
+.dark-content, .light-content
   border-top: 2px solid $black
 
-.applications
+.dark-content
   background-color: $darkgray
   color: $white
   a
     color: $white
 
-.sponsorships
+.light-content
   background-color: $lightgray
   color: $black
-  padding-bottom: 6em !important
+  // padding-bottom: 6em !important
   clear: both
   overflow: hidden
   a
     color: $black
 
-.applications, .sponsorships
+.dark-content, .light-content
   padding-bottom: 2em
   .heading
     +row(12)
@@ -194,34 +192,52 @@ header
   h2
     // margin-top: -28px
     @extend .capital-headers
-    +col(12)
+    // +col(12)
 
   p.question, .contact
     padding-left: 1em
        
   p.question
-    +col(12)
+    // +col(12)
     margin-top: 2em
   .contact
-    +row(12)
+    // +row(12)
     .email-address
-      +col(6, tablet, screen, huge)
-      +col(6, handheld)
+      // +col(6, tablet, screen, huge)
+      // +col(6, handheld)
     .email-button
-      +col(4, tablet, screen, huge)
-      +col(6, handheld)
+      // +col(4, tablet, screen, huge)
+      // +col(6, handheld)
       a
         text-transform: uppercase
         text-decoration: none
         +bold
         color: $black
 
-  .requirements
+  .regular-list
     margin-top: 0
     clear: both
   a
     +bold
+.events, .products
+  .description
+    +scale(0)
+.events
+  .event
+    +col(4)
 
+.products
+  .product
+    +col(4)
+    .image
+      background: $darkgray
+      margin-bottom: 1em
+    .image-1
+      height: 200px
+    .image-3
+      height: 300px
+    .image-2
+      height: 400px
 .footer
   background-color: $darkgray
   text-align: center

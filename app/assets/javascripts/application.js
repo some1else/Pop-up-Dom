@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require new-dim
+//= require lib/packery.min
+// require turbolinks
 // require_tree .

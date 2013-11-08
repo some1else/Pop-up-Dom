@@ -13,15 +13,13 @@
         .new-dim.new-dim-static
           .text
             V Ljubljani
-            / ??. ??. - ??. ??. ????
-
 
 %section.description
   .container
     .content
       %p Zavod Rompom v sodelovanju z Muzejem za arhitekturo in oblikovanje, predstavlja drugi Pop-up dom - začasno trgovino, kjer so izdelki mladih slovenskih ustvarjalcev predstavljeni v realnem okolju.
 
-%section.applications
+%section.dark-content.events
   .container
     .content
       .heading
@@ -30,18 +28,19 @@
             .text
               Dogodki
              
-      %ul.requirements
+      %ul.regular-list.category-list
         - @event_categories.each do |c|
           %li= c.name
       
       - @events.each do |e|
 
-        .question
+        .event.card
           %h2= e.name
-          %p= e.description
+          .description
+            != Markdown.new(e.description).to_html
 
 
-%section.sponsorships
+%section.light-content.products
   .container
     .content
       .heading
@@ -50,20 +49,28 @@
             .text
               Izdelki
   
-      %ul.requirements
+      %ul.regular-list.category-list
         - @product_categories.each do |c|
           %li= c.name
+      
+      .product-list
+        - @products.each_with_index do |p, i|     
+          .product.card
+            %h2= p.name
+            .image{class: "image-#{(i % 3) + 1}"}
 
-      - @products.each do |p|     
-        .question
-          %h2= p.name
-          %p= p.description
-          %p= p.product_author.name
-          %p= p.price
+            - if false
+              %p= p.description
+              %p= p.product_author.name
+              %p= p.price
+
+:coffeescript
+  $ ->
+    productPack = new Packery($('.product-list').get(0), {itemSelector: '.product'})
 
 
 
-%section.applications
+%section.dark-content.participants.sponsors
   .container
     .content
       .heading
@@ -71,7 +78,7 @@
           .new-dim.new-dim-static
             .text
               Sodelujoči
-      .question
+      .participant-list
         - participants = []
         - @participants.each do |p|
           - participant = link_to p.name, p.link
@@ -84,9 +91,26 @@
           .new-dim.new-dim-static
             .text
               Sponzorji
-      .question
+      .sponsor-list
         - sponsors = []
         - @sponsors.each do |s|
           - sponsor = link_to s.name, s.link
           - sponsors.push sponsor
         =raw sponsors.join ', '
+
+%section.light-content.contacts
+  .container
+    .content
+      .heading
+        %h2
+          .new-dim.new-dim-static
+            .text
+              Kontakti
+        %ul.regular-list
+          - @contacts.each do |c|
+            %li
+              %strong= c.name
+              |
+              %em= c.role
+              |
+              = link_to c.address, "mailto:#{c.address}"
