@@ -9,7 +9,7 @@
 
 @media (min-width: 720px) and (max-width: 1024px)
   +grid(tablet, 720px, 12, 16px)
-  +type(tablet, 14px)
+  +type(tablet, 13px)
 
   header ul li a img
     left: -1em !important
@@ -17,7 +17,7 @@
 @media (min-width: 1024px) and (max-width: 1440px)
   // @media (min-width: 970px) and (max-width: 1140px)
   +grid(screen, 960px, 12, 30px)
-  +type(screen, 16px)
+  +type(screen, 14px)
 
   header ul li a img
     left: -0.5em !important
@@ -25,7 +25,7 @@
 @media (min-width: 1440px)
   // @media (min-width: 1140px)
   +grid(huge, 1138px, 12, 50px)
-  +type(huge, 17px)
+  +type(huge, 16px)
 
 ::selection
   // background-color: #
@@ -129,6 +129,7 @@ body.preload
 
 header
   background: url(/img/oblak.jpg) center center no-repeat
+  background: $darkgray
   height: 440px
   @media (max-width: 720px)
     height: 300px
@@ -166,8 +167,15 @@ header
       margin:
         right: 2em
 
+.whatis
+  p
+    +col(12)
+
 .dark-content, .light-content
   border-top: 2px solid $black
+
+  .heading
+    +col(12)
 
 .dark-content
   background-color: $darkgray
@@ -224,13 +232,17 @@ header
     +scale(0)
 .events
   .event
-    +col(4)
+    +col(4, screen, huge)
+    +col(6, tablet)
+    +col(12, handheld)
 
 .products
   .product
-    +col(4)
+    +col(4, screen, huge)
+    +col(6, tablet)
+    +col(12, handheld)
     .image
-      background: $darkgray
+      background: $lightgray
       margin-bottom: 1em
     .image-1
       height: 200px
@@ -247,7 +259,104 @@ header
 
 
 
+header
+  background: url(/img/oblak.jpg) center center no-repeat
+  height: 440px
+  @media (max-width: 720px)
+    height: 300px
 
+  h1
+    +scale(6)
+    +col(6, tablet, screen, huge)
+    +col(12, handheld)
+    +height(4)
+    background:
+      image: url(/img/popupdom.png)
+      repeat: no-repeat
+      position: bottom right
+      size: 100%
+    margin:
+      top: 1em
+    @media (max-width: 720px)
+      height: 130px
+      background:
+        position: center center
+        size: 50%
+ 
+    .logo
+      text-indent: -9999px
+  h2
+    margin-top: 13em
+    @media (max-width: 720px)
+      margin-top: 1em
+  h2, h3
+    +col(6, tablet, screen, huge)
+    +col(12, handheld)
+    @extend .capital-headers
+    text-align: right
+    .three-dee
+      margin:
+        right: 2em
+
+.applications, .sponsorships
+  border-top: 2px solid $black
+
+.applications
+  background-color: $darkgray
+  color: $white
+  a
+    color: $white
+
+.sponsorships
+  background-color: $lightgray
+  color: $black
+  padding-bottom: 6em !important
+  clear: both
+  overflow: hidden
+  a
+    color: $black
+
+.applications, .sponsorships
+  padding-bottom: 2em
+  .heading
+    +row(12)
+    // margin-top: -28px
+  h2
+    // margin-top: -28px
+    @extend .capital-headers
+    +col(12)
+
+  p.question, .contact
+    padding-left: 1em
+       
+  p.question
+    +col(12)
+    margin-top: 2em
+  .contact
+    +row(12)
+    .email-address
+      +col(6, tablet, screen, huge)
+      +col(6, handheld)
+    .email-button
+      +col(4, tablet, screen, huge)
+      +col(6, handheld)
+      a
+        text-transform: uppercase
+        text-decoration: none
+        +bold
+        color: $black
+
+  .requirements
+    margin-top: 0
+    clear: both
+  a
+    +bold
+
+.footer
+  background-color: $darkgray
+  text-align: center
+  border-top: 2px solid black
+  +scale(1)
 
 
 

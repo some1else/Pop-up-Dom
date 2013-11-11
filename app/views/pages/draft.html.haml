@@ -14,12 +14,12 @@
           .text
             V Ljubljani
 
-%section.description
+%section.whatis
   .container
     .content
       %p Zavod Rompom v sodelovanju z Muzejem za arhitekturo in oblikovanje, predstavlja drugi Pop-up dom - začasno trgovino, kjer so izdelki mladih slovenskih ustvarjalcev predstavljeni v realnem okolju.
 
-%section.dark-content.events
+%section.light-content.events
   .container
     .content
       .heading
@@ -32,15 +32,18 @@
         - @event_categories.each do |c|
           %li= c.name
       
-      - @events.each do |e|
+      .event-list
+        - @events.each do |e|
+          .event.card
+            %h2= e.name
+            .description
+              != Markdown.new(e.description).to_html
 
-        .event.card
-          %h2= e.name
-          .description
-            != Markdown.new(e.description).to_html
+:coffeescript
+  $ ->
+    productPack = new Packery($('.event-list').get(0), {itemSelector: '.event'})
 
-
-%section.light-content.products
+%section.dark-content.products
   .container
     .content
       .heading
@@ -70,7 +73,7 @@
 
 
 
-%section.dark-content.participants.sponsors
+%section.light-content.participants.sponsors
   .container
     .content
       .heading
@@ -78,7 +81,7 @@
           .new-dim.new-dim-static
             .text
               Sodelujoči
-      .participant-list
+      .participant-list.col_12
         - participants = []
         - @participants.each do |p|
           - participant = link_to p.name, p.link
@@ -91,14 +94,14 @@
           .new-dim.new-dim-static
             .text
               Sponzorji
-      .sponsor-list
+      .sponsor-list.col_12
         - sponsors = []
         - @sponsors.each do |s|
           - sponsor = link_to s.name, s.link
           - sponsors.push sponsor
         =raw sponsors.join ', '
 
-%section.light-content.contacts
+%section.dark-content.contacts
   .container
     .content
       .heading
