@@ -26,6 +26,8 @@ gem 'haml_coffee_assets'
 gem 'carrierwave'
   gem "mini_magick"
 
+gem 'jquery-fileupload-rails'
+
 # gem 'activeadmin'
 gem 'activeadmin', github: 'gregbell/active_admin'
   # gem "meta_search"
