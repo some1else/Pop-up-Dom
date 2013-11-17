@@ -21,7 +21,6 @@ ActiveAdmin.register Event do
     end
   end
 
-
   form do |f|
     f.inputs "Event Info" do
       f.input :name
@@ -39,7 +38,7 @@ ActiveAdmin.register Event do
       end
 
     else
-      f.inputs 'Finish Creating the Case to add Result Graphs and Slideshow Images' do
+      f.inputs 'Finish Creating the Event to add Images' do
       end
     end
     
