@@ -20,6 +20,8 @@ group :production do
   gem 'pg'
 end
 
+gem 'sequel'
+
 gem 'haml-rails'
 gem 'haml_coffee_assets'
 

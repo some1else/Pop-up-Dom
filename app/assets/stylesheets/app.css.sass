@@ -99,15 +99,6 @@ body
   .whitype
     -webkit-font-smoothing: antialiased
 
-body.preload
-  background: $black
-  height: 100%
-  section
-    opacity: 0
-  footer, header
-
-    display: none
-
 .loading img
   opacity: 0
   +transition(opacity, .4s)
@@ -128,7 +119,7 @@ body.preload
 
 
 header
-  background: url(/img/oblak.jpg) center center no-repeat
+  // background: url(/img/oblak.jpg) center center no-repeat
   background: $darkgray
   height: 440px
   @media (max-width: 720px)
@@ -171,11 +162,12 @@ header
   p
     +col(12)
 
-.dark-content, .light-content
+.dark-content, .light-content, .white-content
   border-top: 2px solid $black
 
   .heading
     +col(12)
+    clear: both
 
 .dark-content
   background-color: $darkgray
@@ -192,10 +184,17 @@ header
   a
     color: $black
 
-.dark-content, .light-content
+
+.white-content
+  background-color: $white
+  color: $black
+  a
+    color: $black
+
+.dark-content, .light-content, .white-content
   padding-bottom: 2em
-  .heading
-    +row(12)
+  // .heading
+  //   +row(12)
     // margin-top: -28px
   h2
     // margin-top: -28px
@@ -227,15 +226,48 @@ header
     clear: both
   a
     +bold
+
 .events, .products
   .description
     +scale(0)
+
+  .price
+    padding: 1em
+    border: 2px solid $black
+    border-top: none
+    display: inline-block
+  
+  .leimage
+    margin-top: 1em
+
+.event-list
+  clear: both
 .events
   .event
     +col(4, screen, huge)
     +col(6, tablet)
     +col(12, handheld)
-
+    h3, h4
+      text-transform: uppercase
+      color: $red
+    h3
+      +scale(3)
+      margin:
+        top: 0
+        bottom: 0
+    h4
+      margin:
+        top: 0
+        bottom: 0
+      +scale(1)
+      font-weight: normal
+    .description
+      +scale(0)
+    .insides
+      border: 2px solid $black
+      padding: 1em
+.product-list
+  clear: both
 .products
   .product
     +col(4, screen, huge)
@@ -260,7 +292,7 @@ header
 
 
 header
-  background: url(/img/oblak.jpg) center center no-repeat
+  // background: url(/img/oblak.jpg) center center no-repeat
   height: 440px
   @media (max-width: 720px)
     height: 300px

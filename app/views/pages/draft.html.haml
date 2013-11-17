@@ -19,7 +19,7 @@
     .content
       %p Zavod Rompom v sodelovanju z Muzejem za arhitekturo in oblikovanje, predstavlja drugi Pop-up dom - začasno trgovino, kjer so izdelki mladih slovenskih ustvarjalcev predstavljeni v realnem okolju.
 
-%section.light-content.events
+%section.white-content.events
   .container
     .content
       .heading
@@ -28,16 +28,58 @@
             .text
               Dogodki
              
-      %ul.regular-list.category-list
-        - @event_categories.each do |c|
-          %li= c.name
+      / %ul.regular-list.category-list
+      /   - @event_categories.each do |c|
+      /     %li= c.name
       
       .event-list
-        - @events.each do |e|
-          .event.card
-            %h2= e.name
-            .description
-              != Markdown.new(e.description).to_html
+        - @events.each_with_index do |e, i|
+          .event.category-list
+            .insides
+              %h3= e.name
+              %h4
+                - case e.begins_at.strftime "%A"
+                  - when "Monday"
+                    Ponedeljek,
+                    
+                  - when "Tuesday"
+                    Torek,
+                    
+                  - when "Wednesday"
+                    Sreda,
+                    
+                  - when "Thursday"
+                    Četrtek,
+                    
+                  - when "Friday"
+                    Petek,
+
+                  - when "Saturday"
+                    Sobota,
+
+                  - when "Sunday"
+                    Nedelja,
+                    
+                = e.begins_at.strftime "%-d.%-m.%y ob %-H:%M"
+
+              - if i == 2
+                .leimage
+                  %img{:src => '/img/tmp/bil-uvod.jpg', :style => 'width: 100%;'}
+              .description
+                != Markdown.new(e.description).to_html
+
+            - if e.price > 0
+              .price
+                = "€ #{e.price.round}"
+
+              .buy
+                %a{:href => '#'} Kupi karte
+                
+            
+  %br
+  %br
+  %br
+  %br
 
 :coffeescript
   $ ->
@@ -50,11 +92,39 @@
         %h2
           .new-dim.new-dim-static
             .text
+              Storitve
+
+      .body
+        .col_4
+          %h3
+            Coworking
+          %p
+            Phasellus a lorem sit amet odio tincidunt bibendum. Vestibulum facilisis tristique felis sit amet molestie. Duis molestie, orci vitae scelerisque semper, urna neque porta est, et egestas ante dui eu justo. Aenean rhoncus accumsan ipsum, id tincidunt turpis faucibus sed. In est ligula, euismod at lorem id, varius pharetra odio. Aenean ut ligula vel odio tempor tempor. Pellentesque pulvinar molestie nulla, eget ullamcorper leo lacinia mollis. Phasellus purus elit, ultricies sed sollicitudin sit amet, egestas a lectus.
+
+
+        .col_4
+          %h3
+            Start-up dom
+          %p
+            Maecenas non ultrices dui, ac auctor enim. Proin ullamcorper justo at lorem interdum, vitae dictum elit dictum. Sed eget dignissim dolor. Donec ut odio laoreet, faucibus libero faucibus, elementum quam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam placerat nec est ac pellentesque. Morbi blandit consequat neque, at pharetra risus varius vel. Vivamus at lobortis felis, et tincidunt turpis. Sed vel tellus accumsan diam facilisis porta. Sed bibendum accumsan purus sed porta. Pellentesque vehicula, quam ac dictum luctus, neque eros lobortis massa, eu semper sem lorem ut magna. Praesent convallis imperdiet sem at blandit.
+        .col_4
+          %h3
+            Coffee shop
+          %p
+            Mauris tristique fermentum nunc, non rhoncus justo. Proin vestibulum, libero quis lobortis suscipit, justo nibh suscipit erat, nec venenatis ante lacus eget nulla. Sed venenatis eros nec pharetra pharetra. Nunc in nisl sit amet dolor feugiat fringilla eu nec augue. Integer id sollicitudin arcu. Phasellus ac feugiat mi, ac convallis leo. Integer ante nisi, lobortis in accumsan vel, ultricies quis metus. Suspendisse erat lectus, faucibus vitae dui non, pulvinar semper lectus. Praesent rutrum magna augue, a tincidunt tortor tempus volutpat. Duis eu purus vel libero feugiat volutpat.
+
+%section.light-content.products
+  .container
+    .content
+      .heading
+        %h2
+          .new-dim.new-dim-static
+            .text
               Izdelki
   
-      %ul.regular-list.category-list
-        - @product_categories.each do |c|
-          %li= c.name
+      / %ul.regular-list.category-list
+      /   - @product_categories.each do |c|
+      /     %li= c.name
       
       .product-list
         - @products.each_with_index do |p, i|     

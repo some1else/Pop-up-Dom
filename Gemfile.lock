@@ -187,6 +187,7 @@ GEM
     sdoc (0.3.20)
       json (>= 1.1.3)
       rdoc (~> 3.10)
+    sequel (4.4.0)
     sprockets (2.10.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -245,6 +246,7 @@ DEPENDENCIES
   redcarpet
   sass-rails (~> 4.0.0)
   sdoc
+  sequel
   sqlite3
   thin
   turbolinks
