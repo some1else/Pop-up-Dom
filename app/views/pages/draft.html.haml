@@ -69,11 +69,14 @@
                 != Markdown.new(e.description).to_html
 
             - if e.price and e.price > 0
+              .buy
+                %a{:href => '#'}
+                  .new-dim.new-dim-interactive
+                    .text
+                      Kupi karte
               .price
                 = "€ #{e.price.round}"
 
-              .buy
-                %a{:href => '#'} Kupi karte
                 
             
   %br
