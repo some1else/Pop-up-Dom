@@ -24,6 +24,7 @@ gem 'sequel'
 
 gem 'haml-rails'
 gem 'haml_coffee_assets'
+gem 'acts_as_list'
 
 gem 'carrierwave'
   gem "mini_magick"

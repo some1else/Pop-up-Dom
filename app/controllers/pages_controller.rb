@@ -13,6 +13,7 @@ class PagesController < ApplicationController
     @product_categories = ProductCategory.all
     @products = Product.all :include => :product_author
     @participants = Participant.all
+    @partners = Partner.all
     @sponsors = Sponsor.all
     @contacts = Contact.all
   end

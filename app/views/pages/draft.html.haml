@@ -163,6 +163,19 @@
         %h2
           .new-dim.new-dim-static
             .text
+              Partnerji
+      .partner-list.col_12
+        - partners = []
+        - @partners.each do |s|
+          - partner = link_to s.name, s.link
+          - partners.push partner
+        =raw partners.join ', '
+
+    .content
+      .heading
+        %h2
+          .new-dim.new-dim-static
+            .text
               Sponzorji
       .sponsor-list.col_12
         - sponsors = []
