@@ -7,21 +7,25 @@ ActiveAdmin.register Event do
   controller do
     def new
       @event = Event.new
-      @new_image = @event.event_images.build
+      # @new_image = @event.event_images.build
       new!
     end
 
     def edit
       
       @event = Event.find(params[:id])
-      @new_image = @event.event_images.build
+      # @new_image = @event.event_images.build
       edit!
     end
 
     def update
       @event = Event.find(params[:id])
-      @new_image = @event.event_images.build
+      # @new_image = @event.event_images.build
       update!
+    end
+
+    def permitted_params
+      params.permit(:name, :description, :begins_at, :price, :tickets, :event_images_attributes, :position => [:_destroy, :file])
     end
   end
 
