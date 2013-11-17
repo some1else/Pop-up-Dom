@@ -16,7 +16,7 @@
 
 @media (min-width: 1024px) and (max-width: 1440px)
   // @media (min-width: 970px) and (max-width: 1140px)
-  +grid(screen, 960px, 12, 30px)
+  +grid(screen, 960px, 12, 20px)
   +type(screen, 14px)
 
   header ul li a img
@@ -24,7 +24,7 @@
 
 @media (min-width: 1440px)
   // @media (min-width: 1140px)
-  +grid(huge, 1138px, 12, 50px)
+  +grid(huge, 1138px, 12, 30px)
   +type(huge, 16px)
 
 ::selection
@@ -231,27 +231,41 @@ header
   .description
     +scale(0)
 
+  
   .price
-    padding: 1em
+    padding: .1em 3em .1em 1em
     border: 2px solid $black
+    margin-right: -20px
     border-top: none
     display: inline-block
+    +bold
+
+  .price, .buy
+    float: right
   
-  .leimage
-    margin-top: 1em
+  .buy
+    text-transform: uppercase
+    margin-top: -1em
+    margin-right: -2px
+  .royalSlider
+    width: 100%
+    height: 200px
+
 
 .event-list
   clear: both
+
 .events
   .event
     +col(4, screen, huge)
     +col(6, tablet)
     +col(12, handheld)
+    margin-bottom: 1em
     h3, h4
       text-transform: uppercase
       color: $red
     h3
-      +scale(3)
+      +scale(2)
       margin:
         top: 0
         bottom: 0

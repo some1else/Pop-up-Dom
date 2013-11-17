@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require new-dim
+//= require lib/imagesloaded.pkgd.js
 //= require lib/packery.min
 // require turbolinks
 // require_tree .

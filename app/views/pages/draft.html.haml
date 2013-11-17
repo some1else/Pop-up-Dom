@@ -62,9 +62,11 @@
                     
                 = e.begins_at.strftime "%-d.%-m.%y ob %-H:%M"
 
-              - if i == 2
-                .leimage
-                  %img{:src => '/img/tmp/bil-uvod.jpg', :style => 'width: 100%;'}
+              - if e.event_images.size > 0
+                .leimage.royalSlider.rsDefault
+                  - e.event_images.each do |i|
+                    = image_tag "#{i.file}", :style => 'width: 100%;', :class => 'rsImg'
+
               .description
                 != Markdown.new(e.description).to_html
 
@@ -86,7 +88,9 @@
 
 :coffeescript
   $ ->
-    productPack = new Packery($('.event-list').get(0), {itemSelector: '.event'})
+    eventPack = new Packery($('.event-list').get(0), {itemSelector: '.event'})
+    $('.event-list').imagesLoaded ->
+      eventPack.layout()
 
 %section.dark-content.products
   .container
@@ -143,6 +147,8 @@
 :coffeescript
   $ ->
     productPack = new Packery($('.product-list').get(0), {itemSelector: '.product'})
+    $('.product-list').imagesLoaded ->
+      productPack.layout()
 
 
 
@@ -203,3 +209,22 @@
               %em= c.role
               |
               = link_to c.address, "mailto:#{c.address}"
+
+:coffeescript
+  $ ->
+    $(".royalSlider").royalSlider
+      keyboardNavEnabled: true
+      imageScaleMode: 'fit'
+      controlNavigation: 'none'
+      imageScalePadding: 0
+      arrowsNav: false
+      slidesSpacing: 0
+      loop: true
+      transitionType: 'slide'
+      transitionSpeed: 1200
+      fullscreen:
+        enabled: false
+        native: true 
+      autoPlay:
+        enabled: true
+        pauseOnHover: true
