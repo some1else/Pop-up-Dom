@@ -12,7 +12,9 @@ ActiveAdmin.register Event do
     end
 
     def edit
-      
+      # within @head do
+      #   script :src => javascript_path('test.js'), :type => "text/javascript"
+      # end
       @event = Event.find(params[:id])
       # @new_image = @event.event_images.build
       edit!
@@ -106,6 +108,7 @@ ActiveAdmin.register Event do
       f.input :description
       # f.input :client
       f.input :event_category_id, :as => :select, :collection => EventCategory.all.map {|c| [c.name, c.id]}, :include_blank => false
+      f.input :begins_at, class: "timepick"
     end      
     unless f.object && f.object.new_record?
       f.inputs "Event images" do

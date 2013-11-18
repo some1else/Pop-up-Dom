@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.datepicker
 //= require new-dim
 //= require lib/imagesloaded.pkgd.js
 //= require lib/packery.min
