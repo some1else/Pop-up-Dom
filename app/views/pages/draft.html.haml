@@ -179,7 +179,7 @@
 
 
 
-%section.dark-content.participants.sponsors
+%section.white-content.participants.sponsors{:style => 'background: #fff;'}
   .container
     
     .content
@@ -188,12 +188,17 @@
           .new-dim.new-dim-static
             .text
               Partnerji
-      .partner-list.col_12.align_center
-        - partners = []
-        - @partners.each do |s|
-          - partner = link_to s.name, s.link
-          - partners.push partner
-        =raw partners.join ', '
+
+      - if false
+        .partner-list.col_12.align_center
+          - partners = []
+          - @partners.each do |s|
+            - partner = link_to s.name, s.link
+            - partners.push partner
+          =raw partners.join ', '
+      
+      .col_12
+        %img{:src => '/img/partnerji.jpg'}
 
     .content
       .heading
@@ -201,12 +206,17 @@
           .new-dim.new-dim-static
             .text
               Sponzorji
-      .sponsor-list.col_12.align_center
-        - sponsors = []
-        - @sponsors.each do |s|
-          - sponsor = link_to s.name, s.link
-          - sponsors.push sponsor
-        =raw sponsors.join ', '
+
+      - if false
+        .sponsor-list.col_12.align_center
+          - sponsors = []
+          - @sponsors.each do |s|
+            - sponsor = link_to s.name, s.link
+            - sponsors.push sponsor
+          =raw sponsors.join ', '
+
+      .col_12
+        %img{:src => '/img/sponzorji.jpg'}
 
     - if false
       .content
@@ -259,6 +269,7 @@
       loop: true
       transitionType: 'slide'
       transitionSpeed: 1200
+      background: 'transparent'
       fullscreen:
         enabled: false
         native: true 

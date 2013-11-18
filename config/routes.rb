@@ -1,7 +1,7 @@
 Popupdom::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  root :to => 'pages#landing_two'
+  root :to => 'pages#draft'
 
   get 'draft' => 'pages#draft'
 
