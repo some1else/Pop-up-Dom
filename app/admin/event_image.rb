@@ -1,4 +1,5 @@
  ActiveAdmin.register EventImage do
+    menu false
 
     member_action :move_to_top, :method => :put do
       img = EventImage.find(params[:id])
