@@ -36,6 +36,11 @@
   @extend .serif
 .sans
   font-family: 'Resolution', sans-serif
+  -moz-font-feature-settings: "liga=1, dlig=1, smcp=1"
+  -ms-font-feature-settings: "liga", "dlig", "smcp"
+  -webkit-font-feature-settings: "liga", "dlig", "smcp"
+  -o-font-feature-settings: "liga", "dlig", "smcp"
+  font-feature-settings: "liga", "dlig", "smcp"
 =sans
   @extend .sans
 
@@ -94,7 +99,7 @@ body
   text-rendering: optimizeLegibility  
   margin: 0
   padding: 0
-  +serif
+  +sans
   
   .whitype
     -webkit-font-smoothing: antialiased
@@ -303,9 +308,17 @@ header
       font-weight: normal
     .description
       +scale(0)
+    .cat
+      +scale(1)
+      // +bold
+      text-transform: uppercase
+      display: inline-block
+      border: 2px solid $black
+      border-bottom: none
+      padding: 0.5em 0.75em
     .insides
       border: 2px solid $black
-      padding: 1em
+      padding: 0.5em 0.75em
 .product-list
   clear: both
 .products
