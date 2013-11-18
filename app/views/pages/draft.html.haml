@@ -89,7 +89,7 @@
               .description
                 != Markdown.new(e.description).to_html
 
-            - if e.price and e.price > 0 
+            - if e.price and e.price > 0 and false
               .buy
                 %a{:href => '#'}
                   .new-dim.new-dim-interactive
