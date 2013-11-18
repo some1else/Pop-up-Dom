@@ -51,14 +51,24 @@
   .container
     .content      
       .event-list
+        - events_with_images = 0
         - @events.each_with_index do |e, i|
           .event.category-list
             .cat.white-on-dark
               = e.event_category.name
-            - if e.event_images.size > 0
-              .pic.royalSlider.rsDefault
-                - e.event_images.each do |i|
-                  = image_tag "#{i.file}", :style => 'width: 100%;', :class => 'rsImg'
+            - if e.event_images.size == 1
+              .pic.noSlider
+                = image_tag e.event_images.first.file, :style => 'width: 100%;', :class => 'rsImg'
+            - if e.event_images.size > 1
+              - events_with_images += 1
+              - if events_with_images % 2 == 0
+                .pic.royalSlider.rsDefault.rsEven
+                  - e.event_images.each do |image|
+                    = image_tag image.file, :style => 'width: 100%;', :class => 'rsImg'
+              - else
+                .pic.royalSlider.rsDefault.rsOdd
+                  - e.event_images.each do |image|
+                    = image_tag image.file, :style => 'width: 100%;', :class => 'rsImg'
               
             .insides
               %h3= e.name
@@ -278,7 +288,29 @@
 
 :coffeescript
   $ ->
-    $(".events .royalSlider").royalSlider
+
+    $(".events .noSlider").royalSlider
+      # keyboardNavEnabled: true
+      # imageScaleMode: 'fit'
+      imageScaleMode: 'fill'
+      controlNavigation: 'none'
+      imageScalePadding: 0
+      arrowsNav: false
+      slidesSpacing: 0
+      # loop: true
+      # transitionType: 'slide'
+      # transitionSpeed: 250
+      background: 'transparent'
+      fadeinLoadedSlide: false
+      # fullscreen:
+      #   enabled: false
+      #   native: true 
+      autoPlay:
+        enabled: false
+        # delay: 4200
+        # pauseOnHover: true
+
+    $(".events .rsOdd").royalSlider
       keyboardNavEnabled: true
       # imageScaleMode: 'fit'
       imageScaleMode: 'fill'
@@ -288,15 +320,41 @@
       slidesSpacing: 0
       loop: true
       transitionType: 'slide'
-      transitionSpeed: 1200
+      transitionSpeed: 250
       background: 'transparent'
+      fadeinLoadedSlide: false
       fullscreen:
         enabled: false
         native: true 
       autoPlay:
         enabled: true
+        delay: 4100
         pauseOnHover: true
-    
+
+    callback = ->
+      $(".events .rsEven").royalSlider
+        keyboardNavEnabled: true
+        # imageScaleMode: 'fit'
+        imageScaleMode: 'fill'
+        controlNavigation: 'none'
+        imageScalePadding: 0
+        arrowsNav: false
+        slidesSpacing: 0
+        loop: true
+        transitionType: 'slide'
+        transitionSpeed: 250
+        background: 'transparent'
+        fadeinLoadedSlide: false
+        fullscreen:
+          enabled: false
+          native: true 
+        autoPlay:
+          enabled: true
+          delay: 3900
+          pauseOnHover: true 
+
+    setTimeout(callback, 100)
+
     $(".products .royalSlider").royalSlider
       keyboardNavEnabled: true
       imageScaleMode: 'fit'
@@ -307,11 +365,20 @@
       slidesSpacing: 0
       loop: true
       transitionType: 'slide'
-      transitionSpeed: 1200
+      transitionSpeed: 500
       background: 'transparent'
       fullscreen:
         enabled: false
         native: true 
       autoPlay:
         enabled: true
-        pauseOnHover: true
+        delay: 4000
+        pauseOnHover: false
+      addActiveClass: true
+      visibleNearby:
+        enabled: false
+        centerArea: 0.6
+        center: true
+        # breakpoint: 650
+        # breakpointCenterArea: 0.64
+        navigateByCenterClick: true
