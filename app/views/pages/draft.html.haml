@@ -54,6 +54,11 @@
           .event.category-list
             .cat
               = e.event_category.name
+            - if e.event_images.size > 0
+              .pic.royalSlider.rsDefault
+                - e.event_images.each do |i|
+                  = image_tag "#{i.file}", :style => 'width: 100%;', :class => 'rsImg'
+              
             .insides
               %h3= e.name
               %h4
@@ -81,10 +86,6 @@
                     
                 = e.begins_at.strftime "%-d.%-m.%y ob %-H:%M"
 
-              - if e.event_images.size > 0
-                .leimage.royalSlider.rsDefault
-                  - e.event_images.each do |i|
-                    = image_tag "#{i.file}", :style => 'width: 100%;', :class => 'rsImg'
 
               .description
                 != Markdown.new(e.description).to_html
@@ -176,7 +177,7 @@
       /         %p= p.product_author.name
       /         %p= p.price
 
-      .product-gallery.royalSlider.rsDefault{:style => "height: 500px; clear: both;"}
+      .product-gallery.royalSlider.rsDefault{:style => "width: 100%; height: 500px; clear: both;"}
         - @gallery_images.each do |i|
           = image_tag "#{i.file}", :style => 'width: 100%;', :class => 'rsImg'
 
@@ -276,9 +277,29 @@
 
 :coffeescript
   $ ->
-    $(".royalSlider").royalSlider
+    $(".events .royalSlider").royalSlider
+      keyboardNavEnabled: true
+      # imageScaleMode: 'fit'
+      imageScaleMode: 'fill'
+      controlNavigation: 'none'
+      imageScalePadding: 0
+      arrowsNav: false
+      slidesSpacing: 0
+      loop: true
+      transitionType: 'slide'
+      transitionSpeed: 1200
+      background: 'transparent'
+      fullscreen:
+        enabled: false
+        native: true 
+      autoPlay:
+        enabled: true
+        pauseOnHover: true
+    
+    $(".products .royalSlider").royalSlider
       keyboardNavEnabled: true
       imageScaleMode: 'fit'
+      # imageScaleMode: 'fill'
       controlNavigation: 'none'
       imageScalePadding: 0
       arrowsNav: false
