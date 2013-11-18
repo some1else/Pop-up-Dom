@@ -16,7 +16,7 @@
 
 @media (min-width: 1024px) and (max-width: 1440px)
   // @media (min-width: 970px) and (max-width: 1140px)
-  +grid(screen, 960px, 12, 20px)
+  +grid(screen, 980px, 12, 20px)
   +type(screen, 14px)
 
   header ul li a img
@@ -408,10 +408,10 @@ header
       border-bottom: none
       +width(4, screen, huge)
       +width(6, tablet)
-      +width(12, handheld)
       +height(4, screen, huge)
       +height(6, tablet)
       @media (max-width: 720px)
+        width: 100%
         height: 320px
 
     
@@ -420,7 +420,7 @@ header
       background: $white
       border: 2px solid $black
       // border-top: none
-      padding: 0.5em 0.75em
+      padding: 7px 10px
 
 
 .product-list
