@@ -214,9 +214,27 @@ header
     margin:
       top: 1em
       bottom: 2em
+    box-sizing: border-box
+    padding: 2em
+    -moz-column-count: 2
+    -moz-column-gap: 15px
+    -webkit-column-count: 2
+    -webkit-column-gap: 15px
+    column-count: 2
+    column-gap: 15px
+
+    @media (max-width: 720px)
+      -moz-column-count: 1
+      -moz-column-gap: 0
+      -webkit-column-count: 1
+      -webkit-column-gap: 0
+      column-count: 1
+      column-gap: 0
+
     p
-      margin: 2em
-    // box-sizing: border-box
+      margin-top: 0
+      margin-bottom: 2em
+
   .morelink
     +serif
     p
