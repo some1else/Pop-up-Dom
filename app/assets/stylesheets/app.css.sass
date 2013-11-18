@@ -343,6 +343,7 @@ header
   clear: both
 
 .events
+  background: $lightgray
   .event
     +col(4, screen, huge)
     +col(6, tablet)
@@ -365,6 +366,8 @@ header
 
     .description
       +scale(1)
+      p
+        margin-top: 0
 
     .cat
       +scale(1)
@@ -393,6 +396,7 @@ header
         height: 320px
 
     .insides
+      background: $white
       border: 2px solid $black
       // border-top: none
       padding: 0.5em 0.75em
