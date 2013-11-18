@@ -125,6 +125,26 @@ body
 section
   // padding-bottom: 2em
 
+  .section-heading
+    background: $red
+    margin-bottom: 1em
+    border-bottom: 2px solid $black
+  .section-heading-trans
+    background: transparent
+    margin-bottom: 1em
+
+  .section-heading, .section-heading-trans
+    .container
+      padding:
+        top: 0
+        bottom: 0
+      h2
+        margin:
+          top: -0.55em
+          bottom: -0.10em
+    // overflow: hidden
+
+
 header
   background: $darkgray url(/img/oblak.jpg) center center no-repeat
   // background: $darkgray
@@ -190,7 +210,7 @@ header
   color: $black
   // padding-bottom: 6em !important
   clear: both
-  overflow: hidden
+  // overflow: hidden
   a
     color: $black
 

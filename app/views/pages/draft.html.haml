@@ -39,18 +39,16 @@
             $('.extended').slideDown()
 
 %section.white-content.events
-  .container
-    .content
+  .section-heading
+    .container
       .heading
         %h2
           .new-dim.new-dim-static
             .text
               Dogodki
-             
-      / %ul.regular-list.category-list
-      /   - @event_categories.each do |c|
-      /     %li= c.name
-      
+
+  .container
+    .content      
       .event-list
         - @events.each_with_index do |e, i|
           .event.category-list
@@ -91,7 +89,7 @@
               .description
                 != Markdown.new(e.description).to_html
 
-            - if e.price and e.price > 0 and false === true
+            - if e.price and e.price > 0 
               .buy
                 %a{:href => '#'}
                   .new-dim.new-dim-interactive
@@ -108,13 +106,15 @@
       eventPack.layout()
 
 %section.dark-content.services
-  .container
-    .content
+  .section-heading
+    .container
       .heading
         %h2
           .new-dim.new-dim-static
             .text
               Storitve
+  .container
+    .content
 
       .body
         .startup-dom  
@@ -150,13 +150,16 @@
           %p.scale_0 Za vsakodnevno dobro počutje in umiritev delovnih strasti bo poskrbel Pop-up točaj, ki bo dnevno pripravljal dišečo slovensko kavo, točil domače pivo Pelicon in ponudil okusne prigrizke. Ker so zadovoljne brbončice in pozitivni miselni procesi na prvem mestu!
 
 %section.light-content.products
-  .container
-    .content
+  .section-heading
+    .container
       .heading
         %h2
           .new-dim.new-dim-static
             .text
               Izdelki
+
+  .container
+    .content
   
       / %ul.regular-list.category-list
       /   - @product_categories.each do |c|
@@ -187,14 +190,16 @@
 
 
 %section.white-content.participants.sponsors{:style => 'background: #fff;'}
-  .container
-    
-    .content
+  .section-heading
+    .container
       .heading
         %h2
           .new-dim.new-dim-static
             .text
               Partnerji
+    
+  .container
+    .content
 
       - if false
         .partner-list.col_12.align_center
@@ -207,13 +212,16 @@
       .col_12
         %img{:src => '/img/partnerji.jpg', :style => 'width: 100%;'}
 
-    .content
+  .section-heading-trans
+    .container
       .heading
         %h2
           .new-dim.new-dim-static
             .text
               Sponzorji
 
+  .container
+    .content
       - if false
         .sponsor-list.col_12.align_center
           - sponsors = []
@@ -240,21 +248,23 @@
           =raw participants.join ', '
 
 %section.light-content.contacts
-  .container
-    .content
+  .section-heading
+    .container
       .heading
         %h2
           .new-dim.new-dim-static
             .text
               Kontakti
-        .contacts.row_12
-          - @contacts.each do |c|
-            .col_6
-              %strong= c.name
-              |
-              %em= c.role
-              |
-              = link_to c.address, "mailto:#{c.address}"
+  .container
+    .content
+      .contacts.row_12
+        - @contacts.each do |c|
+          .col_6
+            %strong= c.name
+            |
+            %em= c.role
+            |
+            = link_to c.address, "mailto:#{c.address}"
 
       %br
       %br
