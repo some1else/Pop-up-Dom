@@ -19,4 +19,15 @@ ActiveAdmin.register Partner do
       link_to 'Delete', admin_partner_path(c), :method => 'delete'
     end
   end
+
+  show do |event|
+    attributes_table do
+      row :name
+      row :link
+      row :logo do
+        # event.
+        image_tag(event.file.url, :style => 'height: 200px;')
+      end
+    end
+  end
 end

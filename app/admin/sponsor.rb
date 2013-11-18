@@ -19,4 +19,15 @@ ActiveAdmin.register Sponsor do
       link_to 'Delete', admin_sponsor_path(c), :method => 'delete'
     end
   end
+
+  show do |event|
+    attributes_table do
+      row :name
+      row :link
+      row :logo do
+        # event.
+        image_tag(event.file.url, :style => 'height: 200px;')
+      end
+    end
+  end
 end
