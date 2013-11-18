@@ -77,6 +77,10 @@
 
 h1, h2, h3, h4, h5, h6
   +sans
+
+.royalSlider, .rsDefault, .rsDefault .rsOverflow, .rsDefault .rsSlide, .rsDefault .rsVideoFrameHolder, .rsDefault .rsThumbs
+  background: transparent
+  
 a
   color: $primary
   text-decoration: underline
@@ -353,22 +357,27 @@ header
     .royalSlider
       background: transparent
       box-sizing: border-box
+      border: 2px solid $black
+      border-bottom: none
       +width(4, screen, huge)
       +width(6, tablet)
       +width(12, handheld)
       +height(4, screen, huge)
       +height(6, tablet)
-      +height(12, handheld)
-      border: 2px solid $black
-      border-bottom: none
+      @media (max-width: 720px)
+        height: 320px
 
     .insides
       border: 2px solid $black
       // border-top: none
       padding: 0.5em 0.75em
+
+
 .product-list
   clear: both
 .products
+
+
   .product
     +col(4, screen, huge)
     +col(6, tablet) 
