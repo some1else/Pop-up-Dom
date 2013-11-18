@@ -5,7 +5,7 @@
 
 @media (max-width: 720px)
   +grid(handheld, 100%, 12, 5%)
-  +type(handheld, 12px)
+  +type(handheld, 13px)
 
 @media (min-width: 720px) and (max-width: 1024px)
   +grid(tablet, 720px, 12, 16px)
@@ -31,16 +31,17 @@
   // background-color: #
 
 .serif
-  @extend .sans
-=serif
-  @extend .serif
-.sans
   font-family: 'Resolution', sans-serif
   -moz-font-feature-settings: "liga=1, dlig=1, smcp=1"
   -ms-font-feature-settings: "liga", "dlig", "smcp"
   -webkit-font-feature-settings: "liga", "dlig", "smcp"
   -o-font-feature-settings: "liga", "dlig", "smcp"
   font-feature-settings: "liga", "dlig", "smcp"
+=serif
+  @extend .serif
+.sans
+  font-family: Georgia, sans-serif
+
 =sans
   @extend .sans
 
@@ -76,11 +77,11 @@
   @extend .center
 
 h1, h2, h3, h4, h5, h6
-  +sans
+  +serif
 
 .royalSlider, .rsDefault, .rsDefault .rsOverflow, .rsDefault .rsSlide, .rsDefault .rsVideoFrameHolder, .rsDefault .rsThumbs
   background: transparent
-  
+
 a
   color: $primary
   text-decoration: underline
@@ -95,10 +96,11 @@ html
 
 body
   // -webkit-font-smoothing: subpixel-antialiased
-  font-smoothing: antialiased
-  -webkit-font-smoothing: antialiased
+  // font-smoothing: antialiased
+  // -webkit-font-smoothing: antialiased
   // font-smoothing: subpixel-antialiased
   // font-smoothing: subpixel-antialiased !important
+
 
   text-rendering: optimizeLegibility  
   margin: 0
@@ -107,6 +109,10 @@ body
   
   .whitype
     -webkit-font-smoothing: antialiased
+
+.white-on-dark
+  font-smoothing: antialiased
+  -webkit-font-smoothing: antialiased
 
 .loading img
   opacity: 0
@@ -193,10 +199,26 @@ header
       padding-bottom: 1em
 
 .whatis
-  p
+  .succinct
+    +row(12)
+    +serif
+    +scale(1)
+    p
+      +col(12)
+  .extended
     +col(12)
-
+    +sans
+    +scale(1)
+    background: $lightgray
+    color: $black
+    margin:
+      top: 1em
+      bottom: 2em
+    p
+      margin: 2em
+    // box-sizing: border-box
   .morelink
+    +serif
     p
       +align(right)
     a
@@ -250,25 +272,25 @@ header
     
     +align(center)
 
-  p.question, .contact
-    padding-left: 1em
+  // p.question, .contact
+  //   padding-left: 1em
        
   p.question
     // +col(12)
     margin-top: 2em
-  .contact
-    // +row(12)
-    .email-address
-      // +col(6, tablet, screen, huge)
-      // +col(6, handheld)
-    .email-button
-      // +col(4, tablet, screen, huge)
-      // +col(6, handheld)
-      a
-        text-transform: uppercase
-        text-decoration: none
-        +bold
-        color: $black
+    // .contact
+    //   // +row(12)
+    //   .email-address
+    //     // +col(6, tablet, screen, huge)
+    //     // +col(6, handheld)
+    //   .email-button
+    //     // +col(4, tablet, screen, huge)
+    //     // +col(6, handheld)
+    //     a
+    //       text-transform: uppercase
+    //       text-decoration: none
+    //       +bold
+    //       color: $black
 
   .regular-list
     margin-top: 0
@@ -277,6 +299,8 @@ header
     +bold
 
 .services
+  p
+    +scale(1)
   .startup-dom
     +col(8, screen, huge)
     +col(12, handheld, tablet)
@@ -293,7 +317,7 @@ header
 
 .events, .products
   .description
-    +scale(0)
+    +scale(1)
 
   
   .price
@@ -340,10 +364,11 @@ header
       font-weight: normal
 
     .description
-      +scale(0)
+      +scale(1)
 
     .cat
       +scale(1)
+      +serif
       // +bold
       text-transform: uppercase
       display: inline-block
@@ -399,9 +424,11 @@ header
 
 
 
-
-
-
-
-
+.contacts
+  .contact-list
+    +row(12)
+    .contact
+      +col(6, tablet, screen, huge)
+      +col(12, handheld)
+      +serif
 
