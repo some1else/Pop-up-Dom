@@ -87,7 +87,7 @@
               .description
                 != Markdown.new(e.description).to_html
 
-            - if e.price and e.price > 0
+            - if e.price and e.price > 0 and false === true
               .buy
                 %a{:href => '#'}
                   .new-dim.new-dim-interactive
@@ -208,18 +208,19 @@
           - sponsors.push sponsor
         =raw sponsors.join ', '
 
-    .content
-      .heading
-        %h2
-          .new-dim.new-dim-static
-            .text
-              Sodelujoči
-      .participant-list.col_12.align_center
-        - participants = []
-        - @participants.each do |p|
-          - participant = link_to p.name, p.link
-          - participants.push participant
-        =raw participants.join ', '
+    - if false
+      .content
+        .heading
+          %h2
+            .new-dim.new-dim-static
+              .text
+                Sodelujoči
+        .participant-list.col_12.align_center
+          - participants = []
+          - @participants.each do |p|
+            - participant = link_to p.name, p.link
+            - participants.push participant
+          =raw participants.join ', '
 
 %section.light-content.contacts
   .container
