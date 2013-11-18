@@ -212,7 +212,7 @@
           =raw partners.join ', '
       
       .col_10.push_col_1
-        %img{:src => '/img/partnerji.jpg', :style => 'width: 100%;'}
+        %img{:src => "#{@partners.first.file.url}", :style => 'width: 100%;'}
 
   .section-heading-trans
     .container
@@ -233,7 +233,7 @@
           =raw sponsors.join ', '
 
       .col_10.push_col_1
-        %img{:src => '/img/sponzorji.jpg', :style => 'width: 100%;'}
+        %img{:src => "#{@sponsors.first.file.url}", :style => 'width: 100%;'}
 
     - if false
       .content
