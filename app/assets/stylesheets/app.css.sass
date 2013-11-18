@@ -192,6 +192,19 @@ header
   p
     +col(12)
 
+  .morelink
+    p
+      +align(right)
+    a
+      display: inline-block
+      padding: 0.5em 1em
+      border: 2px solid #888
+      text-transform: uppercase
+      text-decoration: none
+      +bold
+    a:hover
+      color: $red
+
 .dark-content, .light-content, .white-content
   border-top: 2px solid $black
 
@@ -292,7 +305,7 @@ header
   
   .buy
     text-transform: uppercase
-    margin-top: -11px
+    margin-top: -1em
     margin-right: -2px
   .royalSlider
     margin-top: 0.8em
