@@ -12,6 +12,9 @@
 /db/*.sqlite3-journal
 /config/database.yml
 
+# Ignore upload images
+/public/uploads
+
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
