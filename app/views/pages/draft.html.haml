@@ -19,8 +19,8 @@
     .content
       %p Pop-up dom je enomesečni dogodek sinergije teorije in prakse, ki predstavlja prodajno razstavo produktov slovenskih ustvarjalcev ter sodobno pisarno namenjeno skupnemu delu, povezovanju in sodelovanju.
       .morelink
-        %p
-          %a{:href => '#'} Več
+        %p.align_right
+          %a{:href => '#', :style => 'display: inline-block; padding: 3px 20px; border: 2px solid #888;'} Več
         
       .extended.scale_0{:style => 'display: none;'}
         %p Po uspešni lanskoletni izvedbi istoimenskega projekta Pop-up Dom ponovno odpira svoja vrata. V letošnjem letu na 800 m2 v prvem nadstropju Tobačne ulice 5 obljublja še bolj pestro dogajanje ter hkrati enomesečno trgovino z več kot 100 oblikovalskimi izdelki 60 mladih ustvarjalcev. Letošnja rdeča nit projekta je »coworking« (skupinski delovni prostor, ki omogoča medsebojno povezovanje), tako bo prostor od ponedeljka do sobote med 8. in 20. uro na voljo samostojno delujočim posameznikom vse do 23. decembra.
@@ -97,12 +97,6 @@
                 = "€ #{e.price.round}"
 
                 
-            
-  %br
-  %br
-  %br
-  %br
-
 :coffeescript
   $ ->
     eventPack = new Packery($('.event-list').get(0), {itemSelector: '.event'})
@@ -122,6 +116,8 @@
         .col_8  
           %h3
             START-UP DOM
+          .tempimg
+            %img{:style => "width: 100%;", :src => '/img/startupdom.png'}
           %p.scale_0 Skupnostne vrednote, raziskovanje novih trendov in nove ustvarjalne ekonomije predstavljajo možnost, da se Slovenija izvije iz ekonomskega krča, ki ga je ustvarila globalna gospodarska kriza. Pop-up dom zato vzpostavlja kreativni proces, v katerem bodo v času projekta vključene tri samostojno delujoče enote - te bodo posamezniku omogočile zasnovo, razvoj ter realizacijo produktov in storitev.
           
           %h4 Crowdfunding Lab
@@ -132,14 +128,21 @@
           
           %h4 Creative Lab
           %p.scale_0 Creative Lab sestavljajo posamezniki, ki radi rešujejo probleme, prihajajo pa iz ustvarjalnega segmenta družbe, katere temeljne vrednote so deljenje znanja, odgovorna komunikacija in trajnostni razvoj. Pri projektih se za doseg zastavljenih ciljev poglobijo v ključne premise produkta ali storitve in tako dodajo vrednost, ki je nujno potrebna za uspeh v družbi in na tržišču.
+        
         .col_4
           
           %h3
             COWORKING
+          .tempimg
+            %img{:style => "width: 100%;", :src => '/img/coworking.jpg'}
           %p.scale_0 Letošnja rdeča nit projekta je vzpostavitev skupnega delovnega prostora, ki omogoča medsebojno povezovanje, tkanje socialnih mrež in zvišuje proces ustvarjalnosti pri posameznikih. Tekom projekta Pop-up dom se lahko aktivno - brez predhodne najave ali prijave - od ponedeljka do sobote med 8.00 in 20.00 vključiš v hitro rastočo domačo kreativno skupnost in prostore Pop-up doma uporabljaš kot svoje delovno mesto. Pomni - coworking prinaša uporabnikom možnost izmenjave znanja in sodelovanja pri projektih. Predvsem pa ustvarja vse pogoje za nastajanje in razvoj poslovnih idej ter posledičnega generiranja novih poslovnih priložnosti.
+        
         .col_4
+
           %h3 POP-UP TOČAJ
-            
+          .tempimg
+            %img{:style => "width: 100%;", :src => '/img/coffee.gif'}
+
           %p.scale_0 Za vsakodnevno dobro počutje in umiritev delovnih strasti bo poskrbel Pop-up točaj, ki bo dnevno pripravljal dišečo slovensko kavo, točil domače pivo Pelicon in ponudil okusne prigrizke. Ker so zadovoljne brbončice in pozitivni miselni procesi na prvem mestu!
 
 %section.light-content.products
