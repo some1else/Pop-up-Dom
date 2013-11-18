@@ -4,5 +4,5 @@ class EventImage < ActiveRecord::Base
   acts_as_list scope: :event
   default_scope :order => :position
   
-  mount_uploader :file, ImageUploader
+  mount_uploader :file, EventImageUploader
 end

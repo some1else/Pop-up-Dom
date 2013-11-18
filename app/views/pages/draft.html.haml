@@ -58,17 +58,28 @@
               = e.event_category.name
             - if e.event_images.size == 1
               .pic.noSlider
-                = image_tag e.event_images.first.file, :style => 'width: 100%;', :class => 'rsImg'
+                - if e.event_images.first.file.to_s.end_with? 'gif' or e.event_images.first.file.to_s.end_with? 'GIF'
+                  = image_tag e.event_images.first.file, :style => 'width: 100%;', :class => 'rsImg'
+                - else
+                  = image_tag e.event_images.first.file.big_thumb, :style => 'width: 100%;', :class => 'rsImg'
+
             - if e.event_images.size > 1
               - events_with_images += 1
               - if events_with_images % 2 == 0
                 .pic.royalSlider.rsDefault.rsEven
                   - e.event_images.each do |image|
-                    = image_tag image.file, :style => 'width: 100%;', :class => 'rsImg'
+                    - if image.file.to_s.end_with? 'gif' or e.event_images.first.file.to_s.end_with? 'GIF'
+                      = image_tag image.file, :style => 'width: 100%;', :class => 'rsImg'
+                    - else
+                      = image_tag image.file.big_thumb, :style => 'width: 100%;', :class => 'rsImg'
+
               - else
                 .pic.royalSlider.rsDefault.rsOdd
                   - e.event_images.each do |image|
-                    = image_tag image.file, :style => 'width: 100%;', :class => 'rsImg'
+                    - if image.file.to_s.end_with? 'gif' or e.event_images.first.file.to_s.end_with? 'GIF'
+                      = image_tag image.file, :style => 'width: 100%;', :class => 'rsImg'
+                    - else
+                      = image_tag image.file.big_thumb, :style => 'width: 100%;', :class => 'rsImg'
               
             .insides
               %h3= e.name
