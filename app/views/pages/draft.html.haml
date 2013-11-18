@@ -124,8 +124,8 @@
             START-UP DOM
           %p Skupnostne vrednote, raziskovanje novih trendov in nove ustvarjalne ekonomije predstavljajo možnost, da se Slovenija izvije iz ekonomskega krča, ki ga je ustvarila globalna gospodarska kriza. Pop-up dom zato vzpostavlja kreativni proces, v katerem bodo v času projekta vključene tri samostojno delujoče enote - te bodo posamezniku omogočile zasnovo, razvoj ter realizacijo produktov in storitev.
           
-          .tempimg
-            %img{:style => "width: 100%;", :src => '/img/startupdom.png'}
+          .tempimg.align_center
+            %img{:style => "width: 66%; margin-bottom: -2em;", :src => '/img/startupdom.png'}
           %h4 CROWDFUNDING LAB
           %p Iniciativa Crowdfunding.si si prizdeva za razvoj in krepitev kulture množičnega financiranja v Sloveniji. V okviru Pop-up doma bomo vzpostavili začasni laboratorij in kreativno skupnost aktivno vključili v razvoj novih crowdfunding projektov ter na primerih iz prakse svetovali o pripravi in izvedbi kampanj.
 
@@ -211,7 +211,7 @@
             - partners.push partner
           =raw partners.join ', '
       
-      .col_12
+      .col_8.push_col_2
         %img{:src => '/img/partnerji.jpg', :style => 'width: 100%;'}
 
   .section-heading-trans
@@ -232,7 +232,7 @@
             - sponsors.push sponsor
           =raw sponsors.join ', '
 
-      .col_12
+      .col_8.push_col_2
         %img{:src => '/img/sponzorji.jpg', :style => 'width: 100%;'}
 
     - if false
