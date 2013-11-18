@@ -33,8 +33,10 @@
         
         :coffeescript
           $('.morelink').click (e) ->
-            $('.extended').show()
+            # $('.extended').show()
+            # ext_height = $('.extended').height()
             $('.morelink').hide()
+            $('.extended').slideDown()
 
 %section.white-content.events
   .container
@@ -52,6 +54,8 @@
       .event-list
         - @events.each_with_index do |e, i|
           .event.category-list
+            .cat
+              = e.event_category.name
             .insides
               %h3= e.name
               %h4
@@ -103,7 +107,7 @@
     $('.event-list').imagesLoaded ->
       eventPack.layout()
 
-%section.dark-content.products
+%section.dark-content.services
   .container
     .content
       .heading
@@ -113,7 +117,7 @@
               Storitve
 
       .body
-        .col_8  
+        .startup-dom  
           %h3
             START-UP DOM
           .tempimg
@@ -129,7 +133,7 @@
           %h4 Creative Lab
           %p.scale_0 Creative Lab sestavljajo posamezniki, ki radi rešujejo probleme, prihajajo pa iz ustvarjalnega segmenta družbe, katere temeljne vrednote so deljenje znanja, odgovorna komunikacija in trajnostni razvoj. Pri projektih se za doseg zastavljenih ciljev poglobijo v ključne premise produkta ali storitve in tako dodajo vrednost, ki je nujno potrebna za uspeh v družbi in na tržišču.
         
-        .col_4
+        .coworking
           
           %h3
             COWORKING
@@ -137,7 +141,7 @@
             %img{:style => "width: 100%;", :src => '/img/coworking.jpg'}
           %p.scale_0 Letošnja rdeča nit projekta je vzpostavitev skupnega delovnega prostora, ki omogoča medsebojno povezovanje, tkanje socialnih mrež in zvišuje proces ustvarjalnosti pri posameznikih. Tekom projekta Pop-up dom se lahko aktivno - brez predhodne najave ali prijave - od ponedeljka do sobote med 8.00 in 20.00 vključiš v hitro rastočo domačo kreativno skupnost in prostore Pop-up doma uporabljaš kot svoje delovno mesto. Pomni - coworking prinaša uporabnikom možnost izmenjave znanja in sodelovanja pri projektih. Predvsem pa ustvarja vse pogoje za nastajanje in razvoj poslovnih idej ter posledičnega generiranja novih poslovnih priložnosti.
         
-        .col_4
+        .coffee
 
           %h3 POP-UP TOČAJ
           .tempimg
@@ -201,7 +205,7 @@
           =raw partners.join ', '
       
       .col_12
-        %img{:src => '/img/partnerji.jpg'}
+        %img{:src => '/img/partnerji.jpg', :style => 'width: 100%;'}
 
     .content
       .heading
@@ -219,7 +223,7 @@
           =raw sponsors.join ', '
 
       .col_12
-        %img{:src => '/img/sponzorji.jpg'}
+        %img{:src => '/img/sponzorji.jpg', :style => 'width: 100%;'}
 
     - if false
       .content
