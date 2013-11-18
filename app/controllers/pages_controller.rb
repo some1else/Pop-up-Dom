@@ -16,5 +16,6 @@ class PagesController < ApplicationController
     @partners = Partner.all
     @sponsors = Sponsor.all
     @contacts = Contact.all
+    @gallery_images = GalleryImage.all
   end
 end

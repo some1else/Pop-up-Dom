@@ -17,7 +17,24 @@
 %section.whatis
   .container
     .content
-      %p Zavod Rompom v sodelovanju z Muzejem za arhitekturo in oblikovanje, predstavlja drugi Pop-up dom - začasno trgovino, kjer so izdelki mladih slovenskih ustvarjalcev predstavljeni v realnem okolju.
+      %p Pop-up dom je enomesečni dogodek sinergije teorije in prakse, ki predstavlja prodajno razstavo produktov slovenskih ustvarjalcev ter sodobno pisarno namenjeno skupnemu delu, povezovanju in sodelovanju.
+      .morelink
+        %p
+          %a{:href => '#'} Več
+        
+      .extended.scale_0{:style => 'display: none;'}
+        %p Po uspešni lanskoletni izvedbi istoimenskega projekta Pop-up Dom ponovno odpira svoja vrata. V letošnjem letu na 800 m2 v prvem nadstropju Tobačne ulice 5 obljublja še bolj pestro dogajanje ter hkrati enomesečno trgovino z več kot 100 oblikovalskimi izdelki 60 mladih ustvarjalcev. Letošnja rdeča nit projekta je »coworking« (skupinski delovni prostor, ki omogoča medsebojno povezovanje), tako bo prostor od ponedeljka do sobote med 8. in 20. uro na voljo samostojno delujočim posameznikom vse do 23. decembra.
+
+        %p Pop-up dom je skupnostni projekt, osnovan na pobudi mladih slovenskih oblikovalcev, arhitektov in umetnikov. Iniciativa se je zgodila zaradi pomanjkanja delovnih priložnosti mladih slovenskih oblikovalcev. S skupnostnim projektom, ki ga letos ustvarjamo drugič, želimo tudi v prihodnje generirati nove poslovne in delovne priložnosti.
+
+        %p Projekt predstavlja enomesečni dogodek, ki predstavlja sinergijo teorije in prakse. V oblikovanem prostoru skupnosti se v okolju 1:1 izpostavi in uporablja več kot 100 oblikovalskih izdelkov 60 mladih avtorjev, vsebina projekta pa je naravnana v podporo izdelkov. Letošnja tema je skupinski delovni prostor – sodobna pisarna, ki omogoča medsebojno povezovanje in sodelovanje. Prostor bo ves čas dogodka odprt kot delovno mesto samostojno delujočim posameznikom in tistim, ki delajo na dislocirani lokaciji, omogočal bo sodelovanje in povezovanje ter pridobivanje novih znanj. V sklopu projekta bo vzpostavljen kreativni del poslovne verige, ki bo posameznikom omogočila razvoj in realizacijo produktov - Pop-up Fablab, Creative lab in Crowdfunding lab. Skupnostne vrednote, raziskovanje novih trendov in nove ustvarjalne ekonomije predstavljajo možnost, da se Slovenija izvije iz ekonomskega krča, ki ga je ustvarila globalna gospodarska kriza.
+
+        %p Organizator dogodka je Zavod Rompom v sodelovanju z Muzejem za arhitekturo in oblikovanje (MAO). Projekt je podprlo Ministrstvo za kulturo in Regionalna razvojna agencija Ljubljana v okviru Regionalnega centra kreativne ekonomije. Vsebinski partnerji dogodka so Slovenia Coworking, Slovenia Crowdfounding, Kino Šiška, Muslauf, Zavod Boben in Lajna ter Kino Otok.
+        
+        :coffeescript
+          $('.morelink').click (e) ->
+            $('.extended').show()
+            $('.morelink').hide()
 
 %section.white-content.events
   .container
@@ -102,23 +119,28 @@
               Storitve
 
       .body
-        .col_4
+        .col_8  
           %h3
-            Coworking
-          %p
-            Phasellus a lorem sit amet odio tincidunt bibendum. Vestibulum facilisis tristique felis sit amet molestie. Duis molestie, orci vitae scelerisque semper, urna neque porta est, et egestas ante dui eu justo. Aenean rhoncus accumsan ipsum, id tincidunt turpis faucibus sed. In est ligula, euismod at lorem id, varius pharetra odio. Aenean ut ligula vel odio tempor tempor. Pellentesque pulvinar molestie nulla, eget ullamcorper leo lacinia mollis. Phasellus purus elit, ultricies sed sollicitudin sit amet, egestas a lectus.
+            START-UP DOM
+          %p.scale_0 Skupnostne vrednote, raziskovanje novih trendov in nove ustvarjalne ekonomije predstavljajo možnost, da se Slovenija izvije iz ekonomskega krča, ki ga je ustvarila globalna gospodarska kriza. Pop-up dom zato vzpostavlja kreativni proces, v katerem bodo v času projekta vključene tri samostojno delujoče enote - te bodo posamezniku omogočile zasnovo, razvoj ter realizacijo produktov in storitev.
+          
+          %h4 Crowdfunding Lab
+          %p.scale_0 Iniciativa Crowdfunding.si si prizdeva za razvoj in krepitev kulture množičnega financiranja v Sloveniji. V okviru Pop-up doma bomo vzpostavili začasni laboratorij in kreativno skupnost aktivno vključili v razvoj novih crowdfunding projektov ter na primerih iz prakse svetovali o pripravi in izvedbi kampanj.
 
-
+          %h4 FabLab
+          %p.scale_0 Popup-dom FabLab (fabrication lab) je s sodobnimi kreativnimi tehnologijami opremljena delavnica, ki omogoča posameznikom pretvoriti ideje ter koncepte v realnost. S poudarkom na uporabi 3d-tiskalnika slovenske izdelave, se bo izdelovalo prototipe, po principu naredi-si-sam predelovalo ter izdelovalo pametne elektronske naprave, gradilo sisteme za domačo pridelavo hrane, ter soustvarjalo neprofitne projekte v svetovni odprto-kodni open-hardware skupnosti. Fab-labi dokazujejo, da se lokalne probleme bolj učinkovito rešuje z lokalno proizvodnjo.
+          
+          %h4 Creative Lab
+          %p.scale_0 Creative Lab sestavljajo posamezniki, ki radi rešujejo probleme, prihajajo pa iz ustvarjalnega segmenta družbe, katere temeljne vrednote so deljenje znanja, odgovorna komunikacija in trajnostni razvoj. Pri projektih se za doseg zastavljenih ciljev poglobijo v ključne premise produkta ali storitve in tako dodajo vrednost, ki je nujno potrebna za uspeh v družbi in na tržišču.
         .col_4
+          
           %h3
-            Start-up dom
-          %p
-            Maecenas non ultrices dui, ac auctor enim. Proin ullamcorper justo at lorem interdum, vitae dictum elit dictum. Sed eget dignissim dolor. Donec ut odio laoreet, faucibus libero faucibus, elementum quam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam placerat nec est ac pellentesque. Morbi blandit consequat neque, at pharetra risus varius vel. Vivamus at lobortis felis, et tincidunt turpis. Sed vel tellus accumsan diam facilisis porta. Sed bibendum accumsan purus sed porta. Pellentesque vehicula, quam ac dictum luctus, neque eros lobortis massa, eu semper sem lorem ut magna. Praesent convallis imperdiet sem at blandit.
+            COWORKING
+          %p.scale_0 Letošnja rdeča nit projekta je vzpostavitev skupnega delovnega prostora, ki omogoča medsebojno povezovanje, tkanje socialnih mrež in zvišuje proces ustvarjalnosti pri posameznikih. Tekom projekta Pop-up dom se lahko aktivno - brez predhodne najave ali prijave - od ponedeljka do sobote med 8.00 in 20.00 vključiš v hitro rastočo domačo kreativno skupnost in prostore Pop-up doma uporabljaš kot svoje delovno mesto. Pomni - coworking prinaša uporabnikom možnost izmenjave znanja in sodelovanja pri projektih. Predvsem pa ustvarja vse pogoje za nastajanje in razvoj poslovnih idej ter posledičnega generiranja novih poslovnih priložnosti.
         .col_4
-          %h3
-            Coffee shop
-          %p
-            Mauris tristique fermentum nunc, non rhoncus justo. Proin vestibulum, libero quis lobortis suscipit, justo nibh suscipit erat, nec venenatis ante lacus eget nulla. Sed venenatis eros nec pharetra pharetra. Nunc in nisl sit amet dolor feugiat fringilla eu nec augue. Integer id sollicitudin arcu. Phasellus ac feugiat mi, ac convallis leo. Integer ante nisi, lobortis in accumsan vel, ultricies quis metus. Suspendisse erat lectus, faucibus vitae dui non, pulvinar semper lectus. Praesent rutrum magna augue, a tincidunt tortor tempus volutpat. Duis eu purus vel libero feugiat volutpat.
+          %h3 POP-UP TOČAJ
+            
+          %p.scale_0 Za vsakodnevno dobro počutje in umiritev delovnih strasti bo poskrbel Pop-up točaj, ki bo dnevno pripravljal dišečo slovensko kavo, točil domače pivo Pelicon in ponudil okusne prigrizke. Ker so zadovoljne brbončice in pozitivni miselni procesi na prvem mestu!
 
 %section.light-content.products
   .container
@@ -133,16 +155,21 @@
       /   - @product_categories.each do |c|
       /     %li= c.name
       
-      .product-list
-        - @products.each_with_index do |p, i|     
-          .product.card
-            %h2= p.name
-            .image{class: "image-#{(i % 3) + 1}"}
+      / .product-list
+      /   - @products.each_with_index do |p, i|     
+      /     .product.card
+      /       %h2= p.name
+      /       .image{class: "image-#{(i % 3) + 1}"}
 
-            - if false
-              %p= p.description
-              %p= p.product_author.name
-              %p= p.price
+      /       - if false
+      /         %p= p.description
+      /         %p= p.product_author.name
+      /         %p= p.price
+
+      .product-gallery.royalSlider.rsDefault{:style => "height: 500px; clear: both;"}
+        - @gallery_images.each do |i|
+          = image_tag "#{i.file}", :style => 'width: 100%;', :class => 'rsImg'
+
 
 :coffeescript
   $ ->
@@ -152,20 +179,8 @@
 
 
 
-%section.light-content.participants.sponsors
+%section.dark-content.participants.sponsors
   .container
-    .content
-      .heading
-        %h2
-          .new-dim.new-dim-static
-            .text
-              Sodelujoči
-      .participant-list.col_12
-        - participants = []
-        - @participants.each do |p|
-          - participant = link_to p.name, p.link
-          - participants.push participant
-        =raw participants.join ', '
     
     .content
       .heading
@@ -173,7 +188,7 @@
           .new-dim.new-dim-static
             .text
               Partnerji
-      .partner-list.col_12
+      .partner-list.col_12.align_center
         - partners = []
         - @partners.each do |s|
           - partner = link_to s.name, s.link
@@ -186,14 +201,27 @@
           .new-dim.new-dim-static
             .text
               Sponzorji
-      .sponsor-list.col_12
+      .sponsor-list.col_12.align_center
         - sponsors = []
         - @sponsors.each do |s|
           - sponsor = link_to s.name, s.link
           - sponsors.push sponsor
         =raw sponsors.join ', '
 
-%section.dark-content.contacts
+    .content
+      .heading
+        %h2
+          .new-dim.new-dim-static
+            .text
+              Sodelujoči
+      .participant-list.col_12.align_center
+        - participants = []
+        - @participants.each do |p|
+          - participant = link_to p.name, p.link
+          - participants.push participant
+        =raw participants.join ', '
+
+%section.light-content.contacts
   .container
     .content
       .heading
@@ -201,14 +229,22 @@
           .new-dim.new-dim-static
             .text
               Kontakti
-        %ul.regular-list
+        .contacts.row_12
           - @contacts.each do |c|
-            %li
+            .col_6
               %strong= c.name
               |
               %em= c.role
               |
               = link_to c.address, "mailto:#{c.address}"
+
+      %br
+      %br
+      %br
+      %br
+      %br
+      %br
+
 
 :coffeescript
   $ ->

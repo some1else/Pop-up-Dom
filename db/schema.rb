@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131117222644) do
+ActiveRecord::Schema.define(version: 20131118022047) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -83,6 +83,13 @@ ActiveRecord::Schema.define(version: 20131117222644) do
   end
 
   add_index "events", ["event_category_id"], name: "index_events_on_event_category_id"
+
+  create_table "gallery_images", force: true do |t|
+    t.string   "file"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "participants", force: true do |t|
     t.string   "name"
