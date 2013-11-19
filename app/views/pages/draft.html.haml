@@ -281,8 +281,6 @@
       .contact-list
         - @contacts.each do |c|
           .contact
-            %strong= c.name
-            |
             %em= c.role
             |
             = link_to c.address, "mailto:#{c.address}"

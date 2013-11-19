@@ -5,4 +5,6 @@ class Event < ActiveRecord::Base
 
   has_many :event_images
   accepts_nested_attributes_for :event_images, reject_if: lambda {|attributes| attributes['file'].blank?}, allow_destroy: true
+
+  validates_presence_of :name, :description 
 end
