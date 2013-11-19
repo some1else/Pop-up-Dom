@@ -279,7 +279,15 @@ header
   a
     color: $black
 
-.dark-content, .light-content, .white-content
+.black-content
+  background-color: $darkgray
+  background-color: $black
+  background-color: $darkgray
+  color: $white
+  a
+    color: $white
+
+.dark-content, .light-content, .white-content, .black-content
   padding-bottom: 2em
   // .heading
   //   +row(12)
@@ -318,20 +326,51 @@ header
     +bold
 
 .services
+  .section-heading
+    margin-bottom: 0
+  .transgreen-surf
+    background: $transgreen
+  .fillgreen-surf
+    background: $fillgreen
+  .transyellow-surf
+    background: $transyellow
+  .transblue-surf
+    background: $transblue
   p
     +scale(1)
+
   .startup-dom
     +col(8, screen, huge)
-    +col(12, handheld, tablet)
-  
+    +push_col(2, screen, huge)
+    +col(10, tablet)
+    +push_col(1, tablet)
+    +col(12, handheld)
+
+  .crowdfunding, .creative
+    +col(6, screen, huge)
+    +col(10, tablet)
+    +push_col(1, tablet)
+    +col(12, handheld)
+
+  .fab-lab
+    +col(8, screen, huge)
+    +push_col(2, screen, huge)
+    +col(10, tablet)
+    +push_col(1, tablet)
+    +col(12, handheld)
+
   .coworking
-    +col(4, screen, huge)
-    +col(6, tablet)
+    +col(8, screen, huge)
+    +push_col(2, screen, huge)
+    +col(10, tablet)
+    +push_col(1, tablet)
     +col(12, handheld)
   
   .coffee
-    +col(4, screen, huge)
-    +col(6, tablet)
+    +col(8, screen, huge)
+    +push_col(2, screen, huge)
+    +col(10, tablet)
+    +push_col(1, tablet)
     +col(12, handheld)
 
 .events, .products
@@ -426,6 +465,7 @@ header
 .product-list
   clear: both
 .products
+  border-top: 2px solid $black
   .product
     +col(4, screen, huge)
     +col(6, tablet) 
@@ -454,4 +494,9 @@ header
       +col(6, tablet, screen, huge)
       +col(12, handheld)
       +serif
-
+  .participant-list
+    margin-top: 2em
+    +col(8, tablet, screen, huge)
+    +push_col(2, tablet, screen, huge)
+    +col(12, handheld)
+    +serif

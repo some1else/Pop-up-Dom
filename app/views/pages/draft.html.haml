@@ -18,17 +18,17 @@
   .container
     .content
       .succinct
-        %p Pop-up dom je enomesečni dogodek sinergije teorije in prakse, ki predstavlja prodajno razstavo produktov slovenskih ustvarjalcev ter sodobno pisarno namenjeno skupnemu delu, povezovanju in sodelovanju.
+        %p Pop-up dom je enomesečni dogodek sodelovanja teorije in prakse. Predstavlja prodajno razstavo produktov slovenskih ustvarjalcev ter sodobno pisarno namenjeno skupnemu delu, povezovanju in sodelovanju.
       .morelink
         %p
           %a{:href => '#'} Več
         
       .extended{:style => 'display: none;'}
-        %p Po uspešni lanskoletni izvedbi istoimenskega projekta Pop-up Dom ponovno odpira svoja vrata. V letošnjem letu na 800 m2 v prvem nadstropju Tobačne ulice 5 obljublja še bolj pestro dogajanje ter hkrati enomesečno trgovino z več kot 100 oblikovalskimi izdelki 60 mladih ustvarjalcev. Letošnja rdeča nit projekta je »coworking« (skupinski delovni prostor, ki omogoča medsebojno povezovanje), tako bo prostor od ponedeljka do sobote med 8. in 20. uro na voljo samostojno delujočim posameznikom vse do 23. decembra.
+        %p Po uspešni lanskoletni izvedbi istoimenskega projekta, Pop-up Dom ponovno odpira svoja vrata. V letošnjem letu na 800 m2 v prvem nadstropju Tobačne ulice 5 obljublja še bolj pestro dogajanje ter hkrati enomesečno trgovino z več kot 100 oblikovalskimi izdelki 60 mladih ustvarjalcev. Letošnja rdeča nit projekta je »coworking« (skupinski delovni prostor), tako bo prostor od ponedeljka do sobote med 8. in 20. uro na voljo samostojno delujočim posameznikom vse do 23. decembra.
 
-        %p Pop-up dom je skupnostni projekt, osnovan na pobudi mladih slovenskih oblikovalcev, arhitektov in umetnikov. Iniciativa se je zgodila zaradi pomanjkanja delovnih priložnosti mladih slovenskih oblikovalcev. S skupnostnim projektom, ki ga letos ustvarjamo drugič, želimo tudi v prihodnje generirati nove poslovne in delovne priložnosti.
+        %p Pop-up dom je skupnostni projekt, osnovan na pobudi mladih slovenskih oblikovalcev, arhitektov in umetnikov. Iniciativa se je zgodila zaradi pomanjkanja delovnih priložnosti prav te skupine ljudi. S skupnostnim projektom, ki ga letos ustvarjamo drugič, želimo tudi v prihodnje ustvariti nove poslovne in delovne priložnosti.
 
-        %p Projekt predstavlja enomesečni dogodek, ki predstavlja sinergijo teorije in prakse. V oblikovanem prostoru skupnosti se v okolju 1:1 izpostavi in uporablja več kot 100 oblikovalskih izdelkov 60 mladih avtorjev, vsebina projekta pa je naravnana v podporo izdelkov. Letošnja tema je skupinski delovni prostor – sodobna pisarna, ki omogoča medsebojno povezovanje in sodelovanje. Prostor bo ves čas dogodka odprt kot delovno mesto samostojno delujočim posameznikom in tistim, ki delajo na dislocirani lokaciji, omogočal bo sodelovanje in povezovanje ter pridobivanje novih znanj. V sklopu projekta bo vzpostavljen kreativni del poslovne verige, ki bo posameznikom omogočila razvoj in realizacijo produktov - Pop-up Fablab, Creative lab in Crowdfunding lab. Skupnostne vrednote, raziskovanje novih trendov in nove ustvarjalne ekonomije predstavljajo možnost, da se Slovenija izvije iz ekonomskega krča, ki ga je ustvarila globalna gospodarska kriza.
+        %p V oblikovanem prostoru skupnosti bomo v okolju 1:1 izpostavili in uporabljali več kot 100 oblikovalskih izdelkov, vsebina projekta pa je naravnana v podporo izdelkov. Prostor bo ves čas dogodka odprt kot delovno mesto za samostojne delujoče posameznike in za tiste, ki delajo na dislocirani lokaciji. Omogočal bo sodelovanje in povezovanje ter pridobivanje novih znanj. V sklopu projekta bo vzpostavljen kreativni del poslovne verige, ki bo posameznikom omogočila razvoj in realizacijo produktov - Pop-up Fablab, Creative lab in Crowdfunding lab. Skupnostne vrednote, raziskovanje novih trendov in nove ustvarjalne ekonomije predstavljajo možnost, da se Slovenija izvije iz ekonomskega krča, ki ga je ustvarila globalna gospodarska kriza
 
         %p Organizator dogodka je Zavod Rompom v sodelovanju z Muzejem za arhitekturo in oblikovanje (MAO). Projekt je podprlo Ministrstvo za kulturo in Regionalna razvojna agencija Ljubljana v okviru Regionalnega centra kreativne ekonomije. Vsebinski partnerji dogodka so Slovenia Coworking, Slovenia Crowdfounding, Kino Šiška, Muslauf, Zavod Boben in Lajna ter Kino Otok.
         
@@ -128,7 +128,7 @@
     $('.event-list').imagesLoaded ->
       eventPack.layout()
 
-%section.dark-content.services.white-on-dark
+%section.white-content.services
   .section-heading
     .container
       .heading
@@ -136,43 +136,68 @@
           .new-dim.new-dim-static
             .text
               Storitve
+  .transgreen-surf
+    .container
+      .content
+        .tempimg.align_center
+          %img{:src => '/img/startupdom/startupdom.png'}
+
   .container
     .content
+      .startup-dom
+        %p Sistematiziramo storitve, ki učinkovito komunicirajo in prodajo vašo idejo, izdelke ali storitve. Skupnostne vrednote, raziskovanje novih trendov in nove ustvarjalne ekonomije predstavljajo možnost, da Slovenija postavi na noge ekonomijo. Start-up dom zato vzpostavlja kreativni proces, v katerem bodo v času projekta vključene tri samostojno delujoče enote - te bodo posamezniku ali ekipi omogočile zasnovo, razvoj ter realizacijo produktov in storitev.
+  
+  .fillgreen-surf
+    .container
+      .content
+        .tempimg.align_center
+          %img{:src => '/img/startupdom/proces.png'}
 
-      .body
-        .startup-dom  
-          %h3
-            START-UP DOM
-          %p Skupnostne vrednote, raziskovanje novih trendov in nove ustvarjalne ekonomije predstavljajo možnost, da se Slovenija izvije iz ekonomskega krča, ki ga je ustvarila globalna gospodarska kriza. Pop-up dom zato vzpostavlja kreativni proces, v katerem bodo v času projekta vključene tri samostojno delujoče enote - te bodo posamezniku omogočile zasnovo, razvoj ter realizacijo produktov in storitev.
-          
-          .tempimg.align_center
-            %img{:style => "width: 66%; margin-bottom: -2em;", :src => '/img/startupdom.png'}
-          %h4 CROWDFUNDING LAB
-          %p Iniciativa Crowdfunding.si si prizdeva za razvoj in krepitev kulture množičnega financiranja v Sloveniji. V okviru Pop-up doma bomo vzpostavili začasni laboratorij in kreativno skupnost aktivno vključili v razvoj novih crowdfunding projektov ter na primerih iz prakse svetovali o pripravi in izvedbi kampanj.
+  .container
+    .content
+      .crowdfunding
+        %h4 CROWDFUNDING LAB
+        %p Iniciativa Crowdfunding.si si prizdeva za razvoj in krepitev kulture množičnega financiranja v Sloveniji. V okviru Pop-up doma bomo vzpostavili začasni laboratorij in kreativno skupnost aktivno vključili v razvoj novih crowdfunding projektov ter na primerih iz prakse svetovali o pripravi in izvedbi kampanj.
+      .creative
+        %h4 CREATIVE LAB
+        %p Creative Lab sestavljajo posamezniki, ki radi rešujejo probleme. Prihajajo iz ustvarjalnega segmenta družbe, katere temeljne vrednote so deljenje znanja, odgovorna komunikacija in trajnostni razvoj. Pri projektih se za dosego zastavljenih ciljev poglobimo v ključne dejavnosti, poslovne načrte in namere. Izboljšujejo izkušnje, komunikacije in odnose v delovnih okoljih in tako dodajo vrednost, ki je nujno potrebna za uspeh v družbi in na tržišču.
 
-          %h4 FAB LAB
-          %p Popup-dom FabLab (fabrication lab) je s sodobnimi kreativnimi tehnologijami opremljena delavnica, ki omogoča posameznikom pretvoriti ideje ter koncepte v realnost. S poudarkom na uporabi 3d-tiskalnika slovenske izdelave, se bo izdelovalo prototipe, po principu naredi-si-sam predelovalo ter izdelovalo pametne elektronske naprave, gradilo sisteme za domačo pridelavo hrane, ter soustvarjalo neprofitne projekte v svetovni odprto-kodni open-hardware skupnosti. Fab-labi dokazujejo, da se lokalne probleme bolj učinkovito rešuje z lokalno proizvodnjo.
-          
-          %h4 CREATIVE LAB
-          %p Creative Lab sestavljajo posamezniki, ki radi rešujejo probleme, prihajajo pa iz ustvarjalnega segmenta družbe, katere temeljne vrednote so deljenje znanja, odgovorna komunikacija in trajnostni razvoj. Pri projektih se za doseg zastavljenih ciljev poglobijo v ključne premise produkta ali storitve in tako dodajo vrednost, ki je nujno potrebna za uspeh v družbi in na tržišču.
+  .transyellow-surf
+    .container
+      .content
+        .tempimg.align_center
+          %img{:src => '/img/startupdom/fablab.png'}
+
+  .container
+    .content
+      .fab-lab
+        %h4 FAB LAB
+        %p FabLab (fabrication lab) je s sodobnimi kreativnimi tehnologijami opremljena delavnica, ki omogoča posameznikom pretvoriti ideje ter koncepte v realnost. S poudarkom na uporabi 3d-tiskalnika slovenske izdelave, se bo izdelovalo prototipe, po principu naredi-si-sam predelovalo ter izdelovalo pametne elektronske naprave, gradilo sisteme za domačo pridelavo hrane, ter soustvarjalo neprofitne projekte v svetovni odprto-kodni open-hardware skupnosti. Fab-labi dokazujejo, da se lokalne probleme bolj učinkovito rešuje z lokalno proizvodnjo.
         
-        .coworking
-          
-          %h3
-            COWORKING
-          .tempimg
-            %img{:style => "width: 100%;", :src => '/img/coworking.jpg'}
-          %p Letošnja rdeča nit projekta je vzpostavitev skupnega delovnega prostora, ki omogoča medsebojno povezovanje, tkanje socialnih mrež in zvišuje proces ustvarjalnosti pri posameznikih. Tekom projekta Pop-up dom se lahko aktivno - brez predhodne najave ali prijave - od ponedeljka do sobote med 8.00 in 20.00 vključiš v hitro rastočo domačo kreativno skupnost in prostore Pop-up doma uporabljaš kot svoje delovno mesto. Pomni - coworking prinaša uporabnikom možnost izmenjave znanja in sodelovanja pri projektih. Predvsem pa ustvarja vse pogoje za nastajanje in razvoj poslovnih idej ter posledičnega generiranja novih poslovnih priložnosti.
-        
-        .coffee
+  .transblue-surf
+    .container{:style => 'padding-top: 0;'}
+      .content
+        .tempimg.align_center{:style => 'position: absolute; left: 0; right: 0;'}
+          %img{:src => '/img/startupdom/coworking_logo.png'}
+        .tempimg.align_center
+          %img{:src => '/img/startupdom/coworking.jpg'}
 
-          %h3 POP-UP TOČAJ
-          .tempimg
-            %img{:style => "width: 100%;", :src => '/img/coffee.gif'}
+      .coworking
+        / %h3
+        /   COWORKING
+        %p Letošnja rdeča nit projekta je vzpostavitev skupnega delovnega prostora, ki omogoča medsebojno povezovanje, tkanje socialnih mrež in zvišuje proces ustvarjalnosti pri posameznikih. Tekom projekta Pop-up dom se lahko aktivno - brez predhodne najave ali prijave - od ponedeljka do sobote med 8.00 in 20.00 vključiš v hitro rastočo domačo kreativno skupnost in prostore Pop-up doma uporabljaš kot svoje delovno mesto. Pomni - coworking prinaša uporabnikom možnost izmenjave znanja in sodelovanja pri projektih. Predvsem pa ustvarja vse pogoje za nastajanje in razvoj poslovnih idej ter posledičnega generiranja novih poslovnih priložnosti.
+  
+  .container
+    .content
+      .tempimg.align_center
+        %img{:src => '/img/startupdom/tocaj.png'}
+      .tempimg.align_center
+        %img{:src => '/img/coffee.gif'}
+      .coffee
+        / %h3 POP-UP TOČAJ
+        %p Za vsakodnevno dobro počutje in umiritev delovnih strasti bo poskrbel Pop-up točaj, ki bo dnevno pripravljal dišečo slovensko kavo, točil domače pivo Pelicon in ponudil okusne prigrizke. Ker so zadovoljne brbončice in pozitivni miselni procesi na prvem mestu!
 
-          %p Za vsakodnevno dobro počutje in umiritev delovnih strasti bo poskrbel Pop-up točaj, ki bo dnevno pripravljal dišečo slovensko kavo, točil domače pivo Pelicon in ponudil okusne prigrizke. Ker so zadovoljne brbončice in pozitivni miselni procesi na prvem mestu!
-
-%section.light-content.products
+%section.black-content.products
   .section-heading
     .container
       .heading
@@ -235,27 +260,6 @@
       .col_10.push_col_1
         %img{:src => "#{@partners.first.file.url}", :style => 'width: 100%;'}
 
-  .section-heading-trans
-    .container
-      .heading
-        %h2
-          .new-dim.new-dim-static
-            .text
-              Sponzorji
-
-  .container
-    .content
-      - if false
-        .sponsor-list.col_12.align_center
-          - sponsors = []
-          - @sponsors.each do |s|
-            - sponsor = link_to s.name, s.link
-            - sponsors.push sponsor
-          =raw sponsors.join ', '
-
-      .col_10.push_col_1
-        %img{:src => "#{@sponsors.first.file.url}", :style => 'width: 100%;'}
-
     - if false
       .content
         .heading
@@ -263,12 +267,6 @@
             .new-dim.new-dim-static
               .text
                 Sodelujoči
-        .participant-list.col_12.align_center
-          - participants = []
-          - @participants.each do |p|
-            - participant = link_to p.name, p.link
-            - participants.push participant
-          =raw participants.join ', '
 
 %section.light-content.contacts
   .section-heading
@@ -277,7 +275,7 @@
         %h2
           .new-dim.new-dim-static
             .text
-              Kontakti
+              Ekipa
   .container
     .content
       .contact-list
@@ -289,7 +287,16 @@
             |
             = link_to c.address, "mailto:#{c.address}"
 
-      %br
+
+      .participant-list.align_center
+        - participants = []
+        - @participants.each do |p|
+          - if p.link.blank?
+            - participant = p.name
+          - else
+            - participant = link_to p.name, p.link
+          - participants.push participant
+        =raw participants.join ', '
       %br
       %br
       %br
