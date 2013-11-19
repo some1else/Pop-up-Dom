@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131119141906) do
+ActiveRecord::Schema.define(version: 20131119145448) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -71,6 +71,17 @@ ActiveRecord::Schema.define(version: 20131119141906) do
   end
 
   add_index "event_images", ["event_id"], name: "index_event_images_on_event_id"
+
+  create_table "event_occurances", force: true do |t|
+    t.datetime "begins_at"
+    t.datetime "ends_at"
+    t.boolean  "duration_important", default: false
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "event_occurances", ["event_id"], name: "index_event_occurances_on_event_id"
 
   create_table "events", force: true do |t|
     t.string   "name"
