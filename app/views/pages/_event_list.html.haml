@@ -45,7 +45,7 @@
               - if e.event_occurances.empty?
                 - occurances = [e.event_occurances.build(:begins_at => e.begins_at)]
               - else
-                - occurances = e.event_occurances.all
+                - occurances = e.event_occurances
 
               - occurances.each_with_index do |occurance, idx|
 

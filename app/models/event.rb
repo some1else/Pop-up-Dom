@@ -1,8 +1,6 @@
 class Event < ActiveRecord::Base
   belongs_to :event_category
 
-  default_scope { order('begins_at ASC') }
-
   has_many :event_occurances
   accepts_nested_attributes_for :event_occurances, reject_if: lambda {|attributes| attributes['begins_at(1i)'].blank?}, allow_destroy: true
 
@@ -27,6 +25,7 @@ class Event < ActiveRecord::Base
       else
         unless self.next_occurance.blank?
           @first_or_next_occurance ||= self.next_occurance
+
         else
           @first_or_next_occurance ||= self.event_occurances.first
         end
@@ -39,24 +38,4 @@ class Event < ActiveRecord::Base
     @first_or_next_occurance = occurance
   end
 
-  # has_many :future_occurances, conditions: where("event_occurances.begins_at > #{Time.now}"), class_name: "EventOccurance"
-
-  # validate :occurance_count
-
-  # def occurance_count
-  #   if self.event_occurances.size < 1
-  #     errors.add(:items, "Need 1 or more Event Occurances")
-  #   end
-  # end
-
-  # before_create :cache_occurance_data
-
-  # def cache_occurance_data
-  #   raise self.inspect
-  #   if self.event_occurances.size > 0
-  #     self.begins_at = self.event_occurances.first.begins_at
-  #   else
-  #     self.begins_at = nil
-  #   end
-  # end
 end
