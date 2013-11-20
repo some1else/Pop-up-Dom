@@ -394,11 +394,21 @@ header
 
   .price, .buy
     float: right
+    +serif
   
   .buy
     text-transform: uppercase
     margin-top: -1em
     margin-right: -2px
+    +serif
+    @media (max-width: 720px)
+      margin-top: -1.1em
+    @media (min-width: 720px) and (max-width: 1024px)
+      margin-top: -1.05em
+    @media (min-width: 1440px)
+      margin-top: -0.85em
+    a
+      display: block
 
 .royalSlider, .rsOverflow, .rsSlide, .rsVideoFrameHolder, .rsThumbs
   background: transparent
@@ -472,6 +482,10 @@ header
       border: 2px solid $black
       // border-top: none
       padding: 7px 10px 0 10px
+
+    .reservation-enabled
+      p
+        padding-bottom: .5em
 
 
 .product-list

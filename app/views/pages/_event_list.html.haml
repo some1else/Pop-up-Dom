@@ -12,7 +12,7 @@
       .event-list
         - events_with_images = 0
         - @events.each_with_index do |e, i|
-          .event.category-list
+          .event.category-list{:class => "#{e.open_for_reservation ? 'reservation-enabled' : ''}"}
             .cat.white-on-dark
               = e.event_category.name
             - if e.event_images.size == 1
@@ -85,7 +85,17 @@
 
               .description
                 != Markdown.new(e.description).to_html
-
+            
+              - if e.open_for_reservation?
+                .buy
+                  - subject = e.reservation_email_subject.empty? ? e.name : e.reservation_email_subject
+                  = link_to "mailto:#{e.reservation_email}?subject=Rezervacija: #{subject}&body=Želim karto za Pop-up dom dogodek dogodek #{e.name}" do
+                    .new-dim.new-dim-interactive
+                      .text
+                        Rezerviraj
+                - unless e.price.blank?
+                  .price
+                    != "€&#8239;#{e.price.try(:round)}"
             - if e.price and e.price > 0 and false
               .buy
                 %a{:href => '#'}
@@ -95,7 +105,13 @@
               .price
                 != "€&#8239;#{e.price.round}"
 
-                
+:coffeescript
+  $('.buy a').mousedown (e) ->
+    doit = ->
+      e.currentTarget.click()
+
+    setTimeout doit, 300
+
 :coffeescript
   $ ->
     eventPack = new Packery($('.event-list').get(0), {itemSelector: '.event'})

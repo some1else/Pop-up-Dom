@@ -55,12 +55,15 @@ ActiveAdmin.register Event do
     end
     column :begins_at
     column :occurances do |c|
-      c.event_occurances.size
+      c.event_occurances.size unless c.event_occurances.size == 1
     end
-    column :price
-    column :tickets
+    column "Reservation" do |c|
+      c.open_for_reservation ? 'Yes' : ''
+    end
+    # column :price
+    # column :tickets
     column :pictures do |c|
-      c.event_images.size
+      c.event_images.size unless c.event_images.size == 0
     end
 
     actions defaults: false do |c|
@@ -79,6 +82,10 @@ ActiveAdmin.register Event do
       row :description
       row :event_category do
         event.event_category.name
+      end
+      row :open_for_reservation
+      row 'Email' do
+        event.reservation_email + ', ' + event.reservation_email_subject
       end
       row :price
       row :tickets
@@ -138,7 +145,24 @@ ActiveAdmin.register Event do
       f.input :description
       # f.input :client
       f.input :event_category_id, :as => :select, :collection => EventCategory.all.map {|c| [c.name, c.id]}, :include_blank => false
-      f.input :begins_at, :label => 'First occurance', class: "timepick", :disabled => true
+      f.input :open_for_reservation
+      f.input :reservation_email, :label => 'Email address'
+      f.input :reservation_email_subject, :label => 'Email subject'
+      f.input :price
+
+    end
+    f.inputs "Images" do
+      f.has_many :event_images do |img_form|
+        # img_form.link_to 'Help', 'about:blank'
+        
+          img_form.input :_destroy, :as => :boolean, :required => false, :label => 'Delete image' if !img_form.object.nil? && !img_form.object.new_record? 
+          
+          if !img_form.object.nil? and !img_form.object.file.nil?
+            img_form.input :file, :as => :file, :hint => img_form.template.image_tag(img_form.object.file, :style => 'height: 100px;')
+          else
+            img_form.input :file, :as => :file
+        end
+      end
     end
     f.inputs "Occurances" do
       f.has_many :event_occurances do |occurance_form|
@@ -147,26 +171,14 @@ ActiveAdmin.register Event do
         occurance_form.input :duration_important, :label => 'Duration is important'
         occurance_form.input :ends_at
       end
+      f.input :begins_at, :label => 'First occurance', class: "timepick", :disabled => true unless f.object.new_record?
     end
-    unless f.object && f.object.new_record?
-      f.inputs "Images" do
-        f.has_many :event_images do |img_form|
-          # img_form.link_to 'Help', 'about:blank'
-          
-            img_form.input :_destroy, :as => :boolean, :required => false, :label => 'Delete image' if !img_form.object.nil? && !img_form.object.new_record? 
-            
-            if !img_form.object.nil? and !img_form.object.file.nil?
-              img_form.input :file, :as => :file, :hint => img_form.template.image_tag(img_form.object.file, :style => 'height: 100px;')
-            else
-              img_form.input :file, :as => :file
-          end
-        end
-      end
+    # unless f.object && f.object.new_record?
 
-    else
-      f.inputs 'Finish Creating the Event to add Images' do
-      end
-    end
+    # else
+    #   f.inputs 'Finish Creating the Event to add Images' do
+    #   end
+    # end
     
     f.actions
   end

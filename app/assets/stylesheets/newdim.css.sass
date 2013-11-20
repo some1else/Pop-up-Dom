@@ -1,5 +1,6 @@
 @import colors
 @import lib/responsive_grid_system/animation
+@import lib/responsive_grid_system/transform
 
 $a: 10px
 
@@ -43,6 +44,7 @@ $bcolor: $black
       bottom: $a
       left: 0px
       top: 0px
+    // +transform(translate(-$a,-$a))
 
     font-weight: bold
     border: $b solid $bcolor
@@ -93,15 +95,16 @@ $bcolor: $black
     width: $a
     height: $a - $b
     background: url(/img/3d/bottom-left.png) no-repeat
+a:active
+  .new-dim-interactive
 
-.new-dim-interactive:active
-  
-  .text
-    margin:
-      right: 0px
-      bottom: 0px
-      top: $a
-      left: $a
+    .text
+      margin:
+        right: 0px
+        bottom: 0px
+        top: $a
+        left: $a
+      // +transform(translate($a,$a))    
 
-  .top-right, .right, .bottom-right, .bottom, .bottom-left
-    display: none
+    .top-right, .right, .bottom-right, .bottom, .bottom-left
+      display: none
