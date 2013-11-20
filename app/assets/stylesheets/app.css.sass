@@ -418,11 +418,34 @@ header
 
 .events
   background: $lightgray
-  .event
+
+  .exposed
+    +col(8, screen, huge)
+    +col(12, tablet)
+    +col(12, handheld)
+    .pic_wrap
+      padding-left: 20px
+      float: right
+      margin:
+        top: -2px
+        left: -2px
+        bottom: -2px
+    .pic
+      border:
+        left: 2px solid $black
+        bottom: 2px solid $black
+
+  .not-exposed
     +col(4, screen, huge)
     +col(6, tablet)
     +col(12, handheld)
+    .pic
+      border:
+        bottom: 2px solid $black
+  .event
     margin-bottom: 1em
+    h3, h4, h5, h6
+      +align(left)
     h3, h4
       text-transform: uppercase
     h3
@@ -443,12 +466,30 @@ header
       text-decoration: line-through
     h4.upcoming
       color: $red
-
+      
+    .mainfo
+      padding: 0 10px
     .description
       +scale(1)
+      padding: 0 10px
       p
         margin-top: 0
-
+    
+      .additional_button
+        +serif
+        padding: 0.5em 1em
+        color: $red
+        border: 2px solid $gray
+        text-transform: uppercase
+        text-decoration: none
+        display: inline-block
+        margin:
+          top: -0.2em
+          bottom: 0.5em
+      .additional_button:hover
+        color: $black
+        border-color: $red
+        
     .cat
       +scale(1)
       +serif
@@ -461,12 +502,11 @@ header
       background-color: $palegreen/1.2
       color: $white
       +bold
-
+        
     .royalSlider, .noSlider
       background: transparent
       box-sizing: border-box
-      border: 2px solid $black
-      border-bottom: none
+      // border-bottom: none
       +width(4, screen, huge)
       +width(6, tablet)
       +height(4, screen, huge)
@@ -481,7 +521,9 @@ header
       background: $white
       border: 2px solid $black
       // border-top: none
-      padding: 7px 10px 0 10px
+      // padding: 7px 10px 0 10px
+      clear: both
+      overflow: hidden
 
     .reservation-enabled
       p

@@ -150,11 +150,13 @@ ActiveAdmin.register Event do
     f.inputs "Info" do
       f.input :name
       f.input :description
+      f.input :additional_description
       f.input :event_category_id, :as => :select, :collection => EventCategory.all.map {|c| [c.name, c.id]}, :include_blank => false
       f.input :open_for_reservation
       f.input :reservation_email, :label => 'Email address'
       f.input :reservation_email_subject, :label => 'Email subject'
       f.input :price
+      f.input :exposed
 
     end
 
@@ -180,7 +182,6 @@ ActiveAdmin.register Event do
       end
       f.input :begins_at, :label => 'First occurance', class: "timepick", :disabled => true unless f.object.new_record?
     end
-    
     f.actions
   end
 end
