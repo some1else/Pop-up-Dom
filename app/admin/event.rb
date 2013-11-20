@@ -143,18 +143,17 @@ ActiveAdmin.register Event do
     f.inputs "Info" do
       f.input :name
       f.input :description
-      # f.input :client
       f.input :event_category_id, :as => :select, :collection => EventCategory.all.map {|c| [c.name, c.id]}, :include_blank => false
-      f.input :open_for_reservation
-      f.input :reservation_email, :label => 'Email address'
-      f.input :reservation_email_subject, :label => 'Email subject'
-      f.input :price
+      # f.input :open_for_reservation
+      # f.input :reservation_email, :label => 'Email address'
+      # f.input :reservation_email_subject, :label => 'Email subject'
+      # f.input :price
 
     end
+
     f.inputs "Images" do
       f.has_many :event_images do |img_form|
-        # img_form.link_to 'Help', 'about:blank'
-        
+      
           img_form.input :_destroy, :as => :boolean, :required => false, :label => 'Delete image' if !img_form.object.nil? && !img_form.object.new_record? 
           
           if !img_form.object.nil? and !img_form.object.file.nil?
@@ -164,20 +163,15 @@ ActiveAdmin.register Event do
         end
       end
     end
-    f.inputs "Occurances" do
-      f.has_many :event_occurances do |occurance_form|
-        occurance_form.input :_destroy, :as => :boolean, :required => false, :label => 'Delete occurance' if !occurance_form.object.nil? && !occurance_form.object.new_record?
-        occurance_form.input :begins_at
-        occurance_form.input :duration_important, :label => 'Duration is important'
-        occurance_form.input :ends_at
-      end
-      f.input :begins_at, :label => 'First occurance', class: "timepick", :disabled => true unless f.object.new_record?
-    end
-    # unless f.object && f.object.new_record?
 
-    # else
-    #   f.inputs 'Finish Creating the Event to add Images' do
+    # f.inputs "Occurances" do
+    #   f.has_many :event_occurances do |occurance_form|
+    #     occurance_form.input :_destroy, :as => :boolean, :required => false, :label => 'Delete occurance' if !occurance_form.object.nil? && !occurance_form.object.new_record?
+    #     occurance_form.input :begins_at
+    #     occurance_form.input :duration_important, :label => 'Duration is important'
+    #     occurance_form.input :ends_at
     #   end
+    #   f.input :begins_at, :label => 'First occurance', class: "timepick", :disabled => true unless f.object.new_record?
     # end
     
     f.actions
