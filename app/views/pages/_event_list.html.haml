@@ -27,7 +27,7 @@
               
             .insides
               - if e.event_images.size == 1
-                .pic_wrap
+                .pic-wrap
                   .pic.noSlider
                     - if e.event_images.first.file.to_s.end_with? 'gif' or e.event_images.first.file.to_s.end_with? 'GIF'
                       = image_tag e.event_images.first.file, :style => 'width: 100%;', :class => 'rsImg'
