@@ -1,0 +1,89 @@
+%section.black-content.products
+  .section-heading
+    .container
+      .heading
+        %h2
+          .new-dim.new-dim-static
+            .text
+              Izdelki
+
+  .container
+    .content      
+      .product-list
+        - @products.each_with_index do |e, i|
+
+          .product.category-list
+            .cat.white-on-dark
+              = e.product_category.name
+              
+            .insides
+              - if e.product_images.size == 1
+                .pic-wrap
+                  .pic.noSlider
+                    - if e.product_images.first.file.to_s.end_with? 'gif' or e.product_images.first.file.to_s.end_with? 'GIF'
+                      = image_tag e.product_images.first.file, :style => 'width: 100%;', :class => 'rsImg'
+                    - else
+                      = image_tag e.product_images.first.file.big_version, :style => 'width: 100%;', :class => 'rsImg'
+
+              - if e.product_images.size > 1
+                .pic-wrap
+                  .pic.royalSlider.rsDefault
+                    - e.product_images.each do |image|
+                      - if image.file.to_s.end_with? 'gif' or e.product_images.first.file.to_s.end_with? 'GIF'
+                        = image_tag image.file, :style => 'width: 100%;', :class => 'rsImg'
+                      - else
+                        = image_tag image.file.big_version, :style => 'width: 100%;', :class => 'rsImg'
+
+              .mainfo
+                %h3= e.name
+                %h4= link_to e.product_author.name, e.product_author.link
+
+
+              .description
+                != Markdown.new(e.description).to_html
+            
+            - if e.price and e.price > 0 and false
+              .buy
+                %a{:href => '#'}
+                  .new-dim.new-dim-interactive
+                    .text
+                      Kupi
+              .price
+                != "€&#8239;#{e.price.round}"
+
+/ Slider
+:coffeescript
+  $ ->
+    $(".product .pic").royalSlider
+      keyboardNavEnabled: true
+      # imageScaleMode: 'fit'
+      imageScaleMode: 'fill'
+      controlNavigation: 'none'
+      imageScalePadding: 0
+      arrowsNav: false
+      slidesSpacing: 0
+      loop: true
+      transitionType: 'slide'
+      transitionSpeed: 250
+      background: 'transparent'
+      fadeinLoadedSlide: false
+      fullscreen:
+        enabled: false
+        native: true 
+      autoPlay:
+        enabled: true
+        delay: 4100
+        pauseOnHover: true
+
+/ Layout & Interaction
+:coffeescript
+  $ ->
+    productPack = new Packery($('.product-list').get(0), {itemSelector: '.product'})
+    $('.product-list').imagesLoaded ->
+      productPack.layout()
+
+    $('.buy a').mousedown (e) ->
+      doit = ->
+        e.currentTarget.click()
+
+      setTimeout doit, 300

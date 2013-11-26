@@ -1,9 +1,7 @@
 Popupdom::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  root :to => 'pages#draft'
-
-  get 'draft' => 'pages#draft'
+  root :to => 'pages#landing'
 
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
