@@ -9,7 +9,7 @@ ActiveAdmin.register ProductAuthor do
     column :description do |c|
       para c.description.truncate(100)
     end
-    column :links
+    column :link
     actions defaults: false do |c|
       link_to 'Edit', edit_admin_product_author_path(c)
     end
