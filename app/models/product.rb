@@ -5,6 +5,6 @@ class Product < ActiveRecord::Base
   has_many :product_images
   accepts_nested_attributes_for :product_images, reject_if: lambda {|attributes| attributes['file'].blank?}, allow_destroy: true
 
-  validates_presence_of :name, :description
+  validates_presence_of :name #, :description
 
 end

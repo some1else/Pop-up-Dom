@@ -3,6 +3,9 @@ ActiveAdmin.register Product do
   config.paginate = false
 
   index do
+    column do |c|
+      image_tag c.product_images.first.file.big_thumb.url, :width => 100 unless c.product_images.empty?
+    end
     column "Name", :sortable => :name do |c|
       link_to c.name, admin_product_path(c)
     end
@@ -10,7 +13,9 @@ ActiveAdmin.register Product do
       para c.description.truncate(100)
     end
     column :price
-
+    column :images do |c|
+      c.product_images.size || ''
+    end
     actions defaults: false do |c|
       link_to 'Edit', edit_admin_product_path(c)
     end
