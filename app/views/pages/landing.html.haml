@@ -41,76 +41,11 @@
             $('.morelink').hide()
             $('.extended').slideDown()
 
-=# render partial: 'product_list'
+= render partial: 'product_list' if params['preview'] == 'izdelki'
 = render partial: 'event_list'
 
 = render partial: 'services'
 
+= render partial: 'sponsors'
 
-
-
-%section.white-content.participants.sponsors{:style => 'background: #fff;'}
-  .section-heading
-    .container
-      .heading
-        %h2
-          .new-dim.new-dim-static
-            .text
-              Partnerji
-    
-  .container
-    .content
-
-      - if false
-        .partner-list.col_12.align_center
-          - partners = []
-          - @partners.each do |s|
-            - partner = link_to s.name, s.link
-            - partners.push partner
-          =raw partners.join ', '
-      
-      .col_10.push_col_1
-        %img{:src => "#{@partners.first.file.url}", :style => 'width: 100%;'}
-
-    - if false
-      .content
-        .heading
-          %h2
-            .new-dim.new-dim-static
-              .text
-                Sodelujoči
-
-%section.light-content.contacts
-  .section-heading
-    .container
-      .heading
-        %h2
-          .new-dim.new-dim-static
-            .text
-              Ekipa
-  .container
-    .content
-      .contact-list
-        - @contacts.each do |c|
-          .contact
-            %em= c.role
-            |
-            = link_to c.address, "mailto:#{c.address}"
-
-
-      .participant-list.align_center
-        - participants = []
-        - @participants.each do |p|
-          - if p.link.blank?
-            - participant = p.name
-          - else
-            - participant = link_to p.name, p.link
-          - participants.push participant
-        =raw participants.join ', '
-      %br
-      %br
-      %br
-      %br
-      %br
-
-
+= render partial: 'contacts'

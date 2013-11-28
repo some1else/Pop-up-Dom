@@ -1,0 +1,28 @@
+%section.light-content.contacts
+  .section-heading
+    .container
+      .heading
+        %h2
+          .new-dim.new-dim-static
+            .text
+              Ekipa
+  .container
+    .content
+      .contact-list
+        - @contacts.each do |c|
+          .contact
+            %em= c.role
+            |
+            = link_to c.address, "mailto:#{c.address}"
+
+
+      .participant-list.align_center
+        - participants = []
+        - @participants.each do |p|
+          - if p.link.blank?
+            - participant = p.name
+          - else
+            - participant = link_to p.name, p.link
+          - participants.push participant
+        =raw participants.join ', '
+

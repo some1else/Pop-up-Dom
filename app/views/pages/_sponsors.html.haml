@@ -1,0 +1,30 @@
+%section.white-content.participants.sponsors{:style => 'background: #fff;'}
+  .section-heading
+    .container
+      .heading
+        %h2
+          .new-dim.new-dim-static
+            .text
+              Partnerji
+    
+  .container
+    .content
+
+      - if false
+        .partner-list.col_12.align_center
+          - partners = []
+          - @partners.each do |s|
+            - partner = link_to s.name, s.link
+            - partners.push partner
+          =raw partners.join ', '
+      
+      .col_10.push_col_1
+        %img{:src => "#{@partners.first.file.url}", :style => 'width: 100%;'}
+
+    - if false
+      .content
+        .heading
+          %h2
+            .new-dim.new-dim-static
+              .text
+                Sodelujoči
