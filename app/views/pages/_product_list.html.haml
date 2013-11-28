@@ -1,4 +1,4 @@
-%section.black-content.products
+%section.dark-content.products
   .section-heading
     .container
       .heading
@@ -10,12 +10,9 @@
   .container
     .content      
       .product-list
+        - @products = @products.reject{ |p| p.product_images.empty? }
         - @products.each_with_index do |e, i|
-
-          .product.category-list
-            .cat.white-on-dark
-              = e.product_category.name
-              
+          .product              
             .insides
               - if e.product_images.size == 1
                 .pic-wrap
@@ -34,27 +31,35 @@
                       - else
                         = image_tag image.file.big_version, :style => 'width: 100%;', :class => 'rsImg'
 
-              .mainfo
-                %h3= e.name
-                %h4= link_to e.product_author.name, e.product_author.link
-
-
-              .description
-                != Markdown.new(e.description).to_html
-            
-            - if e.price and e.price > 0 and false
-              .buy
-                %a{:href => '#'}
-                  .new-dim.new-dim-interactive
-                    .text
-                      Kupi
-              .price
-                != "€&#8239;#{e.price.round}"
+/ Using royal slider on single image events for scaling purposes
+/ Replace this with less bloated solution
+:coffeescript
+  $ ->
+    $(".product .noSlider").royalSlider
+      # keyboardNavEnabled: true
+      # imageScaleMode: 'fit'
+      imageScaleMode: 'fill'
+      controlNavigation: 'none'
+      imageScalePadding: 0
+      arrowsNav: false
+      slidesSpacing: 0
+      # loop: true
+      # transitionType: 'slide'
+      # transitionSpeed: 250
+      background: 'transparent'
+      fadeinLoadedSlide: false
+      # fullscreen:
+      #   enabled: false
+      #   native: true 
+      autoPlay:
+        enabled: false
+        # delay: 4200
+        # pauseOnHover: true
 
 / Slider
 :coffeescript
   $ ->
-    $(".product .pic").royalSlider
+    $(".product .royalSlider").royalSlider
       keyboardNavEnabled: true
       # imageScaleMode: 'fit'
       imageScaleMode: 'fill'

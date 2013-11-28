@@ -85,16 +85,16 @@
 h1, h2, h3, h4, h5, h6
   +serif
 
-.royalSlider, .rsDefault, .rsDefault .rsOverflow, .rsDefault .rsSlide, .rsDefault .rsVideoFrameHolder, .rsDefault .rsThumbs
+.royalSlider, .rsDefault, .rsDefault .rsOverflow,
+.rsDefault .rsSlide, .rsDefault .rsVideoFrameHolder,
+.rsDefault .rsThumbs
   background: transparent
 
 a
   color: $primary
   text-decoration: underline
 html
-  // background: $white url(/img/graydient.png) repeat-x fixed
   background: $white
-  // background: $white
   color: $black
   background: $black
   color: $white
@@ -106,7 +106,6 @@ body
   // -webkit-font-smoothing: antialiased
   // font-smoothing: subpixel-antialiased
   // font-smoothing: subpixel-antialiased !important
-
 
   text-rendering: optimizeLegibility  
   margin: 0
@@ -291,35 +290,12 @@ header
 
 .dark-content, .light-content, .white-content, .black-content
   padding-bottom: 2em
-  // .heading
-  //   +row(12)
-    // margin-top: -28px
+
   h2
-    // margin-top: -28px
+
     @extend .capital-headers
-    // +col(12)
     
     +align(center)
-
-  // p.question, .contact
-  //   padding-left: 1em
-       
-  p.question
-    // +col(12)
-    margin-top: 2em
-    // .contact
-    //   // +row(12)
-    //   .email-address
-    //     // +col(6, tablet, screen, huge)
-    //     // +col(6, handheld)
-    //   .email-button
-    //     // +col(4, tablet, screen, huge)
-    //     // +col(6, handheld)
-    //     a
-    //       text-transform: uppercase
-    //       text-decoration: none
-    //       +bold
-    //       color: $black
 
   .regular-list
     margin-top: 0
@@ -445,6 +421,13 @@ header
     .pic
       border:
         bottom: 2px solid $black
+
+  .event:nth-child(2), .event:nth-child(3)
+    margin-top: 2em
+  .event:nth-child(3n+1)
+    margin-top: 5em
+    @media (max-width: 720px)
+      margin-top: 0
   .event
     margin-bottom: 1em
     h3, h4, h5, h6
@@ -537,19 +520,34 @@ header
   clear: both
 .products
   border-top: 2px solid $black
+  .product:nth-child(1)
+    margin-top: 2em
+  .product:nth-child(3n)
+    margin-top: 6em
+    @media (max-width: 720px)
+      margin-top: 0
   .product
-    +col(4, screen, huge)
-    +col(6, tablet) 
-    +col(12, handheld)
-    .image
-      background: $lightgray
+    +col(3, screen, huge)
+    +col(4, tablet) 
+    +col(6, handheld)
+    margin-bottom: 2em
+    @media (max-width: 720px)
       margin-bottom: 1em
-    .image-1
-      height: 200px
-    .image-3
-      height: 300px
-    .image-2
-      height: 400px
+    .pic-wrap
+    .pic
+      border: 2px solid $black
+      +width(3, screen, huge)
+      +height(4, screen, huge)
+      +width(4, tablet)
+      +height(6, tablet)
+      // +width(6, handheld)
+      @media (max-width: 720px)
+        width: 100%
+        height: 160px
+
+    .cat, .mainfo, .description
+      display: none
+
 .footer
   background-color: $darkgray
   text-align: center
@@ -559,6 +557,7 @@ header
 
 
 .contacts
+  padding-bottom: 7em
   .contact-list
     +row(12)
     .contact
