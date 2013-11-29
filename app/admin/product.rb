@@ -2,6 +2,14 @@ ActiveAdmin.register Product do
   config.filters = false
   config.paginate = false
 
+  controller do
+    def new
+      @product = Product.new
+      @new_image = @product.product_images.build
+      new!
+    end
+  end
+
   index do
     column do |c|
       image_tag c.product_images.first.file.big_thumb.url, :width => 100 unless c.product_images.empty?

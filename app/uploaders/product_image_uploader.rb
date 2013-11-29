@@ -35,7 +35,7 @@ class ProductImageUploader < CarrierWave::Uploader::Base
   end
 
   version :big_thumb, :if => :is_not_gif? do
-    process :resize_to_fill => [400,400]
+    process :resize_to_fit => [400,400]
   end
 
   # Process files as they are uploaded:

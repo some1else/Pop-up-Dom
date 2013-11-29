@@ -20,7 +20,7 @@
                     - if e.product_images.first.file.to_s.end_with? 'gif' or e.product_images.first.file.to_s.end_with? 'GIF'
                       = image_tag e.product_images.first.file, :style => 'width: 100%;', :class => 'rsImg'
                     - else
-                      = image_tag e.product_images.first.file.big_version, :style => 'width: 100%;', :class => 'rsImg'
+                      = image_tag e.product_images.first.file.big_thumb, :style => 'width: 100%;', :class => 'rsImg'
 
               - if e.product_images.size > 1
                 .pic-wrap
@@ -29,7 +29,7 @@
                       - if image.file.to_s.end_with? 'gif' or e.product_images.first.file.to_s.end_with? 'GIF'
                         = image_tag image.file, :style => 'width: 100%;', :class => 'rsImg'
                       - else
-                        = image_tag image.file.big_version, :style => 'width: 100%;', :class => 'rsImg'
+                        = image_tag image.file.big_thumb, :style => 'width: 100%;', :class => 'rsImg'
 
 / Using royal slider on single image events for scaling purposes
 / Replace this with less bloated solution
