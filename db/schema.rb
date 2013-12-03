@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131126223109) do
+ActiveRecord::Schema.define(version: 20131203160749) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 20131126223109) do
     t.string   "reservation_email_subject",                         default: ""
     t.boolean  "exposed",                                           default: false
     t.text     "additional_description",                            default: ""
+    t.string   "reservation_email_body"
   end
 
   add_index "events", ["event_category_id"], name: "index_events_on_event_category_id"

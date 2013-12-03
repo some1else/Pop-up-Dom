@@ -155,6 +155,7 @@ ActiveAdmin.register Event do
       f.input :open_for_reservation
       f.input :reservation_email, :label => 'Email address'
       f.input :reservation_email_subject, :label => 'Email subject'
+      f.input :reservation_email_body, :label => 'Email body'
       f.input :price
       f.input :exposed
 
