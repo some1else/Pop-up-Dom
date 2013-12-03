@@ -1,0 +1,51 @@
+%header.header
+  .container
+    .content
+      %h1
+        .logo Pop-up dom
+
+      %h2.first
+        .new-dim.new-dim-static
+          .text
+            %span 28.11.
+            %span.dash -
+            %span 23.12.
+      %h2
+        .new-dim.new-dim-static
+          .text
+            %span PON
+            %span.dash -
+            %span SOB
+            %span /
+            %span 8:00
+            %span.dash -
+            %span 22:00
+      %h3
+        .new-dim.new-dim-static
+          .text
+            Tobačna&#8239;5,&#8239;Ljubljana
+
+%section.whatis.white-on-dark
+  .container
+    .content
+      .succinct
+        %p Pop-up dom je enomesečni dogodek sodelovanja teorije in prakse. Predstavlja prodajno razstavo produktov slovenskih ustvarjalcev ter sodobno pisarno namenjeno skupnemu delu, povezovanju in sodelovanju.
+      .morelink
+        %p
+          %a{:href => '#'} Več
+        
+      .extended{:style => 'display: none;'}
+        %p Po uspešni lanskoletni izvedbi istoimenskega projekta, Pop-up Dom ponovno odpira svoja vrata. V letošnjem letu na 800 m2 v prvem nadstropju Tobačne ulice 5 obljublja še bolj pestro dogajanje ter hkrati enomesečno trgovino z več kot 100 oblikovalskimi izdelki 60 mladih ustvarjalcev. Letošnja rdeča nit projekta je »coworking« (skupinski delovni prostor), tako bo prostor od ponedeljka do sobote med 8. in 20. uro na voljo samostojno delujočim posameznikom vse do 23. decembra.
+
+        %p Pop-up dom je skupnostni projekt, osnovan na pobudi mladih slovenskih oblikovalcev, arhitektov in umetnikov. Iniciativa se je zgodila zaradi pomanjkanja delovnih priložnosti prav te skupine ljudi. S skupnostnim projektom, ki ga letos ustvarjamo drugič, želimo tudi v prihodnje ustvariti nove poslovne in delovne priložnosti.
+
+        %p V oblikovanem prostoru skupnosti bomo v okolju 1:1 izpostavili in uporabljali več kot 100 oblikovalskih izdelkov, vsebina projekta pa je naravnana v podporo izdelkov. Prostor bo ves čas dogodka odprt kot delovno mesto za samostojne delujoče posameznike in za tiste, ki delajo na dislocirani lokaciji. Omogočal bo sodelovanje in povezovanje ter pridobivanje novih znanj. V sklopu projekta bo vzpostavljen kreativni del poslovne verige, ki bo posameznikom omogočila razvoj in realizacijo produktov - Pop-up Fablab, Creative lab in Crowdfunding lab. Skupnostne vrednote, raziskovanje novih trendov in nove ustvarjalne ekonomije predstavljajo možnost, da se Slovenija izvije iz ekonomskega krča, ki ga je ustvarila globalna gospodarska kriza
+
+        %p Organizator dogodka je Zavod Rompom v sodelovanju z Muzejem za arhitekturo in oblikovanje (MAO). Projekt je podprlo Ministrstvo za kulturo in Regionalna razvojna agencija Ljubljana v okviru Regionalnega centra kreativne ekonomije. Vsebinski partnerji dogodka so Slovenia Coworking, Slovenia Crowdfounding, Kino Šiška, Muslauf, Zavod Boben in Lajna ter Kino Otok.
+        
+        :coffeescript
+          $('.morelink').click (e) ->
+            # $('.extended').show()
+            # ext_height = $('.extended').height()
+            $('.morelink').hide()
+            $('.extended').slideDown()
