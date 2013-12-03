@@ -108,7 +108,8 @@
             - if e.open_for_reservation?
               .buy
                 - subject = (e.reservation_email_subject.empty?) ? e.name : e.reservation_email_subject
-                = link_to "mailto:#{e.reservation_email}?subject=Rezervacija: #{subject}&body=Želim karto za Pop-up dom dogodek dogodek #{e.name}" do
+                - body = (e.reservation_email_body.blank?) ? "Želim karto za Pop-up dom dogodek #{e.name}" : e.reservation_email_body
+                = link_to "mailto:#{e.reservation_email}?subject=Rezervacija: #{subject}&body=#{body}" do
                   .new-dim.new-dim-interactive
                     .text
                       Rezerviraj
