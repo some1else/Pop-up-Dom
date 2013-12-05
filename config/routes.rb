@@ -1,12 +1,8 @@
 Popupdom::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  # config/routes.rb
-  scope "(:locale)", locale: /en|sl/ do
-    # resources :books
-    root :to => 'pages#landing'
-
-  end
+  
+  root :to => 'pages#landing'
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
