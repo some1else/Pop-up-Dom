@@ -7,12 +7,11 @@ class Event < ActiveRecord::Base
   has_many :event_images
   accepts_nested_attributes_for :event_images, reject_if: lambda {|attributes| attributes['file'].blank?}, allow_destroy: true
 
-  validates_presence_of :name, :description, :begins_at
+  validates_presence_of :name_sl, :description_sl, :begins_at
 
   validates_associated :event_occurances
 
   has_one :next_occurance, lambda { where("event_occurances.begins_at > ?", Time.now) }, class_name: "EventOccurance"
-
 
   attr_accessor :first_or_next_occurance
 

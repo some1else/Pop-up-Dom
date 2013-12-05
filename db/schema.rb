@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131203161718) do
+ActiveRecord::Schema.define(version: 20131205193125) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -84,8 +84,8 @@ ActiveRecord::Schema.define(version: 20131203161718) do
   add_index "event_occurances", ["event_id"], name: "index_event_occurances_on_event_id"
 
   create_table "events", force: true do |t|
-    t.string   "name"
-    t.text     "description"
+    t.string   "name_sl"
+    t.text     "description_sl"
     t.integer  "event_category_id"
     t.datetime "begins_at"
     t.decimal  "price",                     precision: 5, scale: 2
@@ -96,8 +96,11 @@ ActiveRecord::Schema.define(version: 20131203161718) do
     t.string   "reservation_email",                                 default: "info@popupdom.si"
     t.string   "reservation_email_subject",                         default: ""
     t.boolean  "exposed",                                           default: false
-    t.text     "additional_description",                            default: ""
+    t.text     "additional_description_sl",                         default: ""
     t.string   "reservation_email_body",                            default: ""
+    t.string   "name_en"
+    t.text     "description_en"
+    t.text     "additional_description_en",                         default: ""
   end
 
   add_index "events", ["event_category_id"], name: "index_events_on_event_category_id"

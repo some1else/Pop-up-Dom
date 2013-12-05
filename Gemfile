@@ -33,7 +33,10 @@ gem 'jquery-fileupload-rails'
 
 # gem 'activeadmin'
 gem 'activeadmin', github: 'gregbell/active_admin'
-  # gem "meta_search"
+
+# gem 'globalize', '~> 4.0.0.alpha.2'
+# gem 'ActiveAdmin-Globalize3-inputs'
+# gem "meta_search"
 
 gem 'redcarpet'
 # gem 'rabl'

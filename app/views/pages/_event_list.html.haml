@@ -54,7 +54,7 @@
                         - else
                           = image_tag image.file.big_thumb, :style => 'width: 100%;', :class => 'rsImg'
               .mainfo
-                %h3= e.name
+                %h3= my_t e, :name
                 - if e.event_occurances.empty?
                   - occurances = [e.event_occurances.build(:begins_at => e.begins_at)]
                 - else
@@ -97,18 +97,18 @@
 
 
               .description
-                != Markdown.new(e.description).to_html
+                != Markdown.new(my_t(e, :description)).to_html
 
-                - if e.additional_description.size > 0
+                - if my_t(e, :additional_description).size > 0
                   %a.additional_button{:href => '#'}
                     Več
                   .additional_description{:style => 'display: none'}
-                    != Markdown.new(e.additional_description).to_html
+                    != Markdown.new(my_t(e, :additional_description)).to_html
             
             - if e.open_for_reservation?
               .buy
-                - subject = (e.reservation_email_subject.empty?) ? e.name : e.reservation_email_subject
-                - body = (e.reservation_email_body.blank?) ? "Želim karto za Pop-up dom dogodek #{e.name}" : e.reservation_email_body
+                - subject = (e.reservation_email_subject.empty?) ? my_t(e, :name) : e.reservation_email_subject
+                - body = (e.reservation_email_body.blank?) ? "Želim karto za Pop-up dom dogodek #{my_t e, :name}" : e.reservation_email_body
                 = link_to "mailto:#{e.reservation_email}?subject=Rezervacija: #{subject}&body=#{body}" do
                   .new-dim.new-dim-interactive
                     .text

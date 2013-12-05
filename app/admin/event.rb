@@ -1,4 +1,7 @@
+include ActiveAdminHelpers
+
 ActiveAdmin.register Event do
+
   config.filters = false
   config.paginate = false
 
@@ -30,7 +33,7 @@ ActiveAdmin.register Event do
     end
 
     def permitted_params
-      params.permit(:name, :description, :begins_at, :price, :tickets, :event_occurances_attributes => [:begins_at, :ends_at, :duration_important], :event_images_attributes => [:position, :_destroy, :file])
+      params.permit(:name, :description, :begins_at, :price, :tickets, :event_translation, :locale, :translations_attributes, :event_occurances_attributes => [:begins_at, :ends_at, :duration_important], :event_images_attributes => [:position, :_destroy, :file])
     end
 
     def proxy_begins_at_attribute
@@ -48,10 +51,10 @@ ActiveAdmin.register Event do
 
   index do
     column "Name", :sortable => :name do |c|
-      link_to c.name, admin_event_path(c)
+      link_to my_t(c, :name), admin_event_path(c)
     end
     column :description do |c|
-      c.description.truncate(100)
+      my_t(c, :description).truncate(100)
     end
     column :begins_at
     column :occurances do |c|
@@ -78,8 +81,12 @@ ActiveAdmin.register Event do
 
   show do |event|
     attributes_table do
-      row :name
-      row :description
+      row :name do
+        my_t(event, :name)
+      end
+      row :description do
+        my_t(event, :description)
+      end
       row :event_category do
         event.event_category.name
       end
@@ -148,9 +155,13 @@ ActiveAdmin.register Event do
 
   form do |f|
     f.inputs "Info" do
-      f.input :name
-      f.input :description
-      f.input :additional_description
+      f.input :name_sl
+      f.input :name_en
+      f.input :description_sl
+      f.input :description_en
+      f.input :additional_description_sl
+      f.input :additional_description_en
+
       f.input :event_category_id, :as => :select, :collection => EventCategory.all.map {|c| [c.name, c.id]}, :include_blank => false
       f.input :open_for_reservation
       f.input :reservation_email, :label => 'Email address'
