@@ -23,7 +23,7 @@
 
           .event.category-list{:class => "#{class_name}"}
             .cat.white-on-dark
-              = e.event_category.name
+              = my_t e.event_category, :name
               
             .insides
               - if e.event_images.size == 1
