@@ -88,7 +88,7 @@ ActiveAdmin.register Event do
         my_t(event, :description)
       end
       row :event_category do
-        event.event_category.name
+        my_t event.event_category, :name
       end
       row :open_for_reservation
       row 'Email' do
