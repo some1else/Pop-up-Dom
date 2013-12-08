@@ -5,7 +5,17 @@
         %h2
           .new-dim.new-dim-static
             .text
-              Dogodki
+              = t 'events.title'
+
+          / %a{:href => "#", "data-filter" => 'all'}
+          /   %span.new-dim.new-dim-interactive
+          /     %span.text
+          /       = t 'events.all_events'
+
+          / %a{:href => "#", "data-filter" => 'future'}
+          /   %span.new-dim.new-dim-interactive
+          /     %span.text
+          /       = t 'events.upcoming_events'
 
   .container
     .content      

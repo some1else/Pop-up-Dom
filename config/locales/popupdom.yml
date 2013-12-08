@@ -1,0 +1,80 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  about:
+    short: "Pop-up dom is a one-month collaboration between theory and practice. It presents an exhibition sale of slovenian creator's products, as well as a modern office intended for team-work, connection, collaboration. "
+    more: "More"
+    long:
+      |
+      Pop-up dom is a community project based on the initiative of young Slovenian designers, architects and artists. The initiative has occurred due to a lack of job opportunities for young Slovenian creative. With the community project Pop-up dom, which we present for the second time, we want to generate new business and employment opportunities.
+
+      For the period of one month, an abandoned office in former tobacco factory in the city centre of Ljubljana is transformed into a showroom of designer furniture and products. More than 100 authors are co-creating a coworking area, where young professionals from different backgrounds work together and connect in informal way. More than 260 products are temporary on sale – you can buy the chair you sit on, or the coffee mug you drink from.
+
+      Join various workshops such as Pop-up Fablab, Creative Lab, Crowdfunding Lab, or get some proper advice in accounting, legal and architectural consultancies. A wide range of quality lectures and cultural events will be performed. Webpage is keeping you informed - join us or simply drop by to work.
+
+  events:
+    title: "Events"
+    all_events: 'All Events'
+    upcoming_events: 'Upcoming Events'
+
+  services:
+    title: "Services"
+
+  partners:
+    title: "Partners"
+
+  team:
+    title: "Team"
+
+sl:
+  about:
+    short: "Pop-up dom je enomesečni dogodek sodelovanja teorije in prakse. Predstavlja prodajno razstavo produktov slovenskih ustvarjalcev ter sodobno pisarno namenjeno skupnemu delu, povezovanju in sodelovanju."
+    more: "Več"
+    long:
+      |
+      Po uspešni lanskoletni izvedbi istoimenskega projekta, Pop-up Dom ponovno odpira svoja vrata. V letošnjem letu na 800 m2 v prvem nadstropju Tobačne ulice 5 obljublja še bolj pestro dogajanje ter hkrati enomesečno trgovino z več kot 100 oblikovalskimi izdelki 60 mladih ustvarjalcev. Letošnja rdeča nit projekta je »coworking« (skupinski delovni prostor), tako bo prostor od ponedeljka do sobote med 8. in 20. uro na voljo samostojno delujočim posameznikom vse do 23. decembra.
+
+      Pop-up dom je skupnostni projekt, osnovan na pobudi mladih slovenskih oblikovalcev, arhitektov in umetnikov. Iniciativa se je zgodila zaradi pomanjkanja delovnih priložnosti prav te skupine ljudi. S skupnostnim projektom, ki ga letos ustvarjamo drugič, želimo tudi v prihodnje ustvariti nove poslovne in delovne priložnosti.
+
+      V oblikovanem prostoru skupnosti bomo v okolju 1:1 izpostavili in uporabljali več kot 100 oblikovalskih izdelkov, vsebina projekta pa je naravnana v podporo izdelkov. Prostor bo ves čas dogodka odprt kot delovno mesto za samostojne delujoče posameznike in za tiste, ki delajo na dislocirani lokaciji. Omogočal bo sodelovanje in povezovanje ter pridobivanje novih znanj. V sklopu projekta bo vzpostavljen kreativni del poslovne verige, ki bo posameznikom omogočila razvoj in realizacijo produktov - Pop-up Fablab, Creative lab in Crowdfunding lab. Skupnostne vrednote, raziskovanje novih trendov in nove ustvarjalne ekonomije predstavljajo možnost, da se Slovenija izvije iz ekonomskega krča, ki ga je ustvarila globalna gospodarska kriza
+
+      Organizator dogodka je Zavod Rompom v sodelovanju z Muzejem za arhitekturo in oblikovanje (MAO). Projekt je podprlo Ministrstvo za kulturo in Regionalna razvojna agencija Ljubljana v okviru Regionalnega centra kreativne ekonomije. Vsebinski partnerji dogodka so Slovenia Coworking, Slovenia Crowdfounding, Kino Šiška, Muslauf, Zavod Boben in Lajna ter Kino Otok.
+
+  events:
+    title: "Dogodki"
+    all_events: 'Vsi dogodki'
+    upcoming_events: 'Prihodnji dogodki'
+
+  services:
+    title: "Storitve"
+    intro: "Sistematiziramo storitve, ki učinkovito komunicirajo in prodajo vašo idejo, izdelke ali storitve. Skupnostne vrednote, raziskovanje novih trendov in nove ustvarjalne ekonomije predstavljajo možnost, da se Slovenija zopet postavi na noge. Start-up dom zato vzpostavlja kreativni proces, v katerem bodo v času projekta vključene tri samostojno delujoče enote - te bodo posamezniku ali ekipi omogočile zasnovo, razvoj ter realizacijo produktov in storitev."
+    crowdfunding: "Iniciativa Crowdfunding.si si prizadeva za razvoj in krepitev kulture množičnega financiranja v Sloveniji. V okviru Pop-up doma bomo vzpostavili začasni laboratorij in kreativno skupnost aktivno vključili v razvoj novih crowdfunding projektov ter na primerih iz prakse svetovali o pripravi in izvedbi kampanj."
+    creative: "Creative Lab sestavljajo posamezniki, ki radi rešujejo probleme. Prihajajo iz ustvarjalnega segmenta družbe, katere temeljne vrednote so deljenje znanja, odgovorna komunikacija in trajnostni razvoj. Pri projektih se za dosego zastavljenih ciljev poglobijo v ključne dejavnosti, poslovne načrte in namere. Izboljšujejo izkušnje, komunikacije in odnose v delovnih okoljih in tako dodajo vrednost, ki je nujno potrebna za uspeh v družbi in na tržišču."
+    fablab: "FabLab (fabrication lab) je s sodobnimi kreativnimi tehnologijami opremljena delavnica, ki omogoča posameznikom pretvoriti ideje ter koncepte v realnost. S poudarkom na uporabi 3d-tiskalnika slovenske izdelave, se bo izdelovalo prototipe, po principu naredi-si-sam predelovalo in izdelovalo pametne elektronske naprave, gradilo sisteme za domačo pridelavo hrane ter soustvarjalo neprofitne projekte v svetovni odprto-kodni open-hardware skupnosti. Fab-labi dokazujejo, da se lokalne probleme bolj učinkovito rešuje z lokalno proizvodnjo."
+    coworking: "Letošnja rdeča nit projekta je vzpostavitev skupnega delovnega prostora, ki omogoča medsebojno povezovanje, tkanje socialnih mrež in zvišuje proces ustvarjalnosti pri posameznikih. Tekom projekta Pop-up dom se lahko aktivno - brez predhodne najave ali prijave - od ponedeljka do sobote med 8.00 in 20.00 vključiš v hitro rastočo domačo kreativno skupnost in prostore Pop-up doma uporabljaš kot svoje delovno mesto. Pomni - coworking prinaša uporabnikom možnost izmenjave znanja in sodelovanja pri projektih. Predvsem pa ustvarja vse pogoje za nastajanje in razvoj poslovnih idej ter posledičnega generiranja novih poslovnih priložnosti."
+    bar: "Za vsakodnevno dobro počutje in umiritev delovnih strasti bo poskrbel Pop-up točaj, ki bo dnevno pripravljal dišečo slovensko kavo, točil domače pivo Pelicon in ponudil okusne prigrizke. Ker so zadovoljne brbončice in pozitivni miselni procesi na prvem mestu!"
+ 
+  partners:
+    title: "Partnerji"
+
+  team:
+    title: "Ekipa"

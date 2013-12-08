@@ -5,7 +5,7 @@
         %h2
           .new-dim.new-dim-static
             .text
-              Partnerji
+              = t 'partners.title'
     
   .container
     .content
@@ -21,10 +21,3 @@
       .col_10.push_col_1
         %img{:src => "#{@partners.first.file.url}", :style => 'width: 100%;'}
 
-    - if false
-      .content
-        .heading
-          %h2
-            .new-dim.new-dim-static
-              .text
-                Sodelujoči

@@ -5,13 +5,13 @@
         %h2
           .new-dim.new-dim-static
             .text
-              Ekipa
+              = t 'team.title'
   .container
     .content
       .contact-list
         - @contacts.each do |c|
           .contact
-            %em= c.role
+            %em= my_t c, :role
             |
             = link_to c.address, "mailto:#{c.address}"
 
