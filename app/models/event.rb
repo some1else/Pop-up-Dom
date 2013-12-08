@@ -15,6 +15,14 @@ class Event < ActiveRecord::Base
 
   attr_accessor :first_or_next_occurance
 
+  def has_future_occurances?
+    if @first_or_next_occurance.begins_at > Time.now
+      true
+    else
+      false
+    end
+  end
+
   def first_or_next_occurance
     unless @first_or_next_occurance.blank?
       @first_or_next_occurance

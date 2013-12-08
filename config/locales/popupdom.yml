@@ -35,6 +35,7 @@ en:
     title: "Events"
     all_events: 'All Events'
     upcoming_events: 'Upcoming Events'
+    past_events: 'Past'
 
   services:
     title: "Services"
@@ -63,6 +64,7 @@ sl:
     title: "Dogodki"
     all_events: 'Vsi dogodki'
     upcoming_events: 'Prihodnji dogodki'
+    past_events: 'Pretekli'
 
   services:
     title: "Storitve"

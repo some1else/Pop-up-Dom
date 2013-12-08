@@ -16,5 +16,6 @@
 //= require new-dim
 //= require lib/imagesloaded.pkgd.js
 //= require lib/packery.min
+// require lib/jquery.isotope.min
 // require turbolinks
 // require_tree .

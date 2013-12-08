@@ -7,10 +7,10 @@
             .text
               = t 'events.title'
 
-          / %a{:href => "#", "data-filter" => 'all'}
-          /   %span.new-dim.new-dim-interactive
-          /     %span.text
-          /       = t 'events.all_events'
+          %a.show-past-events{:href => "#", "data-filter" => 'all'}
+            %span.new-dim.new-dim-interactive
+              %span.text
+                = t 'events.past_events'
 
           / %a{:href => "#", "data-filter" => 'future'}
           /   %span.new-dim.new-dim-interactive
@@ -24,12 +24,17 @@
         - @events.each_with_index do |e, i|
           - class_name = ''
           - if e.exposed?
-            - class_name += 'exposed'
+            - class_name += 'exposed '
           - else
-            - class_name += 'not-exposed'
+            - class_name += 'not-exposed '
 
           - if e.open_for_reservation?
-            - class_name += ' reservation-enabled'
+            - class_name += 'reservation-enabled '
+
+          - if e.has_future_occurances?
+            - class_name += 'future '
+          - else
+            - class_name += 'past '
 
           .event.category-list{:class => "#{class_name}"}
             .cat.white-on-dark
@@ -121,8 +126,9 @@
                 - body = (e.reservation_email_body.blank?) ? "Želim karto za Pop-up dom dogodek #{my_t e, :name}" : e.reservation_email_body
                 = link_to "mailto:#{e.reservation_email}?subject=Rezervacija: #{subject}&body=#{body}" do
                   .new-dim.new-dim-interactive
-                    .text
-                      Rezerviraj
+                    .text-wrap
+                      .text
+                        Rezerviraj
               - unless e.price.blank?
                 .price
                   != "€&#8239;#{e.price.try(:round)}"
@@ -130,8 +136,9 @@
               .buy
                 %a{:href => '#'}
                   .new-dim.new-dim-interactive
-                    .text
-                      Kupi&#8239;karte
+                    .text-wrap
+                      .text
+                        Kupi&#8239;karte
               .price
                 != "€&#8239;#{e.price.round}"
 
@@ -211,18 +218,34 @@
 / Layout and interaction
 :coffeescript
   $ ->
+    $('.event-list .past').hide()
     eventPack = new Packery($('.event-list').get(0), {itemSelector: '.event'})
+    # eventPack = $('.event-list').isotope({itemSelector: '.event', filter: '.future'})
+  
     $('.event-list').imagesLoaded ->
       eventPack.layout()
+      # $('.event-list').isotope('reLayout') 
 
     $('.additional_button').click (e) ->
       e.preventDefault()
       $('.additional_button').hide()
       $('.additional_description').show()
       eventPack.layout()
+      # $('.event-list').isotope('reLayout')
 
     $('.buy a').mousedown (e) ->
       doit = ->
         e.currentTarget.click()
 
-      setTimeout doit, 300
+      setTimeout doit, 60
+
+
+
+    $('a.show-past-events').mousedown (e) ->
+      $(e.currentTarget).css('position', 'absolute')
+      doit = ->
+        e.currentTarget.remove()
+        $('.event-list .past').show()
+        eventPack.layout()
+
+      setTimeout doit, 60
