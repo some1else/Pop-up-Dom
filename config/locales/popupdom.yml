@@ -39,6 +39,10 @@ en:
 
   services:
     title: "Services"
+    proces_img: "proces_en.png"
+    crowdfunding: 'Crowdfunding.si initiative seeks to develop and strengthen the crowdfunding culture in Slovenia. Within the Pop-up dom, we will establish a temporary laboratory and creative community. We will be actively involved in the development of new crowdfunding projects - from the preparation to the execution of campaigns.'
+    creative: "We’re coming from the creative segment of society whose fundamental values ​​are sharing knowledge, responsible communication and sustainable development. To achieve the objectives, we look into key activities, business plans and people's intentions. We improve the experience of communication and relationships in the workplace and thus add value, which is essential for success in society and in the marketplace."
+    fablab_img: "fablab_en.png"
 
   partners:
     title: "Partners"
@@ -68,10 +72,12 @@ sl:
 
   services:
     title: "Storitve"
+    proces_img: "proces_sl.png"
     intro: "Sistematiziramo storitve, ki učinkovito komunicirajo in prodajo vašo idejo, izdelke ali storitve. Skupnostne vrednote, raziskovanje novih trendov in nove ustvarjalne ekonomije predstavljajo možnost, da se Slovenija zopet postavi na noge. Start-up dom zato vzpostavlja kreativni proces, v katerem bodo v času projekta vključene tri samostojno delujoče enote - te bodo posamezniku ali ekipi omogočile zasnovo, razvoj ter realizacijo produktov in storitev."
     crowdfunding: "Iniciativa Crowdfunding.si si prizadeva za razvoj in krepitev kulture množičnega financiranja v Sloveniji. V okviru Pop-up doma bomo vzpostavili začasni laboratorij in kreativno skupnost aktivno vključili v razvoj novih crowdfunding projektov ter na primerih iz prakse svetovali o pripravi in izvedbi kampanj."
     creative: "Creative Lab sestavljajo posamezniki, ki radi rešujejo probleme. Prihajajo iz ustvarjalnega segmenta družbe, katere temeljne vrednote so deljenje znanja, odgovorna komunikacija in trajnostni razvoj. Pri projektih se za dosego zastavljenih ciljev poglobijo v ključne dejavnosti, poslovne načrte in namere. Izboljšujejo izkušnje, komunikacije in odnose v delovnih okoljih in tako dodajo vrednost, ki je nujno potrebna za uspeh v družbi in na tržišču."
     fablab: "FabLab (fabrication lab) je s sodobnimi kreativnimi tehnologijami opremljena delavnica, ki omogoča posameznikom pretvoriti ideje ter koncepte v realnost. S poudarkom na uporabi 3d-tiskalnika slovenske izdelave, se bo izdelovalo prototipe, po principu naredi-si-sam predelovalo in izdelovalo pametne elektronske naprave, gradilo sisteme za domačo pridelavo hrane ter soustvarjalo neprofitne projekte v svetovni odprto-kodni open-hardware skupnosti. Fab-labi dokazujejo, da se lokalne probleme bolj učinkovito rešuje z lokalno proizvodnjo."
+    fablab_img: "fablab_sl.png"
     coworking: "Letošnja rdeča nit projekta je vzpostavitev skupnega delovnega prostora, ki omogoča medsebojno povezovanje, tkanje socialnih mrež in zvišuje proces ustvarjalnosti pri posameznikih. Tekom projekta Pop-up dom se lahko aktivno - brez predhodne najave ali prijave - od ponedeljka do sobote med 8.00 in 20.00 vključiš v hitro rastočo domačo kreativno skupnost in prostore Pop-up doma uporabljaš kot svoje delovno mesto. Pomni - coworking prinaša uporabnikom možnost izmenjave znanja in sodelovanja pri projektih. Predvsem pa ustvarja vse pogoje za nastajanje in razvoj poslovnih idej ter posledičnega generiranja novih poslovnih priložnosti."
     bar: "Za vsakodnevno dobro počutje in umiritev delovnih strasti bo poskrbel Pop-up točaj, ki bo dnevno pripravljal dišečo slovensko kavo, točil domače pivo Pelicon in ponudil okusne prigrizke. Ker so zadovoljne brbončice in pozitivni miselni procesi na prvem mestu!"
  
