@@ -111,7 +111,12 @@
                     - if occurance.duration_important?
                       = (occurance.begins_at.strftime "%-d.%-m.%y %-H:%M") + (occurance.ends_at.strftime "-%-H:%M")
                     - else
-                      = occurance.begins_at.strftime "%-d.%-m.%y ob %-H:%M"
+                      = occurance.begins_at.strftime "%-d.%-m.%y"
+                      - if I18n.locale == :en
+                        at
+                      - else
+                        ob
+                      = occurance.begins_at.strftime "%-H:%M"
 
 
               .description
