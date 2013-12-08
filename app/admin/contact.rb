@@ -6,7 +6,9 @@ ActiveAdmin.register Contact do
     column "Name", :sortable => :name do |c|
       link_to c.name, admin_contact_path(c)
     end
-    column :role
+    column :role do |c|
+      my_t c, :role
+    end
     column :address
     column :number
     actions defaults: false do |c|
