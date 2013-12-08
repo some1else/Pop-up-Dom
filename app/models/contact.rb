@@ -3,5 +3,5 @@ class Contact < ActiveRecord::Base
 
   default_scope { order('position ASC') }
 
-  validates_presence_of :role, :address 
+  validates_presence_of :role_sl, :address 
 end

@@ -18,4 +18,27 @@ ActiveAdmin.register Contact do
       link_to 'Delete', admin_contact_path(c), :method => 'delete'
     end
   end
+
+  form do |f|
+    f.inputs do
+      f.input :name
+      f.input :role_sl
+      f.input :role_en
+      f.input :address
+      f.input :number
+      f.input :position
+    end
+    f.actions
+  end
+
+  show do |contact|
+    attributes_table do
+      row :name
+      row :role do
+        my_t(contact, :role)
+      end
+      row :address 
+      row :number
+    end
+  end
 end
