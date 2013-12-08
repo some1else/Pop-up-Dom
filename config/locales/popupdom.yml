@@ -40,9 +40,14 @@ en:
   services:
     title: "Services"
     proces_img: "proces_en.png"
+    intro: "We are systematizing services that effectively communicate and sell your ideas, products or services. Community values, exploring new trends and new creative economy present an opportunity for Slovenia. Start-up dom establishes a creative process in which three independent units will help you design, develop and implement new products and services."
     crowdfunding: 'Crowdfunding.si initiative seeks to develop and strengthen the crowdfunding culture in Slovenia. Within the Pop-up dom, we will establish a temporary laboratory and creative community. We will be actively involved in the development of new crowdfunding projects - from the preparation to the execution of campaigns.'
     creative: "We’re coming from the creative segment of society whose fundamental values ​​are sharing knowledge, responsible communication and sustainable development. To achieve the objectives, we look into key activities, business plans and people's intentions. We improve the experience of communication and relationships in the workplace and thus add value, which is essential for success in society and in the marketplace."
+    coworking: "This year's main theme of the project is establishing a common workspace which allows the interconnection of social networks and increases the process of creativity. During the project Pop-up dom, you can show up without prior notice or application from Monday to Saturday between 8.00 and 20.00. Get involved in the rapidly growing local creative community and places Pop-up dom use as its workplace. Remember; coworking brings users the option of sharing knowledge and collaborating on projects. Above all, it creates the conditions for the creation and development of business ideas and results new business opportunities."
+    fablab: "FabLab (Fabrication Lab) is a modern creative technology equipped workshop. It enables individuals to convert ideas and concepts into reality. We will be manufacturing prototypes using a 3D printer made in Slovenia. The do-it-yourself processes, manufactures of smart electronic devices and building systems for home food production are just some of the FabLab ideas. The result will create non-profit projects in the global open-source and open-hardware community. Fab-labs show that local problems can be solved more efficiently by local production."
     fablab_img: "fablab_en.png"
+    bar: "Let the Pop-up bar prepare you a fresh cup of coffee or pour you a homemade beer served with some tasty snacks."
+    bar_img: 'popupbar_en.png'
 
   partners:
     title: "Partners"
@@ -80,7 +85,7 @@ sl:
     fablab_img: "fablab_sl.png"
     coworking: "Letošnja rdeča nit projekta je vzpostavitev skupnega delovnega prostora, ki omogoča medsebojno povezovanje, tkanje socialnih mrež in zvišuje proces ustvarjalnosti pri posameznikih. Tekom projekta Pop-up dom se lahko aktivno - brez predhodne najave ali prijave - od ponedeljka do sobote med 8.00 in 20.00 vključiš v hitro rastočo domačo kreativno skupnost in prostore Pop-up doma uporabljaš kot svoje delovno mesto. Pomni - coworking prinaša uporabnikom možnost izmenjave znanja in sodelovanja pri projektih. Predvsem pa ustvarja vse pogoje za nastajanje in razvoj poslovnih idej ter posledičnega generiranja novih poslovnih priložnosti."
     bar: "Za vsakodnevno dobro počutje in umiritev delovnih strasti bo poskrbel Pop-up točaj, ki bo dnevno pripravljal dišečo slovensko kavo, točil domače pivo Pelicon in ponudil okusne prigrizke. Ker so zadovoljne brbončice in pozitivni miselni procesi na prvem mestu!"
- 
+    bar_img: 'popupbar_sl.png'
   partners:
     title: "Partnerji"
 
