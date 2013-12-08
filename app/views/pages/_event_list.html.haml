@@ -234,15 +234,17 @@
       # $('.event-list').isotope('reLayout')
 
     $('.buy a').mousedown (e) ->
+      $(e.currentTarget).off('mousedown')
+      $(e.currentTarget).addClass('active')
       doit = ->
         e.currentTarget.click()
-
-      setTimeout doit, 60
+      setTimeout doit, 200
 
 
 
     $('a.show-past-events').mousedown (e) ->
       $(e.currentTarget).css('position', 'absolute')
+      $(e.currentTarget).addClass('active')
       doit = ->
         e.currentTarget.remove()
         $('.event-list .past').show()

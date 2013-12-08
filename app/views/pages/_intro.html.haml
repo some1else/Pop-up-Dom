@@ -76,6 +76,7 @@
 
 :coffeescript
   $('.locales a').mousedown (e) ->
+    $(e.currentTarget).addClass('active')
     doit = ->
       e.currentTarget.click()
 
