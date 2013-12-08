@@ -83,27 +83,30 @@
                     - class_name = 'upcoming'
 
                   %h4{:class => class_name}
-                    - case occurance.begins_at.strftime "%A"
-                      - when "Monday"
-                        Ponedeljek,
-                        
-                      - when "Tuesday"
-                        Torek,
-                        
-                      - when "Wednesday"
-                        Sreda,
-                        
-                      - when "Thursday"
-                        Četrtek,
-                        
-                      - when "Friday"
-                        Petek,
+                    - if I18n.locale == :en
+                      = occurance.begins_at.strftime "%A,"
+                    - else
+                      - case occurance.begins_at.strftime "%A"
+                        - when "Monday"
+                          Ponedeljek,
+                          
+                        - when "Tuesday"
+                          Torek,
+                          
+                        - when "Wednesday"
+                          Sreda,
+                          
+                        - when "Thursday"
+                          Četrtek,
+                          
+                        - when "Friday"
+                          Petek,
 
-                      - when "Saturday"
-                        Sobota,
+                        - when "Saturday"
+                          Sobota,
 
-                      - when "Sunday"
-                        Nedelja,
+                        - when "Sunday"
+                          Nedelja,
                     
                     - if occurance.duration_important?
                       = (occurance.begins_at.strftime "%-d.%-m.%y %-H:%M") + (occurance.ends_at.strftime "-%-H:%M")
