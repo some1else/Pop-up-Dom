@@ -116,7 +116,7 @@
 
                 - if my_t(e, :additional_description).size > 0
                   %a.additional_button{:href => '#'}
-                    Več
+                    = t 'events.more'
                   .additional_description{:style => 'display: none'}
                     != Markdown.new(my_t(e, :additional_description)).to_html
             
@@ -128,7 +128,7 @@
                   .new-dim.new-dim-interactive
                     .text-wrap
                       .text
-                        Rezerviraj
+                        = t 'events.reserve'
               - unless e.price.blank?
                 .price
                   != "€&#8239;#{e.price.try(:round)}"
