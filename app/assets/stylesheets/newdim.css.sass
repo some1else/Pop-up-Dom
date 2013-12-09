@@ -13,21 +13,6 @@ $adark: $black
 $b: 2px
 $bcolor: $black
 
-.three-dee-test
-  background: gray !important
-
-.new-dim-static
-  .text
-    color: $black
-    background: $white
-    
-.new-dim-interactive
-  .text
-    color: $white
-    background: $red
-  .text:hover
-    color: $black
-
 .new-dim
   position: relative
   display: inline-block
@@ -108,3 +93,16 @@ a:active, .active
 
     .top-right, .right, .bottom-right, .bottom, .bottom-left
       display: none
+
+.new-dim-static
+  .text
+    color: $black
+    background: $white
+    
+.new-dim-interactive
+  .text
+    color: $white
+    background: $red
+    font-weight: normal
+  .text:hover
+    color: $black
