@@ -24,6 +24,9 @@ ActiveAdmin.register Product do
     column :images do |c|
       c.product_images.size || ''
     end
+    column :published do |c|
+      c.published? ? 'Yes' : ''
+    end
     actions defaults: false do |c|
       link_to 'Edit', edit_admin_product_path(c)
     end
@@ -45,6 +48,7 @@ ActiveAdmin.register Product do
         product.product_category.name
       end
       row :price
+      row :published
 
       unless product.product_images.empty?
         row "Product Images" do
@@ -85,6 +89,7 @@ ActiveAdmin.register Product do
       f.input :name
       f.input :description
       f.input :price
+      f.input :published
     end
 
     f.inputs "Images" do

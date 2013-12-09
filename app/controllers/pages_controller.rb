@@ -6,7 +6,7 @@ class PagesController < ApplicationController
     end
 
     @product_categories = ProductCategory.all
-    @products = Product.all :include => :product_author
+    @products = Product.published.all :include => :product_author
 
     @partners = Partner.all
     @contacts = Contact.all

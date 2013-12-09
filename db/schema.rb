@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131208153659) do
+ActiveRecord::Schema.define(version: 20131209005028) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -162,6 +162,7 @@ ActiveRecord::Schema.define(version: 20131208153659) do
     t.decimal  "price",               precision: 5, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "published",                                   default: false
   end
 
   add_index "products", ["product_author_id"], name: "index_products_on_product_author_id"
