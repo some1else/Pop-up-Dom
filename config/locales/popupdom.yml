@@ -39,6 +39,9 @@ en:
     more: 'More'
     reserve: 'Reserve'
 
+  products:
+    title: 'Products'
+
   services:
     title: "Services"
     proces_img: "proces_en.png"
@@ -79,6 +82,8 @@ sl:
     more: 'Več'
     reserve: 'Rezerviraj'
 
+  products:
+    title: 'Izdelki'
   services:
     title: "Storitve"
     proces_img: "proces_sl.png"
