@@ -1,5 +1,5 @@
 ActiveAdmin.register Product do
-  config.filters = false
+  config.filters = true
   config.paginate = false
 
   controller do
@@ -14,6 +14,9 @@ ActiveAdmin.register Product do
     column do |c|
       image_tag c.product_images.first.file.big_thumb.url, :width => 100 unless c.product_images.empty?
     end
+    column "Author" do |c|
+      link_to c.product_author.name, admin_product_author_path(c)
+    end
     column "Name", :sortable => :name do |c|
       link_to my_t(c, :name), admin_product_path(c)
     end
@@ -24,7 +27,7 @@ ActiveAdmin.register Product do
     column :images do |c|
       c.product_images.size || ''
     end
-    column :published do |c|
+    column :published, :sortable => :published do |c|
       c.published? ? 'Yes' : ''
     end
     actions defaults: false do |c|
