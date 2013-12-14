@@ -1,0 +1,53 @@
+@import colors
+
+.three-dee
+  display: inline-block
+  position: relative
+  height: 37px
+  .word
+    border: 2px solid $black
+    padding: 0 1em
+.three-dee-static
+  .word
+    background: $red
+    color: $white
+
+.three-dee-interactive
+  .word
+    background: $white
+    color: $red
+
+.three-dee-left
+  margin-right: 10px
+  height: 37px
+.three-dee-right
+  position: absolute
+  right: 0
+  top: 0
+
+.three-dee-interactive, .three-dee-static
+  // padding:
+  //   left: 1em
+  //   right: 1em
+
+.three-dee-interactive
+  // background: $white
+  // border: 2px solid $black
+
+.three-dee-bottom-left
+  position: absolute
+  width: 8px
+  height: 8px
+  background: url(/img/button_bottom_left.png)
+
+.three-dee-bottom
+  height: 8px
+  margin-left: 8px
+
+.three-dee-right
+  width: 10px
+  height: 37px
+  background: url(/img/button_right.png)
+
+.three-dee-right, .three-dee-bottom, .three-dee-bottom-left
+  display: none !important

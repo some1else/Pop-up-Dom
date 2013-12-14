@@ -1,0 +1,108 @@
+@import colors
+@import lib/responsive_grid_system/animation
+@import lib/responsive_grid_system/transform
+
+$a: 10px
+
+$awhite: $white
+$alite: #ff3333
+$alite: $red
+$adark: #333333
+$adark: $black
+
+$b: 2px
+$bcolor: $black
+
+.new-dim
+  position: relative
+  display: inline-block
+
+  .text
+    display: block
+    padding:
+      top: $a / 1.5 - $b * 1.5
+      right: $a / 0.6
+      bottom: $a / 2 - $b
+      left: $a / 0.6
+
+    margin:
+      right: $a
+      bottom: $a
+      left: 0px
+      top: 0px
+    // +transform(translate(-$a,-$a))
+
+    font-weight: bold
+    border: $b solid $bcolor
+
+  .top-right, .right, .bottom-right, .bottom, .bottom-left
+    display: block
+    position: absolute
+
+  .top-right
+    top: 0
+    right: $b
+    width: $a - $b
+    height: $a + $b/2
+    background: url(/img/3d/top-right.png) no-repeat
+
+  .right
+    right: $b
+    top: $a - $b/2
+    bottom: $a
+    width: $a - $b*2
+    background: $alite
+    border-right: $b solid $bcolor
+
+
+  .bottom-right
+    bottom: $b
+    right: $b
+    width: $a - $b
+    height: $a - $b
+    border-right: $b solid $bcolor
+    border-bottom: $b solid $bcolor
+    background: url(/img/3d/bottom-right.png) no-repeat
+
+    z-index: 2
+
+  .bottom
+    bottom: $b
+    left: $a - $b
+    right: $a
+    height: $a - $b*2
+    background: $adark
+    border-bottom: $b solid $bcolor
+
+
+  .bottom-left
+    bottom: $b
+    left: 0
+    width: $a
+    height: $a - $b
+    background: url(/img/3d/bottom-left.png) no-repeat
+a:active, .active
+  .new-dim-interactive
+    .text
+      margin:
+        right: 0px
+        bottom: 0px
+        top: $a
+        left: $a
+      // +transform(translate($a,$a))    
+
+    .top-right, .right, .bottom-right, .bottom, .bottom-left
+      display: none
+
+.new-dim-static
+  .text
+    color: $black
+    background: $white
+    
+.new-dim-interactive
+  .text
+    color: $white
+    background: $red
+    font-weight: normal
+  .text:hover
+    color: $black

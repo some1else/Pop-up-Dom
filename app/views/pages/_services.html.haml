@@ -1,0 +1,68 @@
+%section.white-content.services
+  .section-heading
+    .container
+      .heading
+        %h2
+          .new-dim.new-dim-static
+            .text
+              = t 'services.title'
+  .transgreen-surf
+    .container
+      .content
+        .tempimg.align_center
+          %img{:src => '/img/startupdom/startupdom.png'}
+
+  .container
+    .content
+      .startup-dom
+        %p= t 'services.intro'
+  
+  .fillgreen-surf
+    .container
+      .content
+        .tempimg.align_center
+          %img{:src => "/img/startupdom/#{t 'services.proces_img'}"}
+
+  .container
+    .content
+      .crowdfunding
+        %h4 CROWDFUNDING LAB
+        %p= t 'services.crowdfunding'
+      .creative
+        %h4 CREATIVE LAB
+        %p= t 'services.creative'
+
+  .transyellow-surf
+    .container
+      .content
+        .tempimg.align_center
+          %img{:src => "/img/startupdom/#{t 'services.fablab_img'}"}
+
+  .container
+    .content
+      .fab-lab
+        %h4 FAB LAB
+        %p= t 'services.fablab'
+        
+  .transblue-surf
+    .container{:style => 'padding-top: 0;'}
+      .content
+        .tempimg.align_center{:style => 'position: absolute; left: 0; right: 0;'}
+          %img{:src => '/img/startupdom/coworking_logo.png'}
+        .tempimg.align_center
+          %img{:src => '/img/startupdom/coworking.jpg'}
+
+      .coworking
+        / %h3
+        /   COWORKING
+        %p= t 'services.coworking'
+  
+  .container
+    .content
+      .tempimg.align_center
+        %img{:src => "/img/startupdom/#{t 'services.bar_img'}"}
+      .tempimg.align_center
+        %img{:src => '/img/coffee.gif'}
+      .coffee
+        / %h3 POP-UP TOČAJ
+        %p= t 'services.bar'

@@ -1,0 +1,582 @@
+@import lib/normalize
+@import lib/scss_blend_modes/blend-mode
+@import lib/responsive_grid_system/all
+@import colors
+
+@media (max-width: 720px)
+  +grid(handheld, 100%, 12, 5%)
+  +type(handheld, 13px)
+
+@media (min-width: 720px) and (max-width: 1024px)
+  +grid(tablet, 720px, 12, 16px)
+  +type(tablet, 13px)
+
+  header ul li a img
+    left: -1em !important
+
+@media (min-width: 1024px) and (max-width: 1440px)
+  // @media (min-width: 970px) and (max-width: 1140px)
+  +grid(screen, 980px, 12, 20px)
+  +type(screen, 14px)
+
+  header ul li a img
+    left: -0.5em !important
+
+  header
+    height: 500px
+
+@media (min-width: 1440px)
+  // @media (min-width: 1140px)
+  +grid(huge, 1138px, 12, 30px)
+  +type(huge, 16px)
+  
+  header
+    height: 599px
+
+::selection
+  // background-color: #
+
+.serif
+  font-family: 'Resolution', sans-serif
+  -moz-font-feature-settings: "liga=1, dlig=1, smcp=1"
+  -ms-font-feature-settings: "liga", "dlig", "smcp"
+  -webkit-font-feature-settings: "liga", "dlig", "smcp"
+  -o-font-feature-settings: "liga", "dlig", "smcp"
+  font-feature-settings: "liga", "dlig", "smcp"
+=serif
+  @extend .serif
+.sans
+  font-family: "ff-tisa-web-pro", Georgia, sans-serif
+
+=sans
+  @extend .sans
+
+.italic
+  font-style: italic
+=italic
+  @extend .italic
+
+// .heavy
+//   font-weight: 800
+// =heavy
+//   @extend .heavy
+.bold
+  font-weight: 700
+=bold
+  @extend .bold
+.medium
+  font-weight: 600
+=medium
+  @extend .medium
+.book
+  font-weight: 400
+=book
+  @extend .book
+.light
+  font-weight: 300
+=light
+  @extend .light
+
+.center
+  text-align: center
+=center
+  @extend .center
+
+h1, h2, h3, h4, h5, h6
+  +serif
+
+.royalSlider, .rsDefault, .rsDefault .rsOverflow,
+.rsDefault .rsSlide, .rsDefault .rsVideoFrameHolder,
+.rsDefault .rsThumbs
+  background: transparent
+
+a
+  color: $primary
+  text-decoration: underline
+html
+  background: $white
+  color: $black
+  background: $black
+  color: $white
+  height: 100%
+
+body
+  // -webkit-font-smoothing: subpixel-antialiased
+  // font-smoothing: antialiased
+  // -webkit-font-smoothing: antialiased
+  // font-smoothing: subpixel-antialiased
+  // font-smoothing: subpixel-antialiased !important
+
+  text-rendering: optimizeLegibility  
+  margin: 0
+  padding: 0
+  +sans
+  
+  .whitype
+    -webkit-font-smoothing: antialiased
+
+.white-on-dark
+  font-smoothing: antialiased
+  -webkit-font-smoothing: antialiased
+
+.loading img
+  opacity: 0
+  +transition(opacity, .4s)
+
+.app img
+  // +transition(opacity, .4s)
+
+#skrollr-body
+  width: 100%
+
+.header, .dark-content, .light-content, .footer
+  .content
+    +row(12)
+
+.capital-headers
+  +scale(1)
+  text-transform: uppercase
+
+section
+  // padding-bottom: 2em
+
+  .section-heading
+    background: $red
+    margin-bottom: 1em
+    border-bottom: 2px solid $black
+  .section-heading-trans
+    background: transparent
+    margin-bottom: 1em
+
+  .section-heading, .section-heading-trans
+    .container
+      padding:
+        top: 0
+        bottom: 0
+      h2
+        margin:
+          top: -0.55em
+          bottom: -0.10em
+    // overflow: hidden
+
+
+header
+  background: $darkgray url(/img/header_599.jpg) center center no-repeat
+
+  h1
+    +scale(6)
+    +col(6, tablet, screen, huge)
+    +col(12, handheld)
+    +height(4)
+    background:
+      image: url(/img/popupdom.png)
+      repeat: no-repeat
+      position: center left
+      size: 50%
+    margin:
+      top: 1em
+    @media (max-width: 720px)
+      height: 130px
+      background:
+        position: center center
+        size: 50%
+ 
+    .logo
+      text-indent: -9999px
+  .first
+    margin-top: 5em
+    @media (max-width: 720px)
+      margin-top: 0
+  h2
+    @media (max-width: 720px)
+      margin-top: 1em
+
+  .locales-en
+    .locale-en
+      a
+        margin-top: 10px !important
+
+  h2, h3
+    +col(6, tablet, screen, huge)
+    +col(12, handheld)
+    @extend .capital-headers
+    text-align: right
+    .three-dee
+      margin:
+        right: 2em
+  h3
+    @media (max-width: 720px)
+      padding-bottom: 1em
+
+.whatis
+  .succinct
+    +row(12)
+    +serif
+    +scale(1)
+    p
+      +col(12)
+  .extended
+    +col(12)
+    +sans
+    +scale(1)
+    background: $lightgray
+    color: $black
+    margin:
+      top: 1em
+      bottom: 2em
+    box-sizing: border-box
+    padding: 2em
+    -moz-column-count: 2
+    -moz-column-gap: 15px
+    -webkit-column-count: 2
+    -webkit-column-gap: 15px
+    column-count: 2
+    column-gap: 15px
+
+    @media (max-width: 720px)
+      -moz-column-count: 1
+      -moz-column-gap: 0
+      -webkit-column-count: 1
+      -webkit-column-gap: 0
+      column-count: 1
+      column-gap: 0
+
+    p
+      margin-top: 0
+      margin-bottom: 2em
+
+  .morelink
+    +serif
+    +col(12)
+    p
+      +align(right)
+    a
+      display: inline-block
+      padding: 0.5em 1em
+      border: 2px solid #888
+      text-transform: uppercase
+      text-decoration: none
+      +bold
+    a:hover
+      color: $red
+
+.dark-content, .light-content, .white-content
+  border-top: 2px solid $black
+
+  .heading
+    +col(12)
+    clear: both
+
+.dark-content
+  background-color: $darkgray
+  color: $white
+  a
+    color: $white
+
+.light-content
+  background-color: $lightgray
+  color: $black
+  // padding-bottom: 6em !important
+  clear: both
+  // overflow: hidden
+  a
+    color: $black
+
+
+.white-content
+  background-color: $white
+  color: $black
+  a
+    color: $black
+
+.black-content
+  background-color: $darkgray
+  background-color: $black
+  background-color: $darkgray
+  color: $white
+  a
+    color: $white
+
+.dark-content, .light-content, .white-content, .black-content
+  padding-bottom: 2em
+
+  h2
+
+    @extend .capital-headers
+    
+    +align(center)
+
+  .regular-list
+    margin-top: 0
+    clear: both
+  a
+    +bold
+
+.services
+  .section-heading
+    margin-bottom: 0
+  .transgreen-surf
+    background: $transgreen
+  .fillgreen-surf
+    background: $fillgreen
+  .transyellow-surf
+    background: $transyellow
+  .transblue-surf
+    background: $transblue
+  p
+    +scale(1)
+    
+  .tempimg
+    img
+      max-width: 100%
+
+  .startup-dom
+    +col(8, screen, huge)
+    +push_col(2, screen, huge)
+    +col(10, tablet)
+    +push_col(1, tablet)
+    +col(12, handheld)
+
+  .crowdfunding, .creative
+    +col(6, screen, huge)
+    +col(10, tablet)
+    +push_col(1, tablet)
+    +col(12, handheld)
+
+  .fab-lab
+    +col(8, screen, huge)
+    +push_col(2, screen, huge)
+    +col(10, tablet)
+    +push_col(1, tablet)
+    +col(12, handheld)
+
+  .coworking
+    +col(8, screen, huge)
+    +push_col(2, screen, huge)
+    +col(10, tablet)
+    +push_col(1, tablet)
+    +col(12, handheld)
+  
+  .coffee
+    +col(8, screen, huge)
+    +push_col(2, screen, huge)
+    +col(10, tablet)
+    +push_col(1, tablet)
+    +col(12, handheld)
+
+.events, .products
+  .description
+    +scale(1)
+
+  
+  .price
+    padding: .1em 3em .1em 1em
+    border: 2px solid $black
+    margin-right: -20px
+    border-top: none
+    display: inline-block
+    +bold
+
+  .price, .buy
+    float: right
+    +serif
+  
+  .buy
+    text-transform: uppercase
+    margin-top: -1em
+    margin-right: -2px
+    +serif
+    @media (max-width: 720px)
+      margin-top: -1.1em
+    @media (min-width: 720px) and (max-width: 1024px)
+      margin-top: -1.05em
+    @media (min-width: 1440px)
+      margin-top: -0.85em
+    a
+      display: block
+
+.royalSlider, .rsOverflow, .rsSlide, .rsVideoFrameHolder, .rsThumbs
+  background: transparent
+
+.event-list
+  clear: both
+
+.events
+  background: $lightgray
+
+  .exposed
+    +col(8, screen, huge)
+    +col(12, tablet)
+    +col(12, handheld)
+    .pic-wrap
+      padding-left: 20px
+      float: right
+      margin:
+        top: -2px
+        left: -2px
+        bottom: -2px
+    .pic
+      @media (max-width: 720px)
+        width: 100%
+        height: 320px
+      border:
+        left: 2px solid $black
+        bottom: 2px solid $black
+
+  .not-exposed
+    +col(4, screen, huge)
+    +col(6, tablet)
+    +col(12, handheld)
+    .pic
+      border:
+        bottom: 2px solid $black
+
+  .event:nth-child(2), .event:nth-child(3)
+    margin-top: 2em
+  .event:nth-child(3n+1)
+    margin-top: 5em
+    @media (max-width: 720px)
+      margin-top: 0
+  .event
+    margin-bottom: 1em
+    h3, h4, h5, h6
+      +align(left)
+    h3, h4
+      text-transform: uppercase
+    h3
+      color: $red
+      +scale(2)
+      +book
+      margin:
+        top: 0.5em
+        bottom: 0
+    h4
+      margin:
+        top: 0
+        bottom: 0
+      +scale(1)
+      font-weight: normal
+    
+    h4.old
+      color: $black
+      text-decoration: line-through
+    h4.upcoming
+      color: $red
+      
+    .mainfo
+      padding: 0 10px
+    .description
+      +scale(1)
+      padding: 0 10px
+      p
+        margin-top: 0
+    
+      .additional_button
+        +serif
+        padding: 0.5em 1em
+        color: $red
+        border: 2px solid $gray
+        text-transform: uppercase
+        text-decoration: none
+        display: inline-block
+        margin:
+          top: -0.2em
+          bottom: 0.5em
+      .additional_button:hover
+        color: $black
+        border-color: $red
+
+    .cat
+      +scale(1)
+      +serif
+      // +bold
+      text-transform: uppercase
+      display: inline-block
+      border: 2px solid $black
+      border-bottom: none
+      padding: 0.5em 0.75em
+      background-color: $palegreen/1.2
+      color: $white
+      +bold
+        
+    .royalSlider, .noSlider
+      background: transparent
+      box-sizing: border-box
+      // border-bottom: none
+      +width(4, screen, huge)
+      +width(6, tablet)
+      +height(4, screen, huge)
+      +height(6, tablet)
+      @media (max-width: 720px)
+        width: 100%
+        height: 320px
+
+    
+
+    .insides
+      background: $white
+      border: 2px solid $black
+      // border-top: none
+      // padding: 7px 10px 0 10px
+      clear: both
+      overflow: hidden
+
+    .reservation-enabled
+      p
+        padding-bottom: .5em
+
+
+.product-list
+  clear: both
+.products
+  border-top: 2px solid $black
+  .product:nth-child(1)
+    margin-top: 2em
+  .product:nth-child(3n)
+    margin-top: 6em
+    @media (max-width: 720px)
+      margin-top: 0
+  .product
+    +col(3, screen, huge)
+    +col(4, tablet) 
+    +col(6, handheld)
+    margin-bottom: 2em
+    @media (max-width: 720px)
+      margin-bottom: 1em
+    .pic-wrap
+    .pic
+      border: 2px solid $black
+      +width(3, screen, huge)
+      +height(4, screen, huge)
+      +width(4, tablet)
+      +height(6, tablet)
+      // +width(6, handheld)
+      @media (max-width: 720px)
+        width: 100%
+        height: 160px
+
+    .cat, .mainfo, .description
+      display: none
+
+.footer
+  background-color: $darkgray
+  text-align: center
+  border-top: 2px solid black
+  +scale(1)
+
+
+
+.contacts
+  padding-bottom: 7em
+  .contact-list
+    +row(12)
+    .contact
+      +col(6, tablet, screen, huge)
+      +col(12, handheld)
+      +serif
+  .participant-list
+    margin-top: 2em
+    +col(8, tablet, screen, huge)
+    +push_col(2, tablet, screen, huge)
+    +col(12, handheld)
+    +serif

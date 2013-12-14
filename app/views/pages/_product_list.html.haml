@@ -1,0 +1,94 @@
+%section.dark-content.products
+  .section-heading
+    .container
+      .heading
+        %h2
+          .new-dim.new-dim-static
+            .text
+              = t 'products.title'
+
+  .container
+    .content      
+      .product-list
+        - @products = @products.reject{ |p| p.product_images.empty? }
+        - @products.each_with_index do |e, i|
+          .product              
+            .insides
+              - if e.product_images.size == 1
+                .pic-wrap
+                  .pic.noSlider
+                    - if e.product_images.first.file.to_s.end_with? 'gif' or e.product_images.first.file.to_s.end_with? 'GIF'
+                      = image_tag e.product_images.first.file, :style => 'width: 100%;', :class => 'rsImg'
+                    - else
+                      = image_tag e.product_images.first.file.big_thumb, :style => 'width: 100%;', :class => 'rsImg'
+
+              - if e.product_images.size > 1
+                .pic-wrap
+                  .pic.royalSlider.rsDefault
+                    - e.product_images.each do |image|
+                      - if image.file.to_s.end_with? 'gif' or e.product_images.first.file.to_s.end_with? 'GIF'
+                        = image_tag image.file, :style => 'width: 100%;', :class => 'rsImg'
+                      - else
+                        = image_tag image.file.big_thumb, :style => 'width: 100%;', :class => 'rsImg'
+
+/ Using royal slider on single image events for scaling purposes
+/ Replace this with less bloated solution
+:coffeescript
+  $ ->
+    $(".product .noSlider").royalSlider
+      # keyboardNavEnabled: true
+      # imageScaleMode: 'fit'
+      imageScaleMode: 'fill'
+      controlNavigation: 'none'
+      imageScalePadding: 0
+      arrowsNav: false
+      slidesSpacing: 0
+      # loop: true
+      # transitionType: 'slide'
+      # transitionSpeed: 250
+      background: 'transparent'
+      fadeinLoadedSlide: false
+      fullscreen:
+        enabled: false
+        native: true 
+      autoPlay:
+        enabled: false
+        # delay: 4200
+        # pauseOnHover: true
+
+/ Slider
+:coffeescript
+  $ ->
+    $(".product .royalSlider").royalSlider
+      keyboardNavEnabled: true
+      # imageScaleMode: 'fit'
+      imageScaleMode: 'fill'
+      controlNavigation: 'none'
+      imageScalePadding: 0
+      arrowsNav: false
+      slidesSpacing: 0
+      loop: true
+      transitionType: 'slide'
+      transitionSpeed: 250
+      background: 'transparent'
+      fadeinLoadedSlide: false
+      fullscreen:
+        enabled: false
+        native: true 
+      autoPlay:
+        enabled: true
+        delay: 4100
+        pauseOnHover: true
+
+/ Layout & Interaction
+:coffeescript
+  $ ->
+    productPack = new Packery($('.product-list').get(0), {itemSelector: '.product'})
+    $('.product-list').imagesLoaded ->
+      productPack.layout()
+
+    $('.buy a').mousedown (e) ->
+      doit = ->
+        e.currentTarget.click()
+
+      setTimeout doit, 300

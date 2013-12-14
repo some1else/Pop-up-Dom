@@ -1,0 +1,261 @@
+%section.white-content.events
+  .section-heading
+    .container
+      .heading
+        %h2
+          .new-dim.new-dim-static
+            .text
+              = t 'events.title'
+
+          %a.show-past-events{:href => "#", "data-filter" => 'all'}
+            %span.new-dim.new-dim-interactive
+              %span.text
+                = t 'events.past_events'
+
+          / %a{:href => "#", "data-filter" => 'future'}
+          /   %span.new-dim.new-dim-interactive
+          /     %span.text
+          /       = t 'events.upcoming_events'
+
+  .container
+    .content      
+      .event-list
+        - events_with_images = 0
+        - @events.each_with_index do |e, i|
+          - class_name = ''
+          - if e.exposed?
+            - class_name += 'exposed '
+          - else
+            - class_name += 'not-exposed '
+
+          - if e.open_for_reservation?
+            - class_name += 'reservation-enabled '
+
+          - if e.has_future_occurances?
+            - class_name += 'future '
+          - else
+            - class_name += 'past '
+
+          .event.category-list{:class => "#{class_name}"}
+            .cat.white-on-dark
+              = my_t e.event_category, :name
+              
+            .insides
+              - if e.event_images.size == 1
+                .pic-wrap
+                  .pic.noSlider
+                    - if e.event_images.first.file.to_s.end_with? 'gif' or e.event_images.first.file.to_s.end_with? 'GIF'
+                      = image_tag e.event_images.first.file, :style => 'width: 100%;', :class => 'rsImg'
+                    - else
+                      = image_tag e.event_images.first.file.big_thumb, :style => 'width: 100%;', :class => 'rsImg'
+
+              - if e.event_images.size > 1
+                - events_with_images += 1
+                - if events_with_images % 2 == 0
+                  .pic-wrap
+                    .pic.royalSlider.rsDefault.rsEven
+                      - e.event_images.each do |image|
+                        - if image.file.to_s.end_with? 'gif' or e.event_images.first.file.to_s.end_with? 'GIF'
+                          = image_tag image.file, :style => 'width: 100%;', :class => 'rsImg'
+                        - else
+                          = image_tag image.file.big_thumb, :style => 'width: 100%;', :class => 'rsImg'
+
+                - else
+                  .pic-wrap
+                    .pic.royalSlider.rsDefault.rsOdd
+                      - e.event_images.each do |image|
+                        - if image.file.to_s.end_with? 'gif' or e.event_images.first.file.to_s.end_with? 'GIF'
+                          = image_tag image.file, :style => 'width: 100%;', :class => 'rsImg'
+                        - else
+                          = image_tag image.file.big_thumb, :style => 'width: 100%;', :class => 'rsImg'
+              .mainfo
+                %h3= my_t e, :name
+                - if e.event_occurances.empty?
+                  - occurances = [e.event_occurances.build(:begins_at => e.begins_at)]
+                - else
+                  - occurances = e.event_occurances
+
+                - occurances.each_with_index do |occurance, idx|
+
+                  - if occurance.begins_at < Time.now
+                    - class_name = 'old'
+                  - else
+                    - class_name = 'upcoming'
+
+                  %h4{:class => class_name}
+                    - if I18n.locale == :en
+                      = occurance.begins_at.strftime "%A,"
+                    - else
+                      - case occurance.begins_at.strftime "%A"
+                        - when "Monday"
+                          Ponedeljek,
+                          
+                        - when "Tuesday"
+                          Torek,
+                          
+                        - when "Wednesday"
+                          Sreda,
+                          
+                        - when "Thursday"
+                          Četrtek,
+                          
+                        - when "Friday"
+                          Petek,
+
+                        - when "Saturday"
+                          Sobota,
+
+                        - when "Sunday"
+                          Nedelja,
+                    
+                    - if occurance.duration_important?
+                      = (occurance.begins_at.strftime "%-d.%-m.%y %-H:%M") + (occurance.ends_at.strftime "-%-H:%M")
+                    - else
+                      = occurance.begins_at.strftime "%-d.%-m.%y"
+                      - if I18n.locale == :en
+                        at
+                      - else
+                        ob
+                      = occurance.begins_at.strftime "%-H:%M"
+
+
+              .description
+                != Markdown.new(my_t(e, :description)).to_html
+
+                - if my_t(e, :additional_description).size > 0
+                  %a.additional_button{:href => '#'}
+                    = t 'events.more'
+                  .additional_description{:style => 'display: none'}
+                    != Markdown.new(my_t(e, :additional_description)).to_html
+            
+            - if e.open_for_reservation?
+              .buy
+                - subject = (e.reservation_email_subject.empty?) ? my_t(e, :name) : e.reservation_email_subject
+                - body = (e.reservation_email_body.blank?) ? "Želim karto za Pop-up dom dogodek #{my_t e, :name}" : e.reservation_email_body
+                = link_to "mailto:#{e.reservation_email}?subject=Rezervacija: #{subject}&body=#{body}" do
+                  .new-dim.new-dim-interactive
+                    .text-wrap
+                      .text
+                        = t 'events.reserve'
+              - unless e.price.blank?
+                .price
+                  != "€&#8239;#{e.price.try(:round)}"
+            - if e.price and e.price > 0 and false
+              .buy
+                %a{:href => '#'}
+                  .new-dim.new-dim-interactive
+                    .text-wrap
+                      .text
+                        Kupi&#8239;karte
+              .price
+                != "€&#8239;#{e.price.round}"
+
+/ Using royal slider on single image events for scaling purposes
+/ Replace this with less bloated solution
+:coffeescript
+  $ ->
+    $(".events .noSlider").royalSlider
+      # keyboardNavEnabled: true
+      # imageScaleMode: 'fit'
+      imageScaleMode: 'fill'
+      controlNavigation: 'none'
+      imageScalePadding: 0
+      arrowsNav: false
+      slidesSpacing: 0
+      # loop: true
+      # transitionType: 'slide'
+      # transitionSpeed: 250
+      background: 'transparent'
+      fadeinLoadedSlide: false
+      # fullscreen:
+      #   enabled: false
+      #   native: true 
+      autoPlay:
+        enabled: false
+        # delay: 4200
+        # pauseOnHover: true
+
+/ Event odd sliders
+:coffeescript
+  $ ->
+    $(".events .rsOdd").royalSlider
+      keyboardNavEnabled: true
+      # imageScaleMode: 'fit'
+      imageScaleMode: 'fill'
+      controlNavigation: 'none'
+      imageScalePadding: 0
+      arrowsNav: false
+      slidesSpacing: 0
+      loop: true
+      transitionType: 'slide'
+      transitionSpeed: 250
+      background: 'transparent'
+      fadeinLoadedSlide: false
+      fullscreen:
+        enabled: false
+        native: true 
+      autoPlay:
+        enabled: true
+        delay: 4100
+        pauseOnHover: true
+
+    callback = ->
+      $(".events .rsEven").royalSlider
+        keyboardNavEnabled: true
+        # imageScaleMode: 'fit'
+        imageScaleMode: 'fill'
+        controlNavigation: 'none'
+        imageScalePadding: 0
+        arrowsNav: false
+        slidesSpacing: 0
+        loop: true
+        transitionType: 'slide'
+        transitionSpeed: 250
+        background: 'transparent'
+        fadeinLoadedSlide: false
+        fullscreen:
+          enabled: false
+          native: true 
+        autoPlay:
+          enabled: true
+          delay: 3900
+          pauseOnHover: true 
+
+    setTimeout(callback, 100)
+
+/ Layout and interaction
+:coffeescript
+  $ ->
+    $('.event-list .past').hide()
+    eventPack = new Packery($('.event-list').get(0), {itemSelector: '.event'})
+    # eventPack = $('.event-list').isotope({itemSelector: '.event', filter: '.future'})
+  
+    $('.event-list').imagesLoaded ->
+      eventPack.layout()
+      # $('.event-list').isotope('reLayout') 
+
+    $('.additional_button').click (e) ->
+      e.preventDefault()
+      $('.additional_button').hide()
+      $('.additional_description').show()
+      eventPack.layout()
+      # $('.event-list').isotope('reLayout')
+
+    $('.buy a').mousedown (e) ->
+      $(e.currentTarget).off('mousedown')
+      $(e.currentTarget).addClass('active')
+      doit = ->
+        e.currentTarget.click()
+      setTimeout doit, 200
+
+
+
+    $('a.show-past-events').mousedown (e) ->
+      $(e.currentTarget).css('position', 'absolute')
+      $(e.currentTarget).addClass('active')
+      doit = ->
+        e.currentTarget.remove()
+        $('.event-list .past').show()
+        eventPack.layout()
+
+      setTimeout doit, 60

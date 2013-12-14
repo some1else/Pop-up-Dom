@@ -1,0 +1,83 @@
+%header.header
+  .container
+    .content
+    
+      %h1
+        .logo Pop-up dom
+      
+      %h2.first
+        - if I18n.locale == :en
+          .locales.locales-en
+            %div{:style => "float:right;"}
+              %a.locale-en.active{:href => '/en'}
+                %span.new-dim.new-dim-interactive
+                  %span.text EN
+            %div{:style => "float:right;"}
+              %a.locale-sl{:href => '/sl'}
+                %span.new-dim.new-dim-interactive
+                  %span.text SL
+        - else
+          .locales.locales-sl
+            %div{:style => "float:right; margin-left: 10px;"}
+              %a.locale-sl{:href => '/en'}
+                %span.new-dim.new-dim-interactive
+                  %span.text EN
+            %div{:style => "float:right;"}
+              %a.locale-en.active{:href => '/sl'}
+                %span.new-dim.new-dim-interactive 
+                  %span.text SL
+
+      %h2
+        .new-dim.new-dim-static
+          .text
+            %span 28.11.
+            %span.dash -
+            %span 23.12.
+      %h2
+        .new-dim.new-dim-static
+          .text
+            - if I18n.locale == :en
+              %span MON
+            - else
+              %span PON
+
+            %span.dash -
+            - if I18n.locale == :en
+              %span SAT
+            - else
+              %span SOB
+            %span /
+            %span 8:00
+            %span.dash -
+            %span 22:00
+      %h3
+        .new-dim.new-dim-static
+          .text
+            Tobačna&#8239;5,&#8239;Ljubljana
+
+%section.whatis.white-on-dark
+  .container
+    .content
+      .succinct
+        %p= t 'about.short'
+      .morelink
+        %p
+          %a{:href => '#'}= t 'about.more'
+        
+      .extended{:style => 'display: none;'}
+        != Markdown.new(t 'about.long').to_html
+        
+        :coffeescript
+          $('.morelink').click (e) ->
+            # $('.extended').show()
+            # ext_height = $('.extended').height()
+            $('.morelink').hide()
+            $('.extended').slideDown()
+
+:coffeescript
+  $('.locales a').mousedown (e) ->
+    $(e.currentTarget).addClass('active')
+    doit = ->
+      e.currentTarget.click()
+
+    setTimeout doit, 60
