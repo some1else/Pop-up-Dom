@@ -15,10 +15,10 @@ ActiveAdmin.register Product do
       image_tag c.product_images.first.file.big_thumb.url, :width => 100 unless c.product_images.empty?
     end
     column "Name", :sortable => :name do |c|
-      link_to c.name, admin_product_path(c)
+      link_to my_t(c, :name), admin_product_path(c)
     end
     column :description do |c|
-      para c.description.truncate(100)
+      para my_t(c, :description).truncate(100)
     end
     column :price
     column :images do |c|
@@ -39,13 +39,17 @@ ActiveAdmin.register Product do
 
   show do |product|
     attributes_table do
-      row :name
+      row :name do
+        my_t(product, :name)
+      end
       row "Product Author" do
         product.product_author.name
       end
-      row :description
+      row :description do
+        my_t(product, :description)
+      end
       row :product_category do
-        product.product_category.name
+        my_t(product.product_category, :name)
       end
       row :price
       row :published
@@ -84,10 +88,12 @@ ActiveAdmin.register Product do
 
     f.inputs "Info" do
       f.input :product_author_id, :as => :select, :collection => ProductAuthor.all.map {|c| [c.name, c.id]}, :include_blank => false
-      f.input :product_category_id, :as => :select, :collection => ProductCategory.all.map {|c| [c.name, c.id]}, :include_blank => false
+      f.input :product_category_id, :as => :select, :collection => ProductCategory.all.map {|c| [my_t(c, :name), c.id]}, :include_blank => false
 
-      f.input :name
-      f.input :description
+      f.input :name_sl
+      f.input :name_en
+      f.input :description_sl
+      f.input :description_en
       f.input :price
       f.input :published
     end

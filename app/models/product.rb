@@ -7,6 +7,6 @@ class Product < ActiveRecord::Base
 
   scope :published, -> { where(published: true) }
   
-  validates_presence_of :name #, :description
+  validates_presence_of :name_sl #, :description
 
 end
