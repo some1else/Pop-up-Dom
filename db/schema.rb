@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20131214191337) do
 
   create_table "active_admin_comments", force: true do |t|
@@ -132,11 +133,18 @@ ActiveRecord::Schema.define(version: 20131214191337) do
 
   create_table "product_authors", force: true do |t|
     t.string   "name"
+<<<<<<< HEAD
     t.text     "description_sl"
     t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description_en"
+=======
+    t.text     "description"
+    t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+>>>>>>> f0ea75f13b21464eed698266da5527221ad80695
   end
 
   create_table "product_categories", force: true do |t|

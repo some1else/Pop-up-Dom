@@ -17,7 +17,7 @@ ActiveAdmin.register ProductAuthor do
       link_to 'Delete', admin_product_author_path(c), :method => 'delete'
     end
   end
-
+  
   form do |f|
     f.inputs do
       f.input :name
