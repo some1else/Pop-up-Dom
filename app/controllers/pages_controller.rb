@@ -6,7 +6,7 @@ class PagesController < ApplicationController
     end
 
     @product_categories = ProductCategory.all
-    @products = Product.published.all :include => :product_author, :limit => 12, :order => "random()"
+    @products = Product.published.all :include => :product_author, :order => "random()"
 
     @partners = Partner.all
     @contacts = Contact.all
