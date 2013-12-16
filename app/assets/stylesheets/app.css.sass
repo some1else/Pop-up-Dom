@@ -541,10 +541,10 @@ header
   //   display: none
   // .product-shown
   //   display: block
-    
+
   .exposed
-    +col(9, screen, huge)
-    +col(8, tablet)
+    +col(6, screen, huge)
+    +col(6, tablet)
     +col(12, handheld)
     .pic-wrap
       padding-left: 20px
@@ -592,8 +592,10 @@ header
       .additional_description, .author_description
         h3
           color: $black
-          margin-bottom: 0
+          margin-bottom: -1em
           +scale(1)
+          color: $red
+    
 
   .not-exposed
     +col(3, screen, huge)
