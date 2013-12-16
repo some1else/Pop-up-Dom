@@ -37,7 +37,7 @@
   // background-color: #
 
 .serif
-  font-family: 'Resolution', sans-serif
+  font-family: 'Resolution', monospace
   -moz-font-feature-settings: "liga=1, dlig=1, smcp=1"
   -ms-font-feature-settings: "liga", "dlig", "smcp"
   -webkit-font-feature-settings: "liga", "dlig", "smcp"
@@ -566,6 +566,7 @@ header
         bottom: 2px solid $black
     .price
       margin-right: 0
+      padding-right: 1em
 
     .description
       +scale(1)
@@ -584,7 +585,8 @@ header
         display: inline-block
         margin:
           top: -0.2em
-          bottom: 0.5em
+          bottom: 1em
+          
       .additional_button:hover, .author_button:hover
         color: $black
         border-color: $red
@@ -613,8 +615,10 @@ header
       display: none
     .price
       margin-right: 0
+      padding-right: 1em
     &:hover .price
       margin-right: -20px
+      padding-right: 2em
 
   .product
     // +col(3, screen, huge)

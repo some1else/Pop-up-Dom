@@ -1,7 +1,6 @@
 = render partial: 'intro'
 
-=# render partial: 'product_list' unless @products.empty?
-= render partial: 'product_list' if params['preview'] == 'izdelki'
+= render partial: 'product_list' unless @products.empty?
 
 = render partial: 'event_list'
 
