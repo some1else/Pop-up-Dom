@@ -49,8 +49,8 @@
                   - mod = 'rsMod2'
                 - if products_with_images % 3 == 0
                   - mod = 'rsMod3'
-                - products_with_images++
-                
+                - products_with_images += 1
+
                 .pic-wrap
                   .pic.royalSlider.rsDefault{:class => "#{mod}"}
                     - p.product_images.each do |image|
