@@ -41,6 +41,10 @@ en:
 
   products:
     title: 'Products'
+    all_products: 'All'
+    more: 'More'
+    reserve: 'Reserve'
+    about_the_author: 'About the author'
 
   services:
     title: "Services"
@@ -84,6 +88,11 @@ sl:
 
   products:
     title: 'Izdelki'
+    all_products: 'Vsi'
+    more: 'Več'
+    reserve: 'Rezerviraj'
+    about_the_author: 'O avtorju'
+
   services:
     title: "Storitve"
     proces_img: "proces_sl.png"

@@ -7,29 +7,69 @@
             .text
               = t 'products.title'
 
+          %a.show-all-products{:href => "#", "data-filter" => 'all'}
+            %span.new-dim.new-dim-interactive
+              %span.text
+                = t 'products.more'
+
   .container
     .content      
       .product-list
         - @products = @products.reject{ |p| p.product_images.empty? }
-        - @products.each_with_index do |e, i|
-          .product              
+        - @products.each_with_index do |p, i|
+          - if my_t(p, :description).size > 0
+            - exp_capability = 'not-exposed exposable'
+          - else
+            - exp_capability = 'not-exposed'
+          - if i > 3
+            - visibility = 'product-hidden'
+          - else
+            - visibility = 'product-shown'
+          .product{:class => "#{exp_capability} #{visibility}"}
+            .author.white-on-dark
+              = my_t(p, :name)
+
+
             .insides
-              - if e.product_images.size == 1
+              - if p.product_images.size == 1
                 .pic-wrap
                   .pic.noSlider
-                    - if e.product_images.first.file.to_s.end_with? 'gif' or e.product_images.first.file.to_s.end_with? 'GIF'
-                      = image_tag e.product_images.first.file, :style => 'width: 100%;', :class => 'rsImg'
+                    - if p.product_images.first.file.to_s.end_with? 'gif' or p.product_images.first.file.to_s.end_with? 'GIF'
+                      = image_tag p.product_images.first.file, :style => 'width: 100%;', :class => 'rsImg'
                     - else
-                      = image_tag e.product_images.first.file.big_thumb, :style => 'width: 100%;', :class => 'rsImg'
+                      = image_tag p.product_images.first.file.big_thumb, :style => 'width: 100%;', :class => 'rsImg'
 
-              - if e.product_images.size > 1
+              - if p.product_images.size > 1
                 .pic-wrap
                   .pic.royalSlider.rsDefault
-                    - e.product_images.each do |image|
-                      - if image.file.to_s.end_with? 'gif' or e.product_images.first.file.to_s.end_with? 'GIF'
+                    - p.product_images.each do |image|
+                      - if image.file.to_s.end_with? 'gif' or p.product_images.first.file.to_s.end_with? 'GIF'
                         = image_tag image.file, :style => 'width: 100%;', :class => 'rsImg'
                       - else
                         = image_tag image.file.big_thumb, :style => 'width: 100%;', :class => 'rsImg'
+
+              .description
+                != Markdown.new(my_t(p, :description)).to_html
+              
+                - if my_t(p.product_author, :description).size > 0
+                  %a.author_button{:href => '#'}
+                    = t 'products.about_the_author'
+                  .author_description{:style => 'display: none'}
+                    %h3= p.product_author.name
+
+                    != Markdown.new(my_t(p.product_author, :description)).to_html
+
+            - if my_t(p, :description).size > 0
+              .more
+                %a{:href => '#'}
+                  .new-dim.new-dim-interactive
+                    .text-wrap
+                      .text
+                        = t 'products.more'
+
+            - if p.price and p.price > 0
+              .price.white-on-dark
+                != "€&#8239;#{p.price.round}"
 
 / Using royal slider on single image events for scaling purposes
 / Replace this with less bloated solution
@@ -83,12 +123,38 @@
 / Layout & Interaction
 :coffeescript
   $ ->
+    $('.product-list .product-hidden').hide()
     productPack = new Packery($('.product-list').get(0), {itemSelector: '.product'})
+
     $('.product-list').imagesLoaded ->
       productPack.layout()
+    
+    $('.author_button').click (e) ->
+      e.preventDefault()
+      $('.author_button').hide()
+      $('.author_description').show()
+      productPack.layout()
 
-    $('.buy a').mousedown (e) ->
+    $('.more a').click (e) ->
+      e.preventDefault()
+
+    $('.more a').mousedown (e) ->
       doit = ->
-        e.currentTarget.click()
+        $product = $(e.currentTarget).parent().parent()
+        console.log($product)
+        $product.removeClass('not-exposed')
+        $product.addClass('exposed')
+        $(e.currentTarget).hide()
+        productPack.layout()
 
-      setTimeout doit, 300
+      setTimeout doit, 100
+
+    $('a.show-all-products').mousedown (e) ->
+      $(e.currentTarget).css('position', 'absolute')
+      $(e.currentTarget).addClass('active')
+      doit = ->
+        e.currentTarget.remove()
+        $('.product-list .product-hidden').show()
+        productPack.layout()
+
+      setTimeout doit, 60
