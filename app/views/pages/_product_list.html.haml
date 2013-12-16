@@ -17,7 +17,8 @@
   .container
     .content      
       .product-list
-        
+        - products_with_images = 0
+
         - @products.each_with_index do |p, i|
           - if my_t(p, :description).size > 0
             - exp_capability = 'not-exposed exposable'
@@ -42,8 +43,16 @@
                       = image_tag p.product_images.first.file.big_thumb, :style => 'width: 100%;', :class => 'rsImg'
 
               - if p.product_images.size > 1
+                - if products_with_images % 3 == 2
+                  - mod = 'rsMod1'
+                - if products_with_images % 3 == 1
+                  - mod = 'rsMod2'
+                - if products_with_images % 3 == 0
+                  - mod = 'rsMod3'
+                - products_with_images++
+                
                 .pic-wrap
-                  .pic.royalSlider.rsDefault
+                  .pic.royalSlider.rsDefault{:class => "#{mod}"}
                     - p.product_images.each do |image|
                       - if image.file.to_s.end_with? 'gif' or p.product_images.first.file.to_s.end_with? 'GIF'
                         = image_tag image.file, :style => 'width: 100%;', :class => 'rsImg'
@@ -101,7 +110,27 @@
 / Slider
 :coffeescript
   $ ->
-    $(".product .royalSlider").royalSlider
+    $(".product .rsMod1").royalSlider
+      keyboardNavEnabled: true
+      # imageScaleMode: 'fit'
+      imageScaleMode: 'fill'
+      controlNavigation: 'none'
+      imageScalePadding: 0
+      arrowsNav: false
+      slidesSpacing: 0
+      loop: true
+      transitionType: 'fade'
+      transitionSpeed: 250
+      background: 'transparent'
+      fadeinLoadedSlide: false
+      fullscreen:
+        enabled: false
+        native: true 
+      autoPlay:
+        enabled: true
+        delay: 3900
+        pauseOnHover: false
+    $(".product .rsMod2").royalSlider
       keyboardNavEnabled: true
       # imageScaleMode: 'fit'
       imageScaleMode: 'fill'
@@ -120,6 +149,26 @@
       autoPlay:
         enabled: true
         delay: 4100
+        pauseOnHover: false
+    $(".product .rsMod3").royalSlider
+      keyboardNavEnabled: true
+      # imageScaleMode: 'fit'
+      imageScaleMode: 'fill'
+      controlNavigation: 'none'
+      imageScalePadding: 0
+      arrowsNav: false
+      slidesSpacing: 0
+      loop: true
+      transitionType: 'fade'
+      transitionSpeed: 250
+      background: 'transparent'
+      fadeinLoadedSlide: false
+      fullscreen:
+        enabled: false
+        native: true 
+      autoPlay:
+        enabled: true
+        delay: 4300
         pauseOnHover: false
 
 / Layout & Interaction
