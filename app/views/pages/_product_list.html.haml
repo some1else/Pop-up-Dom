@@ -64,11 +64,14 @@
               
                 - if my_t(p.product_author, :description).size > 0
                   %a.author_button{:href => '#'}
-                    = t 'products.about_the_author'
+                    = p.product_author.name
                   .author_description{:style => 'display: none'}
                     %h3= p.product_author.name
 
                     != Markdown.new(my_t(p.product_author, :description)).to_html
+                - else
+                  .author_description
+                    %h3= p.product_author.name
 
             - if my_t(p, :description).size > 0
               .more
@@ -182,8 +185,8 @@
     
     $('.author_button').click (e) ->
       e.preventDefault()
-      $('.author_button').hide()
-      $('.author_description').show()
+      $(e.currentTarget).parent().find('.author_button').hide()
+      $(e.currentTarget).parent().find('.author_description').show()
       productPack.layout()
 
     $('.more a').click (e) ->
@@ -192,7 +195,6 @@
     $('.more a').mousedown (e) ->
       doit = ->
         $product = $(e.currentTarget).parent().parent()
-        console.log($product)
         $product.removeClass('not-exposed')
         $product.addClass('exposed')
         $(e.currentTarget).hide()
