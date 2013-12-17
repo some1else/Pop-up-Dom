@@ -4,9 +4,8 @@
 :coffeescript
   $ ->
     currentImage = -1
-    
-    for src in header_images
-      new Image(src)
+    imagesLoaded = 0
+    interval = false
 
     swapImage = ->
       if currentImage + 1 == header_images.length
@@ -16,7 +15,15 @@
 
       $('.header').css('background-image', 'url("' + header_images[currentImage] + '")')
     
-    setInterval(swapImage, 3000)
+    for src in header_images
+      img = new Image()
+      img.onload = ->
+        imagesLoaded++
+        console.log 'lol'
+        if imagesLoaded == header_images.length and !interval
+          interval = setInterval(swapImage, 3000)
+          
+      img.src = src
 
 %header.header
   .container
