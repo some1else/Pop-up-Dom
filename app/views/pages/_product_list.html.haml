@@ -70,7 +70,7 @@
 
                     != Markdown.new(my_t(p.product_author, :description)).to_html
                 - else
-                  .author_description
+                  .author_description.author_description_missing
                     %h3= p.product_author.name.tr(' ', ' ')
 
             - if my_t(p, :description).size > 0
