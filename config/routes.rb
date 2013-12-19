@@ -4,6 +4,9 @@ Popupdom::Application.routes.draw do
   scope "(:locale)", locale: /en|sl/ do
     root :to => 'pages#landing'
   end
+
+  get 'expire_caches' => 'pages#expire_caches', as: :uncache
+  
   ActiveAdmin.routes(self)
 
   # The priority is based upon order of creation: first created -> highest priority.
