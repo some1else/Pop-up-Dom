@@ -9,9 +9,9 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require resolution
- *= require fakedee
+ * require fakedee
  *= require newdim
- *= require jquery.ui.datepicker
+ * require jquery.ui.datepicker
  *= require lib/royalslider/royalslider
  *= require lib/royalslider/rs-default
  *= require app

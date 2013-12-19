@@ -3,7 +3,6 @@
 <head>
   <title>POP-UP DOM | 28. november | Tobačna 5, Ljubljana </title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <link href='/favicon.ico' rel='icon' sizes='64x64' type='image/x-icon'>
   <meta name="viewport" content="initial-scale=1">
   <meta property="og:image" content="http://popupdom.si/img/HELLO_NSA.png"><!-- FUCK ZUCK -->
@@ -12,6 +11,7 @@
 <body>
 <div class="notice"><%= notice %></div>
 <div class="alert"><%= alert %></div>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 <%= yield %>
 <script type="text/javascript">
   (function() {
