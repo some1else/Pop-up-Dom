@@ -31,16 +31,16 @@ class ProductImageUploader < CarrierWave::Uploader::Base
   end
 
   version :big_version, :if => :is_not_gif? do
-    process :resize_to_fit => [1400, 1400]
+    process :resize_to_fit => [1400, 1400], :quality => 73
   end
 
   version :big_thumb, :if => :is_not_gif? do
-    process :resize_to_fit => [400,400]
+    process :resize_to_fit => [400,400], :quality => 92
   end
 
   # Process files as they are uploaded:
   # process :scale => [200, 300]
-  #
+  # process :quality => 100
   # def scale(width, height)
   #   # do something
   # end
