@@ -27,7 +27,7 @@ class ProductImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   def is_not_gif?(img)
-    img.content_type != "image/gif"
+    img.content_type != "image/gif" and not img.original_filename.upcase.ends_with?('GIF')
   end
 
   version :big_version, :if => :is_not_gif? do
