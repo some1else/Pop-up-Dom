@@ -12,6 +12,8 @@
  *= require fakedee
  *= require newdim
  *= require jquery.ui.datepicker
+ *= require lib/royalslider/royalslider
+ *= require lib/royalslider/rs-default
  *= require app
  *= require_self
  

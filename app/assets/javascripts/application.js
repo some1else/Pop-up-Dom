@@ -14,8 +14,10 @@
 //= require jquery_ujs
 //= require jquery.ui.datepicker
 //= require new-dim
-//= require lib/imagesloaded.pkgd.js
+//= require lib/imagesloaded.pkgd
 //= require lib/packery.min
+//= require lib/jquery.easing-1.3
+//= require lib/jquery.royalslider.min
 // require lib/jquery.isotope.min
 // require turbolinks
 // require_tree .
