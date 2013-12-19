@@ -1,4 +1,4 @@
-- images = GalleryImage.all.map{|i| i.file.url }
+- images = GalleryImage.all.map{|i| i.file.url(:big_version) || i.file.url }
 :javascript
   window.header_images = #{images.to_json}
 :coffeescript
