@@ -1,7 +1,7 @@
 Popupdom::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  scope "(:locale)", locale: /en|sl/ do
+  scope "(:locale)", locale: /en|sl|it/ do
     root :to => 'pages#landing'
   end
 
