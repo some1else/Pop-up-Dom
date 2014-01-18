@@ -8,7 +8,7 @@
           .new-dim.new-dim-static
             .text
               = t 'products.title'
-          - if @products.size > 4
+          - if false # @products.size > 4
             %a.show-all-products{:href => "#", "data-filter" => 'all'}
               %span.new-dim.new-dim-interactive
                 %span.text
@@ -24,7 +24,7 @@
             - exp_capability = 'not-exposed exposable'
           - else
             - exp_capability = 'not-exposed'
-          - if i > 11
+          - if false # i > 11
             - visibility = 'product-hidden'
           - else
             - visibility = 'product-shown'
