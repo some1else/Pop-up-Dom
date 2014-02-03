@@ -5,6 +5,12 @@ ActiveAdmin.register Event do
   config.filters = false
   config.paginate = false
 
+  # SCOPES
+
+  scope :all
+  scope :published, :default => true
+  scope :archived
+
   # CONTROLLER
 
   controller do
@@ -169,7 +175,7 @@ ActiveAdmin.register Event do
       f.input :reservation_email_body, :label => 'Email body'
       f.input :price
       f.input :exposed
-
+      f.input :archived
     end
 
     f.inputs "Images" do

@@ -3,8 +3,12 @@ class PagesController < ApplicationController
 
   def landing
     @event_categories = EventCategory.all
-    @events = Event.includes(:event_occurances, :next_occurance).sort! do |a, b|
-      a.first_or_next_occurance.begins_at <=> b.first_or_next_occurance.begins_at
+
+    @events = Event.published.includes(:event_occurances, :next_occurance)
+    if @events.size > 1
+      @events.sort! do |a, b|
+        a.first_or_next_occurance.begins_at <=> b.first_or_next_occurance.begins_at
+      end
     end
 
     @product_categories = ProductCategory.all

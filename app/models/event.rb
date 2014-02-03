@@ -11,12 +11,15 @@ class Event < ActiveRecord::Base
 
   validates_associated :event_occurances
 
+  scope :published, -> { where(archived: false) }
+  scope :archived, -> { where(archived: true) }
+
   has_one :next_occurance, lambda { where("event_occurances.begins_at > ?", Time.now) }, class_name: "EventOccurance"
 
   attr_accessor :first_or_next_occurance
 
   def has_future_occurances?
-    if @first_or_next_occurance.begins_at > Time.now
+    if @first_or_next_occurance && @first_or_next_occurance.begins_at > Time.now
       true
     else
       false
