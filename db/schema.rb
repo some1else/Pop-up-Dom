@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131219125825) do
+ActiveRecord::Schema.define(version: 20140203142053) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20131219125825) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name_en"
+    t.string   "name_it"
   end
 
   create_table "event_images", force: true do |t|
@@ -103,6 +104,10 @@ ActiveRecord::Schema.define(version: 20131219125825) do
     t.string   "name_en"
     t.text     "description_en"
     t.text     "additional_description_en",                         default: ""
+    t.string   "name_it"
+    t.text     "description_it"
+    t.text     "additional_description_it",                         default: ""
+    t.boolean  "archived",                                          default: false
   end
 
   add_index "events", ["event_category_id"], name: "index_events_on_event_category_id"

@@ -163,10 +163,13 @@ ActiveAdmin.register Event do
     f.inputs "Info" do
       f.input :name_sl
       f.input :name_en
+      f.input :name_it
       f.input :description_sl
       f.input :description_en
+      f.input :description_it
       f.input :additional_description_sl
       f.input :additional_description_en
+      f.input :additional_description_it
 
       f.input :event_category_id, :as => :select, :collection => EventCategory.all.map {|c| [my_t(c, :name), c.id]}, :include_blank => false
       f.input :open_for_reservation
