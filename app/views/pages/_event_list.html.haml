@@ -6,11 +6,12 @@
           .new-dim.new-dim-static
             .text
               = t 'events.title'
-
-          %a.show-past-events{:href => "#", "data-filter" => 'all'}
-            %span.new-dim.new-dim-interactive
-              %span.text
-                = t 'events.past_events'
+          - # If we have some events in the past
+          - if @events.detect{ |e| e.has_future_occurances? == false }
+            %a.show-past-events{:href => "#", "data-filter" => 'all'}
+              %span.new-dim.new-dim-interactive
+                %span.text
+                  = t 'events.past_events'
 
           / %a{:href => "#", "data-filter" => 'future'}
           /   %span.new-dim.new-dim-interactive
