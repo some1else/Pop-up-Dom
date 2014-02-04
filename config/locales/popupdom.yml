@@ -124,7 +124,7 @@ it:
   events:
     title: 'Eventi'
     reserve: 'Prenotazioni'
-    past_events: 'Eventi Passati'
+    past_events: 'Passati'
     more: '+'
   products:
     title: 'Prodotti'
