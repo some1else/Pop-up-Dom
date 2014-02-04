@@ -19,7 +19,6 @@
       img = new Image()
       img.onload = ->
         imagesLoaded++
-        console.log 'lol'
         if imagesLoaded == header_images.length and !interval
           interval = setInterval(swapImage, 3000)
           
@@ -78,59 +77,42 @@
                     %span.new-dim.new-dim-interactive 
                       %span.text IT
       
-      - if I18n.locale == :it
-        %h2
-          .new-dim.new-dim-static
-            .text
-              %span 16.1.
-              %span.dash -
-              %span 8.3.
-        %h2
-          .new-dim.new-dim-static
-            .text
+      %h2
+        .new-dim.new-dim-static
+          .text
+            %span 16.1.
+            %span.dash -
+            %span 8.3.
+      %h2
+        .new-dim.new-dim-static
+          .text
+            - case I18n.locale
+            - when :it
               %span LUN
-              %span.dash -
+            - when :en
+              %span MON
+            - when :sl
+              %span PON
+            %span.dash -
+            - case I18n.locale
+            - when :it
               %span SAB
-              %span /
-              %span 8:00
-              %span.dash -
-              %span 22:00
-        %h3
-          .new-dim.new-dim-static
-            .text
-              A plus A
-              %br
-              Centro Espositivo Sloveno
-              %br
-              San Marco 3073, Venezia
-      - else
-        %h2
-          .new-dim.new-dim-static
-            .text
-              %span 28.11.
-              %span.dash -
-              %span 23.12.
-        %h2
-          .new-dim.new-dim-static
-            .text
-              - if I18n.locale == :en
-                %span MON
-              - else
-                %span PON
-
-              %span.dash -
-              - if I18n.locale == :en
-                %span SAT
-              - else
-                %span SOB
-              %span /
-              %span 8:00
-              %span.dash -
-              %span 22:00
-        %h3
-          .new-dim.new-dim-static
-            .text
-              Tobačna&#8239;5,&#8239;Ljubljana
+            - when :en
+              %span SAT
+            - when :sl
+              %span SOB
+            %span /
+            %span 8:00
+            %span.dash -
+            %span 22:00
+      %h3
+        .new-dim.new-dim-static
+          .text
+            A plus A
+            %br
+            Centro Espositivo Sloveno
+            %br
+            San Marco 3073, Venezia
 
 %section.whatis.white-on-dark
   .container
