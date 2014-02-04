@@ -133,7 +133,7 @@
               .buy
                 - subject = (e.reservation_email_subject.empty?) ? my_t(e, :name) : e.reservation_email_subject
                 - body = (e.reservation_email_body.blank?) ? "Želim karto za Pop-up dom dogodek #{my_t e, :name}" : e.reservation_email_body
-                = link_to "mailto:#{e.reservation_email}?subject=Rezervacija: #{subject}&body=#{body}" do
+                = link_to "mailto:#{e.reservation_email}?subject=Pop-up Dom: #{subject}&body=#{body}" do
                   .new-dim.new-dim-interactive
                     .text-wrap
                       .text

@@ -123,6 +123,9 @@ it:
       Verrà eseguita una vasta gamma di lezioni, workshops ed eventi culturali. Unisciti a noi o vieni semplicemente a lavorare nel nostro spazio.
   events:
     title: 'Eventi'
+    reserve: 'Prenotazioni'
+    past_events: 'Eventi Passati'
+    more: '+'
   products:
     title: 'Prodotti'
   partners:
