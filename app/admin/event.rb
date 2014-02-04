@@ -39,7 +39,7 @@ ActiveAdmin.register Event do
     end
 
     def permitted_params
-      params.permit(:name, :description, :begins_at, :price, :tickets, :event_translation, :locale, :translations_attributes, :event_occurances_attributes => [:begins_at, :ends_at, :duration_important], :event_images_attributes => [:position, :_destroy, :file])
+      params.permit(:name, :description, :begins_at, :price, :tickets, :event_translation, :locale, :translations_attributes, :exposed, :archived, :event_occurances_attributes => [:begins_at, :ends_at, :duration_important], :event_images_attributes => [:position, :_destroy, :file])
     end
 
     def proxy_begins_at_attribute
