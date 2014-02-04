@@ -1,10 +1,10 @@
 = render partial: 'intro'
 
-= render partial: 'event_list' unless @events.empty? or @events.detect{|e| e.has_future_occurances? } == nil
+= render partial: 'event_list' unless @events.empty? or (@events.detect{|e| e.has_future_occurances?} == nil)
 
 = render partial: 'product_list' unless @products.empty?
 
-= render partial: 'services' unless I18n.locale == :it
+- # render partial: 'services'
 
 = render partial: 'sponsors'
 
