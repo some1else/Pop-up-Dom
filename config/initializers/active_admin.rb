@@ -196,7 +196,7 @@ ActiveAdmin.setup do |config|
   #
     config.namespace :admin do |admin|
       admin.build_menu :default do |menu|
-        menu.add label: "Clear caches", url: "/expire_caches", html_options: { target: :blank }
+        menu.add label: "Publish", url: "/expire_caches", html_options: { target: :blank }
       end
     end
 
