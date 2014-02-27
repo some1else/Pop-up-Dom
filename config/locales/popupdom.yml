@@ -45,6 +45,7 @@ en:
     more: 'More'
     reserve: 'Reserve'
     about_the_author: 'About the author'
+    order: "Ordine"
 
   services:
     title: "Services"
@@ -91,6 +92,7 @@ sl:
     all_products: 'Vsi'
     more: 'Več'
     reserve: 'Rezerviraj'
+    order: 'Naroči'
     about_the_author: 'O avtorju'
 
   services:
@@ -128,6 +130,8 @@ it:
     more: '+'
   products:
     title: 'Prodotti'
+    order: 'Ordine'
+    more: '+'
   partners:
     title: 'Partner'
   team:
