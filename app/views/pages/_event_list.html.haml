@@ -89,25 +89,46 @@
                     - else
                       - case occurance.begins_at.strftime "%A"
                         - when "Monday"
-                          Ponedeljek,
+                          - if I18n.locale == :it
+                            Lunedì,
+                          - else
+                            Ponedeljek,
                           
                         - when "Tuesday"
-                          Torek,
+                          - if I18n.locale == :it
+                            Martedì,
+                          - else
+                            Torek,
                           
                         - when "Wednesday"
-                          Sreda,
+                          - if I18n.locale == :it
+                            Mercoledì,
+                          - else
+                            Sreda,
                           
                         - when "Thursday"
-                          Četrtek,
+                          - if I18n.locale == :it
+                            Giovedì,
+                          - else
+                            Četrtek,
                           
                         - when "Friday"
-                          Petek,
+                          - if I18n.locale == :it
+                            Venerdì,
+                          - else
+                            Petek,
 
                         - when "Saturday"
-                          Sobota,
+                          - if I18n.locale == :it
+                            Sabato,
+                          - else
+                            Sobota,
 
                         - when "Sunday"
-                          Nedelja,
+                          - if I18n.locale == :it
+                            Domenica,
+                          - else
+                            Nedelja,
                     
                     - if occurance.duration_important?
                       = (occurance.begins_at.strftime "%-d.%-m.%y %-H:%M") + (occurance.ends_at.strftime "-%-H:%M")
