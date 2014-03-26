@@ -21,7 +21,7 @@ ActiveAdmin.register ProductAuthor do
   form do |f|
     f.inputs do
       f.input :name
-      f.input :description_sl
+      # f.input :description_sl
       f.input :description_en
       f.input :link
     end

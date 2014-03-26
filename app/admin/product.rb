@@ -93,9 +93,9 @@ ActiveAdmin.register Product do
       f.input :product_author_id, :as => :select, :collection => ProductAuthor.all.map {|c| [c.name, c.id]}, :include_blank => false
       f.input :product_category_id, :as => :select, :collection => ProductCategory.all.map {|c| [my_t(c, :name), c.id]}, :include_blank => false
 
-      f.input :name_sl
+      # f.input :name_sl
       f.input :name_en
-      f.input :description_sl
+      # f.input :description_sl
       f.input :description_en
       f.input :price
       f.input :published

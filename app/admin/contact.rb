@@ -22,7 +22,7 @@ ActiveAdmin.register Contact do
   form do |f|
     f.inputs do
       f.input :name
-      f.input :role_sl
+      # f.input :role_sl
       f.input :role_en
       f.input :address
       f.input :number

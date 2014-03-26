@@ -16,7 +16,7 @@ ActiveAdmin.register ProductCategory do
 
   form do |f|
     f.inputs do
-      f.input :name_sl
+      # f.input :name_sl
       f.input :name_en
     end
     f.actions
