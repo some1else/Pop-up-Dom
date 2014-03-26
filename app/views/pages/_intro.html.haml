@@ -30,53 +30,58 @@
     
       %h1
         .logo Pop-up dom
-      
-      %h2.first
-        - if I18n.locale == :en
-          .locales.locales-en
-            %div{:style => "float:right;"}
-              %a.locale-en.active{:href => '/en'}
-                %span.new-dim.new-dim-interactive
-                  %span.text EN
-            %div{:style => "float:right;"}
-              %a.locale-sl{:href => '/sl'}
-                %span.new-dim.new-dim-interactive
-                  %span.text SL
-            %div{:style => "float:right;"}
-              %a.locale-it{:href => '/it'}
-                %span.new-dim.new-dim-interactive
-                  %span.text IT
-        - else
-          - if I18n.locale == :sl
-            .locales.locales-sl
-              %div{:style => "float:right; margin-left: 10px;"}
-                %a.locale-en{:href => '/en'}
+      /
+        %h2.first
+          - if I18n.locale == :en
+            .locales.locales-en
+              %div{:style => "float:right;"}
+                %a.locale-en.active{:href => '/en'}
                   %span.new-dim.new-dim-interactive
                     %span.text EN
               %div{:style => "float:right;"}
-                %a.locale-sl.active{:href => '/sl'}
-                  %span.new-dim.new-dim-interactive 
+                %a.locale-sl{:href => '/sl'}
+                  %span.new-dim.new-dim-interactive
                     %span.text SL
               %div{:style => "float:right;"}
                 %a.locale-it{:href => '/it'}
-                  %span.new-dim.new-dim-interactive 
+                  %span.new-dim.new-dim-interactive
                     %span.text IT
           - else
-            - if I18n.locale == :it
+            - if I18n.locale == :sl
               .locales.locales-sl
-                %div{:style => "float:right;"}
+                %div{:style => "float:right; margin-left: 10px;"}
                   %a.locale-en{:href => '/en'}
                     %span.new-dim.new-dim-interactive
                       %span.text EN
-                %div{:style => "float:right; margin-left: 10px;"}
-                  %a.locale-sl{:href => '/sl'}
+                %div{:style => "float:right;"}
+                  %a.locale-sl.active{:href => '/sl'}
                     %span.new-dim.new-dim-interactive 
                       %span.text SL
                 %div{:style => "float:right;"}
-                  %a.locale-it.active{:href => '/it'}
+                  %a.locale-it{:href => '/it'}
                     %span.new-dim.new-dim-interactive 
                       %span.text IT
-      
+            - else
+              - if I18n.locale == :it
+                .locales.locales-sl
+                  %div{:style => "float:right;"}
+                    %a.locale-en{:href => '/en'}
+                      %span.new-dim.new-dim-interactive
+                        %span.text EN
+                  %div{:style => "float:right; margin-left: 10px;"}
+                    %a.locale-sl{:href => '/sl'}
+                      %span.new-dim.new-dim-interactive 
+                        %span.text SL
+                  %div{:style => "float:right;"}
+                    %a.locale-it.active{:href => '/it'}
+                      %span.new-dim.new-dim-interactive 
+                        %span.text IT
+      %h2
+        &nbsp;
+        
+      %h2
+        &nbsp;
+        
       %h2
         .new-dim.new-dim-static
           .text
