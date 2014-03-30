@@ -80,5 +80,7 @@ end
 # Use Capistrano for deployment
 gem 'capistrano', group: :development
 
+gem 'rb-readline'
+
 # Use debugger
 # gem 'debugger', group: [:development, :test]

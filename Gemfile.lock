@@ -178,6 +178,7 @@ GEM
       actionpack (>= 3.0)
       activerecord (>= 3.0)
       polyamorous (~> 0.6.0)
+    rb-readline (0.5.1)
     rdoc (3.12.2)
       json (~> 1.4)
     redcarpet (3.0.0)
@@ -250,6 +251,7 @@ DEPENDENCIES
   oj
   pg
   rails (= 4.0.0)
+  rb-readline
   redcarpet
   sass-rails (~> 4.0.0)
   sdoc
