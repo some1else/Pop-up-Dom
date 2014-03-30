@@ -15,7 +15,11 @@ ActiveAdmin.register Product do
       image_tag c.product_images.first.file.big_thumb.url, :width => 100 unless c.product_images.empty?
     end
     column "Author" do |c|
-      link_to c.product_author.name, admin_product_author_path(c)
+      if c.product_author != nil
+        link_to c.product_author.name, admin_product_author_path(c)
+      else
+        para ""
+      end
     end
     column "Name", :sortable => :name do |c|
       link_to my_t(c, :name), admin_product_path(c)
