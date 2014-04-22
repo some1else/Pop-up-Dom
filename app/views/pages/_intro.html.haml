@@ -88,9 +88,7 @@
             %span 8.4.
             %span.dash -
             %span 14.4.
-      %h2
-        .new-dim.new-dim-static
-          .text
+            %br>
             %span 10:00
             %span.dash -
             %span 20:00
@@ -114,7 +112,10 @@
           .text
             Ventura Lambrate
             %br>
+            Ventura Team
+            %br>
             Milano
+
 %section.whatis.white-on-dark
   .container
     .content
@@ -127,6 +128,9 @@
       .extended{:style => 'display: none;'}
         != Markdown.new(t 'about.long').to_html
         
+        %p{style: 'font-weight: bold;'}
+          %a{:href => '/uploads/PRESS.zip', style: 'border: 2px solid gray; text-decoration: none; display: inline-block; padding: 0.5em;'} PRESS
+
         :coffeescript
           $('.morelink').click (e) ->
             # $('.extended').show()
